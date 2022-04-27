@@ -35,7 +35,6 @@ del my_lst[2][2]
 del my_lst [3]
 print(my_lst)
 
-
 #4
 my_dict = {'이름':'Emma', '전공': 'AI convergence', '정보':{'나이':20, '생년월일':2003.03.14}, '성별':'female'}
 my_str = my_dict['정보']['생년월일']
