@@ -1,11 +1,15 @@
 @charset "UTF-8";
-
+@font-face {
+    font-family: "AppleSDGothicNeo";
+    src: url(../font/AppleSDGothicNeoM.ttf);
+}
 #rec3{
     position: absolute;
-    width: 1545px;
-    height: 1000px;
-    left: 335px;
-    top: 40px;
+    width: 80%;
+    height: 90%;
+    left: 17%;
+    top: 4%;
+    bottom: 4%;
     background: #F8F9FF;
     border-radius: 30px;
 }
@@ -13,4 +17,11 @@
 body{
 
     background: #ECF0FF;
+}
+
+table{
+    font-family: "AppleSDGothicNeo";
+    font-style: normal;
+    font-weight: 400;
+
 }
