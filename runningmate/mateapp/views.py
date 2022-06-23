@@ -4,5 +4,8 @@ from django.shortcuts import render
 def showmain(request):
     return render(request,'mateapp/mainpage.html')
 
+def login(request):
+    return render(request, 'mateapp/login.html')
+
 def calendar(request):
     return render(request,'mateapp/calendar.html')

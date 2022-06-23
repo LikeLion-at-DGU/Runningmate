@@ -3,6 +3,16 @@
     font-family: "AppleSDGothicNeoB";
     src: url(../font/AppleSDGothicNeoB.ttf);
 }
+
+@font-face {
+    font-family: "AppleSDGothicNeoLB";
+    src: url(../font/AppleSDGothicNeoL.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoM";
+    src: url(../font/AppleSDGothicNeoM.ttf);
+}
 .container{
     display:grid;
     grid-template-columns: 1fr 1.5fr 1.5fr;
@@ -17,7 +27,7 @@
     grid-column: 1 / 2;
     grid-row : 1 / 2;
     margin-top: 30px;
-    margin-left:20px;
+    margin-left:2em;
 }
 
 .item:nth-child(2){
@@ -25,7 +35,7 @@
     grid-row : 2 / 7;
     background-color: #FFFFFF;
     border-radius: 20px;
-    margin-left:20px;
+    margin-left:2.2em;
 
 }
 
@@ -111,18 +121,16 @@
 .item:nth-child(13){
     grid-column: 1/4;
     grid-row : 7/8;
-    margin-left: 20px;
+    margin-left: 2em;
     margin-top: 10px;
 }
 
 .item:nth-child(14){
     grid-column: 1/4;
     grid-row : 8/9;
-    background-color: #FFFFFF;
-    border-radius: 20px;
     margin-right: 20px;
-    margin-left: 20px;
     margin-bottom: 20px;
+    margin-left: 1.5em;
 
 }
 
@@ -270,4 +278,72 @@ span{
 .item2:nth-child(12){
     grid-column: 1/4;
     grid-row : 8/9;
+}
+
+
+#project{
+    overflow-x:auto; white-space:nowrap;
+}
+.scroll--element {
+    display: inline-block;
+    width:27%; 
+    height:100%; 
+    border-radius: 20px;
+}
+
+
+.scroll--element ,.scroll--element {margin-left:15px;}
+
+#subject1{
+    background: #50CFBC;
+}
+
+#subject2{
+    background: #FE7782;
+}
+
+#subject3{
+    background: #45BFFF;
+}
+#subject4{
+    background: #FFBC54;
+
+}
+
+::-webkit-scrollbar { /*스크롤 안보이게*/
+    display: none;
+  }
+
+
+
+.scroll--element>h6{
+    color: white;
+    margin-left: 1em;
+    font-family: AppleSDGothicNeoL;
+    font-weight: 100;
+    line-height: 20.42px;
+    margin-bottom: 0;
+    font-size: 1em;
+}
+.scroll--element>h2{
+    color: white;
+    margin: 0;
+    margin-left: 0.5em;
+    font-family: AppleSDGothicNeoB;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 57px;
+    font-weight: 100;
+    line-height: 20.42px;
+    margin-top: 0.5em;
+    font-size: 2.3em;
+}
+
+.scroll--element>h3{
+    color: white;
+    margin-left: 0.5em;
+    font-family:AppleSDGothicNeoM;
+    font-weight: 400;
+    line-height: 29px;
+    margin-left: 0.9em;
 }
