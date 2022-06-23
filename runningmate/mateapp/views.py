@@ -6,3 +6,6 @@ def showmain(request):
 
 def login(request):
     return render(request, 'mateapp/login.html')
+
+def calendar(request):
+    return render(request,'mateapp/calendar.html')
