@@ -295,9 +295,8 @@ span{
     width:27%; 
     height:100%; 
     border-radius: 20px;
-    margin-left:15px;
+    margin-left:1.5vmin;
 }
-
 
 
 #subject1{
@@ -328,10 +327,10 @@ span{
 
 .scroll--element>h6{
     color: white;
-    margin-left: 1em;
+    margin-left: 2vmin;
     font-family: AppleSDGothicNeoL;
     font-weight: 100;
-    line-height: 20.42px;
+    line-height: 2.042vmin;
     margin-bottom: 0;
     font-size: 1.6vmin;
 }
@@ -342,20 +341,21 @@ span{
     font-family: AppleSDGothicNeoB;
     font-style: normal;
     font-weight: 400;
-    line-height: 57px;
+    line-height: 5.7vmin;
     font-weight: 100;
-    line-height: 20.42px;
-    margin-top: 0.5em;
+    line-height: 2.2vmin;
+    margin-top: 2vmin;
     font-size: 3.8vmin;
 }
 
 .scroll--element>h3{
     color: white;
-    margin-left: 0.5em;
+    margin-left: 1vmin;
     font-family:AppleSDGothicNeoM;
     font-weight: 400;
-    line-height: 29px;
-    margin-left: 0.9em;
+    line-height: 3vmin;
+    margin-left: 2vmin;
+    font-size: 2.2vmin;
 }
 
 
@@ -368,20 +368,22 @@ span{
     border-radius: 50%;
     width: 80%;
     height: 80%;
-    margin :10px;
+    margin :1.5vmin;
     margin-top: 0;
     margin-bottom: 0;
-
 }
 
-#f1{
+#f1, #f2, #f3, #f4, #f5, #f6{
     display: inline-block;
-    width: 7em;
-    height: 75%;
+    width: 10vmin;
+    height: 10vmin;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
     vertical-align: middle;
+    margin-left: 1vmin;
+
+    
 }
 #friend1{
     background-color: #FE7782;
@@ -416,7 +418,7 @@ span{
 
 #friend5{
     background-color: #50CFBC;
-    background-image: url(../images/memoji5.png);
+    background-image: url(../images/memoji.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -424,18 +426,19 @@ span{
 
 #friend6{
     background-color: #FFBC54;
-    background-image: url(../images/memoji.png);
+    background-image: url(../images/memoji3.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 
-#f1>h4{
+#runningmate h4{
     text-align:center; 
     margin: 0;
     font-family: AppleSDGothicNeoM;
     font-weight: 500;
+    font-size: 1.8vmin;
    
 }
 
@@ -473,46 +476,41 @@ span{
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-family: "AppleSDGothicNeoB" ;
-    font-size: 2vmin;
-    line-height: 29px;
+    font-family: "AppleSDGothicNeoEB" ;
+    font-size: 2.3vmin;
+    line-height: 2.9vmin;
     justify-content: center;
-    margin-left: 70px;
+    margin-left: 7vmin;
 }
 
 .cal_header2 {
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-family: "AppleSDGothicNeoB" ;
+    font-family: "AppleSDGothicNeoEB" ;
     font-size: 2vmin;
-    line-height: 29px;
+    line-height: 2.9vmin;
     justify-content: center;
     margin-left: 15%;
 }
 
-.year-month {
-    font-size: 1.1em;
-    font-family:AppleSDGothicNeoEB;
-}
-  
 .nav-btn {
-    width: 28px;
-    height: 30px;
+    width: 2.8vmin;
+    height: 3vmin;
     border: 1px solid #DDDDDD;
-    font-size: 16px;
-    line-height: 34px;
+    font-size: 1.6vmin;
+    line-height: 3.4vmin;
     background-color: transparent;
     cursor: pointer;
     font-family: "AppleSDGothicNeoB" ;
     border-radius: 8px;
-    margin-left: 25px;
-    margin-right: 25px;
+    margin-left: 2.5vmin;
+    margin-right: 2.5vmin;
 }
 
   
 .go-today {
-    width: 60px;
+    width: 6vmin;
     border: 1px solid #DDDDDD;
     background-color: white;
     cursor: pointer;
@@ -522,7 +520,7 @@ span{
 
 .days {
     display: flex;
-    margin: 10px 0 10px;
+    margin: 1vmin 0 1vmin;
     color: #9C9D9F;
 }
   
@@ -541,7 +539,7 @@ span{
   
 .date {
     width: calc(100% / 7);
-    padding-bottom : 15px;
+    padding-bottom : 1.65vmin;
     text-align: center;
 }
 
