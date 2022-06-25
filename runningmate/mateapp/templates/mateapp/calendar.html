@@ -11,7 +11,28 @@
         </div>
         <div class = "item2" id = "calendar2_text">캘린더</div>
         <div class = "item2" id = "calendar2">
-            
+            <div class="calendar">
+                <div class="cal_header2">
+                    <button class="nav-btn go-prev" onclick="prevMonth()">&lt;</button>
+                    <div class="year-month" ></div>
+                    <button class="nav-btn go-next" onclick="nextMonth()">&gt;</button>
+                    <button class="nav-btn go-today" onclick="goToday()">Today</button>
+                </div>
+                
+                <div class="cal_main2">
+                    <div class="days">
+                        <div class="day">Sun</div>
+                        <div class="day">Mon</div>
+                        <div class="day">Tue</div>
+                        <div class="day">Wed</div>
+                        <div class="day">Thu</div>
+                        <div class="day">Fri</div>
+                        <div class="day">Sat</div>
+                    </div>
+                    <div class="dates"></div>
+                </div>
+            </div>
+            <script src="{% static 'js/calendar.js'%}"></script>
         </div>
         <div class = "item2" id = "calendar2_2">
             
