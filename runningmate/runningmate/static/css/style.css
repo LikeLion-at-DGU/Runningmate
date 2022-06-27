@@ -548,3 +548,11 @@ span{
     opacity: .5;
 }
 
+#logout_button{
+    position: absolute;
+    width: 3vmin;
+    height: 3vmin;
+    left: 15vw;
+    top: 90vh;
+}
+
