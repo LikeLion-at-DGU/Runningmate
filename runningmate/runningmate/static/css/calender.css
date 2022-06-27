@@ -1,0 +1,28 @@
+.syn_1 {
+    display: inline-block;
+    width: 30%;
+    color: #50CFBC;
+}
+
+.syn_2 {
+    display: inline-block;
+    width: 30%;
+    color: #45BFFF;
+}
+
+.syn_3 {
+    display: inline-block;
+    width: 30%;
+    color: #FFBC54;
+}
+
+.syn_4 {
+    display: inline-block;
+    width: 30%;
+    color: #222B45;
+}
+
+table {
+    padding-left: 30%;
+    margin-top: -11%;
+}
