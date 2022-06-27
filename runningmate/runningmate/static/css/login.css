@@ -1,0 +1,72 @@
+@charset "UTF-8";
+@font-face {
+    font-family: "AppleSDGothicNeoB";
+    src: url(../font/AppleSDGothicNeoB.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoLB";
+    src: url(../font/AppleSDGothicNeoL.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoM";
+    src: url(../font/AppleSDGothicNeoM.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoEB";
+    src: url(../font/AppleSDGothicNeoEB.ttf);
+}
+
+@font-face {
+    font-family: "Pacifico";
+    src: url(../font/Pacifico-Regular.ttf);
+}
+
+.login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    background-color: #ECF0FF;
+    
+}
+#login_logo{
+    width: 50px;
+    height: 50px;
+    background: #735BF2;
+    border-radius: 15px;
+    background-image: url(../images/logo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.login_logo{
+    font-family: Pacifico;
+    font-family: 'Pacifico';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 70px;
+    display: flex;
+    align-items: center;
+    color: #252525;
+}
+
+#login_id, #login_password{
+    background-color: #FBF9FF;
+    width: 250px;
+    font-family: "AppleSDGothicNeoM";
+}
+
+#login_submit{
+    width: 250px;
+    font-family: "AppleSDGothicNeoM";
+    background-color: #735BF2;
+    color: white;
+}

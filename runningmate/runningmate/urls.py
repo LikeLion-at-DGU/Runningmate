@@ -21,5 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('mateapp.urls')),
     path('accounts/',include('allauth.urls')),
-    path('login/', views.login, name="login"),
+    
 ]
