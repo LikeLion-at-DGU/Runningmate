@@ -45,8 +45,8 @@ const renderCalendar = () => {
   const lastDateIndex = dates.lastIndexOf(TLDate);
   dates.forEach((date, i) => {
     const condition = i >= firstDateIndex && i < lastDateIndex + 1
-                      ? 'this'
-                      : 'other';
+      ? 'this'
+      : 'other';
 
     dates[i] = `<div class="date"><span class="${condition}">${date}</span></div>`;
   })
@@ -59,28 +59,28 @@ const renderCalendar = () => {
 renderCalendar();
 
 const prevMonth = () => {
-    date.setDate(1);
-    date.setMonth(date.getMonth() - 1);
-    renderCalendar();
-  }
-  
-  const nextMonth = () => {
-    date.setDate(1);
-    date.setMonth(date.getMonth() + 1);
-    renderCalendar();
-  }
+  date.setDate(1);
+  date.setMonth(date.getMonth() - 1);
+  renderCalendar();
+}
 
-  const goToday = () => {
-    date = new Date();
-    renderCalendar();
-  }
+const nextMonth = () => {
+  date.setDate(1);
+  date.setMonth(date.getMonth() + 1);
+  renderCalendar();
+}
 
-  const today = new Date();
-  if (viewMonth === today.getMonth() && viewYear === today.getFullYear()) {
-    for (let date of document.querySelectorAll('.this')) {
-      if (+date.innerText === today.getDate()) {
-        date.classList.add('today');
-        break;
-      }
+const goToday = () => {
+  date = new Date();
+  renderCalendar();
+}
+
+const today = new Date();
+if (viewMonth === today.getMonth() && viewYear === today.getFullYear()) {
+  for (let date of document.querySelectorAll('.this')) {
+    if (+date.innerText === today.getDate()) {
+      date.classList.add('today');
+      break;
     }
   }
+}
