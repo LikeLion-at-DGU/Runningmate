@@ -33,11 +33,11 @@ def calendar(request):
     return render(request,'mateapp/calendar.html')
 
 
-#일짜별 캘린더 페이지 네이터
-# def calendarDay(request): # 캘린더에 + 추가 하면 각 일자마다 페이지를 이동시켜버림
-#     # posts = Post.objects.all()
-#     posts = Post.objects.filter().order_by('-date') # posts는 객체들의 목록임 
-#     paginator = Paginator(posts,1) # 하루씩 입력받아 페이지를 넘긴다는 뜻임
-#     pagnum = request.GET.get('page') # 페이지에 해당하는 밸류의 키값을 반환하기 위해서 GET 요청을 함
-#     posts = paginator.get_page(pagnum) # 페이지네이터에서 짜른 객체가 posts에 요청이 갈꺼고, 담길것임
-#     return render(request, 'calenderDay.html', {'posts':posts})
+# 일짜별 캘린더 페이지 네이터
+def calendarDay(request): # 캘린더에 + 추가 하면 각 일자마다 페이지를 이동시켜버림
+    # posts = Post.objects.all()
+    posts = Post.objects.filter().order_by('-date') # posts는 객체들의 목록임 
+    paginator = Paginator(posts,1) # 하루씩 입력받아 페이지를 넘긴다는 뜻임
+    pagnum = request.GET.get('page') # 페이지에 해당하는 밸류의 키값을 반환하기 위해서 GET 요청을 함
+    posts = paginator.get_page(pagnum) # 페이지네이터에서 짜른 객체가 posts에 요청이 갈꺼고, 담길것임
+    return render(request, 'calenderDay.html', {'posts':posts})
