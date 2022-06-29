@@ -1,25 +1,5 @@
+{% load static %}
 <!-- navbar -->
-<!-- <ul class="nav flex-column">
-    <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="{% url 'mateapp:showmain' %}">대시보드</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{% url 'mateapp:calendar' %}">캘린더</a>
-    </li>
-    
-    <div class="nav-item" id="dropdown">
-        <li class="">프로젝트</li>
-        <li class="">프로젝트</li>
-    </div>
-    <li class="nav-item" id="dropdown">
-        <a class="nav-link" href="#">프로젝트</a>
-        <a class="dropdown1">IT 서비스 관리</a>
-        <a class="dropdown2">마케팅 원론 04</a>
-        <a class="dropdown3">조직행위 03</a>
-        <a class="dropdown4">파이썬과 경영 01</a>
-        <a class="dropdown5">사물인터넷 기초</a>
-    </li>
-</ul> -->
 
 <style>
     .nav {
@@ -68,6 +48,24 @@
         padding-left: 20px;
     }
 
+    /* .home_img {
+        width: 30px;
+        height: 30px;
+        background-image: url(../images/home.png);
+    }
+    
+    .calender_img {
+        width: 30px;
+        height: 30px;
+        background-image: url(../images/date_range.png);
+    }
+    
+    .project_img {
+        width: 30px;
+        height: 30px;
+        background-image: url(../images/Vector.png);
+    } */
+
 </style>
 
 
@@ -75,11 +73,11 @@
     <div class = "login_logo"><div id = "login_logo"></div>learningmate</div>
 
     <ul class="nav">
-        <li><button class="nav-item" id="home"><a href="{% url 'mateapp:showmain' %}">대시보드</a></button></li>
-        <li><button class="nav-item" id="nav_calender"><a href="{% url 'mateapp:calendar' %}">캘린더</a></button></li>
+        <li><button class="nav-item" id="home"><div class="home_img"></div><a href="{% url 'mateapp:showmain' %}">대시보드</a></button></li>
+        <li><button class="nav-item" id="nav_calender"><div class="calender_img"></div><a href="{% url 'mateapp:calendar' %}">캘린더</a></button></li>
         <li>
             <div class="dropdown">
-                <button class="dropbtn">프로젝트
+                <div class="project_img"></div><button class="dropbtn">프로젝트
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
