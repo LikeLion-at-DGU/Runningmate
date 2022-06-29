@@ -1,76 +1,8 @@
 {% load static %}
 <!-- navbar -->
 
-<style>
-    .nav {
-        list-style: none;
-        padding-left: 13px;
-    }
-    
-    #login_logo {
-        width: 30px;
-        height: 30px;
-        background: #735BF2;
-        border-radius: 7px;
-        background-image: url(../images/logo.png);
-        background-repeat: no-repeat;
-        background-position: center;
-        display: inline-block;
-        margin-right: 10px;
-    }
-
-    .login_logo{
-        font-family: 'Pacifico';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 20px;
-        line-height: 70px;
-        display: flex;
-        align-items: center;
-        color: #252525;
-    }
-
-    .wrap button {
-        width: 160px;
-        height: 35px;
-        border-radius: 9px;
-        background-color: #ECF0FF;
-        text-align: left;
-        border: none;
-    }
-
-    #home {
-        background: #735BF2;
-        color: white;
-    }
-
-    .dropdown-content {
-        padding-left: 20px;
-    }
-
-    /* .home_img {
-        width: 30px;
-        height: 30px;
-        background-image: url(../images/home.png);
-    }
-    
-    .calender_img {
-        width: 30px;
-        height: 30px;
-        background-image: url(../images/date_range.png);
-    }
-    
-    .project_img {
-        width: 30px;
-        height: 30px;
-        background-image: url(../images/Vector.png);
-    } */
-
-</style>
-
-
 <div class="wrap">
-    <div class = "login_logo"><div id = "login_logo"></div>learningmate</div>
+    <div class = "home_logo"><div id = "home_logo"></div>learningmate</div>
 
     <ul class="nav">
         <li><button class="nav-item" id="home"><div class="home_img"></div><a href="{% url 'mateapp:showmain' %}">대시보드</a></button></li>
