@@ -26,6 +26,7 @@
 
 html, body{
     height: 100%;
+    background-color: #ECF0FF;
 }
 
 .login{
@@ -107,3 +108,16 @@ html, body{
 #social_login_continue{
     font-family: AppleSDGothicNeoB;
 }
+
+.signup{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    background-color: #ECF0FF;
+    font-family: AppleSDGothicNeoB;
+}
+
