@@ -11,11 +11,11 @@ class Post(models.Model):
     body = models.TextField()
     image = models.ImageField(upload_to = "post/", blank=True, null=True)
 
-def __str__(self):
-    return self.title
+    def __str__(self):
+        return self.title
 
-def summary(self):
-    return self.body[:10]
+    def summary(self):
+        return self.body[:10]
 
 class Comment(models.Model):
     content = models.TextField()
