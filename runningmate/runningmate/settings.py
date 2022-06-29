@@ -61,7 +61,7 @@ ROOT_URLCONF = 'runningmate.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'runningmate','templates')],
+        'DIRS': [os.path.join(BASE_DIR,'runningmate','templates'), os.path.join(BASE_DIR, 'templates', 'account')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

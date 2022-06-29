@@ -24,15 +24,20 @@
     src: url(../font/Pacifico-Regular.ttf);
 }
 
+html, body{
+    height: 100%;
+}
+
 .login{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     height: 100%;
     width: 100%;
     background-color: #ECF0FF;
-    
+    font-family: AppleSDGothicNeoB;
 }
 #login_logo{
     width: 50px;
@@ -62,6 +67,7 @@
     background-color: #FBF9FF;
     width: 250px;
     font-family: "AppleSDGothicNeoM";
+    border: 2px solid #9C9D9F;
 }
 
 #login_submit{
@@ -69,5 +75,35 @@
     font-family: "AppleSDGothicNeoM";
     background-color: #735BF2;
     color: white;
+    border: none;
+
 }
 
+.logout{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    background-color: #ECF0FF;
+    font-family:"AppleSDGothicNeoM";
+}
+
+.social_login{
+    font-family: AppleSDGothicNeoB;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    background-color: #ECF0FF;
+
+}
+
+#social_login_continue{
+    font-family: AppleSDGothicNeoB;
+}

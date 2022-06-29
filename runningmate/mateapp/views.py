@@ -9,8 +9,9 @@ def showmain(request):
 def login(request):
     if request.user.is_authenticated:
         return render(request,'mateapp/mainpage.html')
+   
     else:
-        return render(request, 'mateapp/login.html')
+        return render(request,'account/login.html')
 
 def calendar(request):
     return render(request,'mateapp/calendar.html')
