@@ -1,16 +1,93 @@
 <!-- navbar -->
-<ul class="nav flex-column">
+<!-- <ul class="nav flex-column">
     <li class="nav-item">
         <a class="nav-link active" aria-current="page" href="{% url 'mateapp:showmain' %}">대시보드</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{% url 'mateapp:calendar' %}">캘린더</a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+    
+    <div class="nav-item" id="dropdown">
+        <li class="">프로젝트</li>
+        <li class="">프로젝트</li>
+    </div>
+    <li class="nav-item" id="dropdown">
+        <a class="nav-link" href="#">프로젝트</a>
+        <a class="dropdown1">IT 서비스 관리</a>
+        <a class="dropdown2">마케팅 원론 04</a>
+        <a class="dropdown3">조직행위 03</a>
+        <a class="dropdown4">파이썬과 경영 01</a>
+        <a class="dropdown5">사물인터넷 기초</a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-    </li>
-</ul>
+</ul> -->
 
+<style>
+    .nav {
+        list-style: none;
+        padding-left: 13px;
+    }
+    
+    #login_logo {
+        width: 30px;
+        height: 30px;
+        background: #735BF2;
+        border-radius: 7px;
+        background-image: url(../images/logo.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    .login_logo{
+        font-family: 'Pacifico';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 70px;
+        display: flex;
+        align-items: center;
+        color: #252525;
+    }
+
+    .wrap button {
+        width: 160px;
+        height: 35px;
+        border-radius: 9px;
+        background-color: #ECF0FF;
+        text-align: left;
+        border: none;
+    }
+
+    #home {
+        background: #735BF2;
+        color: white;
+    }
+
+    .dropdown-content {
+        padding-left: 20px;
+    }
+
+</style>
+
+
+<div class="wrap">
+    <div class = "login_logo"><div id = "login_logo"></div>learningmate</div>
+
+    <ul class="nav">
+        <li><button class="nav-item" id="home"><a href="{% url 'mateapp:showmain' %}">대시보드</a></button></li>
+        <li><button class="nav-item" id="nav_calender"><a href="{% url 'mateapp:calendar' %}">캘린더</a></button></li>
+        <li>
+            <div class="dropdown">
+                <button class="dropbtn">프로젝트
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <button><li><a href="#">IT 서비스 관리</a></li></button><br>
+                    <button><li><a href="#">마케팅원론 04</a></li></button><br>
+                    <button><li><a href="#">조직행위 03</a></li></button>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

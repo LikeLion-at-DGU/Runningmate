@@ -156,14 +156,3 @@ body{
 span{
     display: inline-block;
 }
-
-.navbar {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0px 8px;
-}
-
-/* .tb1 input{
-    accent-color: #50CFBC;
-} */
