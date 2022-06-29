@@ -5,4 +5,5 @@ urlpatterns = [
     path('mainpage',showmain, name = "showmain"),
     path('calendar',calendar, name = "calendar"),
     path('', login, name="login"),
+    path('timetable',timetable, name='timetable'),
 ]

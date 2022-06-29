@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -129,6 +129,11 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
+MEDIA_URL = 'media/' # 미디어 파일 경로 설정 
+MEDIA_ROOT = os.path.join(BASE_DIR,'runningmate','media')
+
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -143,12 +148,22 @@ SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/mainpage'
 LOGOUT_REDIRECT_URL = '/'
+ACCOUNT_FORMS = {
+    'signup': 'users.forms.CustomSignupForm'
+}
+
+SOCIALACCOUNT_FORMS = {
+    'signup': 'users.forms.SocialSignupForm'
+    
+}
+ACCOUNT_USERNAME_REQUIRED = False
+SOCIALACCOUNT_AUTO_SIGNUP = False # 원래 기본값은 True인데 자동 회원가입이 되서 폼 자체가 안되어서 False로 바꿔서 설정해야함
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
-        'SCOPE': [
-            'profile',
-            'email',
+        'SCOPE': [ # 구글 계정에서 불러올 수 있는 범위를 정하는 것임
+            'profile', # 사용자 성명, 프로필 이미지를 불러옴 결국에는 이미지 때문에 모델에서 작업할 필요가 없다.
+            'email', # 이메일을 불러옴
         ],
         'AUTH_PARAMS': {
             'access_type': 'online',
