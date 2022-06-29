@@ -5,18 +5,19 @@
 
 <div id = "rec3">
     <div class = "container">
-        <div class = "item" id = "timetable_text">시간표&nbsp;
-            <form method="post" enctype="multipart/form-data">
-                <div class="button">
+        <div class = "item" id = "timetable_text">시간표
+            <form method="post" enctype="multipart/form-data" style="display: inline;">
+                <div class="button" style="display: inline;">
                     <label for="image">+</label>
                 </div>
                 {% csrf_token %}
-                <input type="file" name="image" id="image" accept="image/*">
+                <input type="file" name="image" id="image" accept="image/*" style="visibility: hidden;">
+                <select onchange="this.form.submit()"></select>
             </form>
         </div>
         <div class = "item" id = "timetable">
             {% if post.image %}
-                <img src="{{ post.image.url }}" id="timetable_img" class="img-fluid" alt="사진">
+                <img src="{{ post.image.url }}" class="img-fluid" alt="사진" style="position: absolute;">
             {% endif %}
         </div>
 

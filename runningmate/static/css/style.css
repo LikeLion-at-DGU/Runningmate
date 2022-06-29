@@ -81,6 +81,8 @@
     grid-row : 3/4;
     margin-top: 20px;
 }
+
+
 .item:nth-child(10){
     grid-column: 3/4;
     grid-row : 4/5;
@@ -90,6 +92,7 @@
 
 }
 
+
 .item:nth-child(11){
     grid-column: 3/4;
     grid-row : 5/6;
@@ -98,6 +101,7 @@
     margin-right: 20px;
 
 }
+
 
 .item:nth-child(12){
     grid-column: 3/4;

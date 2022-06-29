@@ -61,7 +61,7 @@ ROOT_URLCONF = 'runningmate.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'runningmate','templates')],
+        'DIRS': [os.path.join(BASE_DIR,'runningmate','templates'), os.path.join(BASE_DIR, 'templates', 'account')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -145,7 +145,7 @@ AUTHENTICATION_BACKENDS=[
 
 SITE_ID = 1
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/mainpage'
 LOGOUT_REDIRECT_URL = '/'
 
 SOCIALACCOUNT_PROVIDERS = {
