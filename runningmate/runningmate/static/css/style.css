@@ -584,7 +584,7 @@ span{
     font-family: 'Pacifico';
     font-style: normal;
     font-weight: 400;
-    font-size: 30px;
+    font-size: 24px;
     line-height: 70px;
     display: flex;
     align-items: center;
@@ -595,7 +595,8 @@ span{
 
 .wrap button {
     font-family: 'AppleSDGothicNeoB';
-    width: 200px;
+    font-size: 16px;
+    width: 180px;
     height: 50px;
     border-radius: 12px;
     background-color: #ECF0FF;
@@ -603,9 +604,11 @@ span{
     border: none;
 }
 
+
+
 #home {
     background: #735BF2;
-    color: white;
+    color: black;
 }
 
 .dropdown-content {
@@ -614,21 +617,19 @@ span{
 
 .home_img {
     display: inline-block;
-    width: 27px;
-    height: 27px;
-    background-image: url(../images/home.png);
+    width: 26.5px;
+    height: 27.9px;
+    
 }
 
 .calender_img {
     display: inline-block;
-    width: 28px;
-    height: 28px;
-    background-image: url(../images/date_range.png);
+    width: 27px;
+    height: 30px;
 }
 
 .project_img {
     display: inline-block;
-    width: 28px;
-    height: 28px;
-    background-image: url(../images/Vector.png);
+    width: 27.9px;
+    height: 27.9px;
 }
