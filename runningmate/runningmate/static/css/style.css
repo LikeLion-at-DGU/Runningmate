@@ -444,16 +444,20 @@ span{
 
 
 /* navbar */
-.nav {
+/* .nav {
     list-style: none;
     padding-left: 20px;
 }
 
+.nav_text {
+    color: #5D7285;
+}
+
 #home_logo {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     background: #735BF2;
-    border-radius: 7px;
+    border-radius: 10px;
     background-image: url(../images/logo.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -485,13 +489,6 @@ span{
     border: none;
 }
 
-
-
-#home {
-    background: #735BF2;
-    color: black;
-}
-
 .dropdown-content {
     padding-left: 20px;
 }
@@ -513,4 +510,57 @@ span{
     display: inline-block;
     width: 27.9px;
     height: 27.9px;
+} */
+
+.nav_icon {
+    border: 1px solid #5D7285;
+    border-radius: 12px;
+    width: 180px;
+    height: 40px;
+    margin-left: 15px;
+}
+
+.nav_icon:hover {
+    background-color: #735BF2;
+    color: white;
+}
+
+.nav_logo {
+    width: 25px;
+    height: 25px;
+    background: #735BF2;
+    border-radius: 10px;
+    padding: 7px;
+    margin: 30px 5px 30px 15px;
+}
+
+.nav_main span {
+    font-family: 'Pacifico';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    color: #735BF2;
+}
+
+.nav_icon a {
+    text-decoration: none;
+}
+
+.nav_icon span {
+    font-family: 'AppleSDGothicNeoB';
+    font-size: 15px;
+    color: #5D7285;
+}
+
+.nav_icon img {
+    width: 25px;
+    height: 25px;
+}
+
+.nav_icon ul {
+    font-family: 'AppleSDGothicNeoM';
+    font-size: 15px;
+    color: #5D7285;
+    list-style: none;
+    line-height: 50px;
 }
