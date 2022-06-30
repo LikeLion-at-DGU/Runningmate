@@ -1,7 +1,7 @@
 {% load static %}
 <!-- navbar -->
 <div class="wrap">
-    <div class = "home_logo"><div id = "home_logo"></div>learningmate</div>
+    <a href="{% url 'mateapp:showmain' %}" style="text-decoration:none"><div class = "home_logo"><div id = "home_logo"></div>learningmate</div></a>
 
     <ul class="nav">
         <li><button class="nav-item" id="home"><a href="{% url 'mateapp:showmain' %}"><img src="{% static 'images/home.png' %}" class="home_img" /> 대시보드</a></button></li>
