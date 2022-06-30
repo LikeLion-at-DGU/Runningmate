@@ -29,23 +29,14 @@ class CustomSignupForm(accountform):
             }
         ),
     )
-    last_name = forms.CharField(
-        max_length=10,
-        label="성",
-        widget=forms.TextInput(
-            attrs={
-                "type": "text",
-                "placeholder": "홍",
-            }
-        ),
-    )
-    first_name = forms.CharField(
+
+    name = forms.CharField(
         max_length=10,
         label="이름",
         widget=forms.TextInput(
             attrs={
                 "type": "text",
-                "placeholder": "길동",
+                "placeholder": "홍길동",
             }
         ),
     )
@@ -120,17 +111,8 @@ class SocialSignupForm(socialaccountform):
             }
         ),
     )
-    last_name = forms.CharField(
-        max_length=10,
-        label="성",
-        widget=forms.TextInput(
-            attrs={
-                "type": "text",
-                "placeholder": "홍",
-            }
-        ),
-    )
-    first_name = forms.CharField(
+
+    name = forms.CharField(
         max_length=10,
         label="이름",
         widget=forms.TextInput(
