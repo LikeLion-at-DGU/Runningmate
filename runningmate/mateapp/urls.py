@@ -6,4 +6,8 @@ urlpatterns = [
     path('calendar',calendar, name = "calendar"),
     path('', login, name="login"),
     path('timetable',timetable, name='timetable'),
+    path('todolist', todolist, name="todolist"),
+    path('todocreate/', todocreate, name='todocreate'),
+    path('todoupdate/<str:pk>/', todoupdate, name='todoupdate'),
+    path('tododelete/<str:pk>/', tododelete, name='tododelete'),
 ]
