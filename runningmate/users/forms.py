@@ -51,41 +51,14 @@ class CustomSignupForm(accountform):
             }
         ),
     )
-    mbti = forms.CharField(
-        max_length=4,
-        min_length=4,
-        label="MBTI",
-        widget=forms.TextInput(
-            attrs={
-                "type": "text",
-                "placeholder": "ESTJ",
-            }
-        ),
-    )
-    intro = forms.CharField(
-        max_length=100,
-        min_length=0,
-        label="한 줄 소개",
-        widget=forms.TextInput(
-            attrs={
-                "type": "text",
-                "placeholder": "한 줄 소개",
-            }
-        ),
-    )
-
 
 
     def save(self, request):
         user = super(CustomSignupForm, self).save(request)
-        user.first_name = self.cleaned_data["first_name"]
-        user.last_name = self.cleaned_data["last_name"]
+        user.name = self.cleaned_data["name"]
         user.save()
         profile = Profile()
         profile.user = user
-        profile.phone = self.cleaned_data["phone"]
-        profile.mbti = self.cleaned_data["mbti"]
-        profile.intro = self.cleaned_data["intro"]
         profile.save()
         return user
 
@@ -133,40 +106,15 @@ class SocialSignupForm(socialaccountform):
             }
         ),
     )
-    mbti = forms.CharField(
-        max_length=4,
-        min_length=4,
-        label="MBTI",
-        widget=forms.TextInput(
-            attrs={
-                "type": "text",
-                "placeholder": "ESTJ",
-            }
-        ),
-    )
-    intro = forms.CharField(
-        max_length=100,
-        min_length=0,
-        label="한 줄 소개",
-        widget=forms.TextInput(
-            attrs={
-                "type": "text",
-                "placeholder": "한 줄 소개",
-            }
-        ),
-    )
 
 
 
     def save(self, request):
         user = super(SocialSignupForm, self).save(request)
-        user.first_name = self.cleaned_data["first_name"]
-        user.last_name = self.cleaned_data["last_name"]
+        user.name = self.cleaned_data["first_name"]
         user.save()
         profile = Profile()
         profile.user = user
         profile.phone = self.cleaned_data["phone"]
-        profile.mbti = self.cleaned_data["mbti"]
-        profile.intro = self.cleaned_data["intro"]
         profile.save()
         return user
