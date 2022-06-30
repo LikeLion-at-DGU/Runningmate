@@ -16,15 +16,7 @@
 
   <form id="signup_form" method="post" action="{% url 'account_signup' %}">
     {% csrf_token %}
-    <p>이메일 : {{ form.email }}</p>
-    <p>비밀번호 : {{ form.password1 }}</p>
-    <P>비밀번호 확인 : {{ form.password2 }}</p>
-    <p>성 : {{ form.last_name }}</p>
-    <p> 이름 : {{ form.first_name }}</p>
-    <p>휴대전화 : {{ form.phone }}</p>
-    <p>MBTI : {{ form.mbti }}</p>
-    <p>한줄소개 {{ form.intro }}</p>
-    <p>시간표 등록 {{ form.timetable }}</p>
+    {{ form.as_p }}
 
     {% if redirect_field_value %}
     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />

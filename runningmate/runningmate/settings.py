@@ -148,6 +148,7 @@ SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/mainpage'
 LOGOUT_REDIRECT_URL = '/'
+
 ACCOUNT_FORMS = {
     'signup': 'users.forms.CustomSignupForm'
 }
@@ -156,7 +157,7 @@ SOCIALACCOUNT_FORMS = {
     'signup': 'users.forms.SocialSignupForm'
     
 }
-ACCOUNT_USERNAME_REQUIRED = False
+# ACCOUNT_USERNAME_REQUIRED = False
 SOCIALACCOUNT_AUTO_SIGNUP = False # 원래 기본값은 True인데 자동 회원가입이 되서 폼 자체가 안되어서 False로 바꿔서 설정해야함
 
 SOCIALACCOUNT_PROVIDERS = {
