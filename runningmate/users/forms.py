@@ -1,3 +1,4 @@
+from cProfile import label
 from allauth.account.forms import SignupForm as accountform
 from allauth.socialaccount.forms import SignupForm as socialaccountform
 
@@ -6,6 +7,18 @@ from .models import *
 
 
 class CustomSignupForm(accountform):
+
+    password1 = forms.CharField(
+        min_length=8,
+        label="비밀번호",
+        widget=forms.PasswordInput(),
+        
+        )
+    password2 = forms.CharField(
+        widget=forms.PasswordInput(), 
+        label="Confirm Password",
+        )
+
     email = forms.CharField(
         max_length=40,
         label="이메일 주소",
@@ -86,6 +99,17 @@ class CustomSignupForm(accountform):
         return user
 
 class SocialSignupForm(socialaccountform):
+    password1 = forms.CharField(
+        min_length=8,
+        label="비밀번호",
+        widget=forms.PasswordInput(),
+        )
+    password2 = forms.CharField(
+        min_length=8,
+        widget=forms.PasswordInput(), 
+        label="Confirm Password",
+        )
+
     email = forms.CharField(
         max_length=40,
         label="이메일 주소",

@@ -13,9 +13,12 @@
 
   <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
 
+
   <form id="signup_form" method="post" action="{% url 'account_signup' %}">
     {% csrf_token %}
     <p>이메일 : {{ form.email }}</p>
+    <p>비밀번호 : {{ form.password1 }}</p>
+    <P>비밀번호 확인 : {{ form.password2 }}</p>
     <p>성 : {{ form.last_name }}</p>
     <p> 이름 : {{ form.first_name }}</p>
     <p>휴대전화 : {{ form.phone }}</p>
