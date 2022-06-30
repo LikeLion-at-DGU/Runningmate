@@ -7,13 +7,16 @@ class UserAdmin(admin.ModelAdmin):
     list_display = (
         "user",
         "phone",
+        "timetable",
         
     )
     list_display_links = (
         "user",
         "phone",
+         "timetable",
     )
     search_fields = (
         "user",
         "phone",
+         "timetable",
     )
