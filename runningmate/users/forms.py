@@ -29,37 +29,36 @@ class CustomSignupForm(accountform):
             }
         ),
     )
-    last_name = forms.CharField(
-        max_length=10,
-        label="성",
-        widget=forms.TextInput(
-            attrs={
-                "type": "text",
-                "placeholder": "홍",
-            }
-        ),
-    )
-    first_name = forms.CharField(
+
+    name = forms.CharField(
         max_length=10,
         label="이름",
         widget=forms.TextInput(
             attrs={
                 "type": "text",
-                "placeholder": "길동",
+                "placeholder": "홍길동",
+            }
+        ),
+    )
+    phone = forms.CharField(
+        max_length=13,
+        min_length=13,
+        label="휴대전화 번호",
+        widget=forms.TextInput(
+            attrs={
+                "type": "tel",
+                "placeholder": "010-0000-0000",
             }
         ),
     )
 
+
     def save(self, request):
         user = super(CustomSignupForm, self).save(request)
-        user.first_name = self.cleaned_data["first_name"]
-        user.last_name = self.cleaned_data["last_name"]
+        user.name = self.cleaned_data["name"]
         user.save()
         profile = Profile()
         profile.user = user
-    #    profile.phone = self.cleaned_data["phone"]
-    #    profile.mbti = self.cleaned_data["mbti"]
-    #    profile.intro = self.cleaned_data["intro"]
         profile.save()
         return user
 
@@ -85,17 +84,8 @@ class SocialSignupForm(socialaccountform):
             }
         ),
     )
-    last_name = forms.CharField(
-        max_length=10,
-        label="성",
-        widget=forms.TextInput(
-            attrs={
-                "type": "text",
-                "placeholder": "홍",
-            }
-        ),
-    )
-    first_name = forms.CharField(
+
+    name = forms.CharField(
         max_length=10,
         label="이름",
         widget=forms.TextInput(
@@ -105,16 +95,26 @@ class SocialSignupForm(socialaccountform):
             }
         ),
     )
+    phone = forms.CharField(
+        max_length=13,
+        min_length=0,
+        label="휴대전화 번호",
+        widget=forms.TextInput(
+            attrs={
+                "type": "tel",
+                "placeholder": "010-0000-0000",
+            }
+        ),
+    )
+
+
 
     def save(self, request):
         user = super(SocialSignupForm, self).save(request)
-        user.first_name = self.cleaned_data["first_name"]
-        user.last_name = self.cleaned_data["last_name"]
+        user.name = self.cleaned_data["first_name"]
         user.save()
         profile = Profile()
         profile.user = user
-    #    profile.phone = self.cleaned_data["phone"]
-    #    profile.mbti = self.cleaned_data["mbti"]
-    #    profile.intro = self.cleaned_data["intro"]
+        profile.phone = self.cleaned_data["phone"]
         profile.save()
         return user

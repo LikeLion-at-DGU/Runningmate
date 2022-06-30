@@ -6,19 +6,17 @@ from .models import *
 class UserAdmin(admin.ModelAdmin):
     list_display = (
         "user",
-    #    "phone",
-    #    "mbti",
-    #    "intro",
+        "phone",
+        "timetable",
+        
     )
     list_display_links = (
         "user",
-    #    "phone",
-    #    "mbti",
-    #    "intro",
+        "phone",
+         "timetable",
     )
     search_fields = (
         "user",
-    #    "phone",
-    #    "mbti",
-    #    "intro",
+        "phone",
+         "timetable",
     )

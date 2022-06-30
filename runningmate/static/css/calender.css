@@ -1,0 +1,236 @@
+
+/*캘린더 테이블 배치*/
+.container2{
+    display:grid;
+    grid-template-columns: 2fr 1.5fr 2fr;
+    grid-template-rows: 1fr 5fr 1fr 2.5fr 1.5fr 1.5fr 1.5fr 15px;
+    height: 100%;
+    row-gap: 10px;
+    column-gap: 20px;
+    font-family: AppleSDGothicNeoB;
+    font-weight: 500;
+    font-size: 2.3vmin;
+
+}
+.item2:nth-child(1){
+    grid-column: 1 / 4;
+    grid-row : 1 / 2;
+    margin-top: 30px;
+    margin-left:2em;
+}
+
+.item2:nth-child(2){
+    grid-column: 1 / 4;
+    grid-row : 2 / 3;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    margin-left:20px;
+    margin-right: 2em;
+
+}
+
+.item2:nth-child(3){
+    grid-column: 1 / 2;
+    grid-row : 3 / 4;
+    margin-top: 20px;
+    margin-left:2em;
+}
+
+.item2:nth-child(4){
+    grid-column: 1 / 2;
+    grid-row : 4 / 7;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    margin-left:2em;
+
+}
+
+.item2:nth-child(5){
+    grid-column: 1 / 2;
+    grid-row : 7 / 8;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    margin-left:2em;
+
+}
+
+.item2:nth-child(6){
+    grid-column: 2 /4;
+    grid-row : 3/4;
+    margin-top: 20px;
+
+}
+
+.item2:nth-child(7){
+    grid-column: 2/ 3;
+    grid-row : 4 / 5;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+
+}
+
+
+.item2:nth-child(8){
+    grid-column: 2 / 3;
+    grid-row : 5/6;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+
+
+}
+
+
+.item2:nth-child(9){
+    grid-column:2/3;
+    grid-row : 6/7;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+
+
+}
+.item2:nth-child(10){
+    grid-column: 2/3;
+    grid-row : 7/8;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+
+}
+
+.item2:nth-child(11){
+    grid-column: 3/4;
+    grid-row : 4/8;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    margin-right: 2em;
+
+
+}
+.item2:nth-child(12){
+    grid-column: 1/4;
+    grid-row : 8/9;
+}
+
+
+/*캘린더 페이지 캘린더*/
+
+.cal_main2{/*캘린더 페이지 캘린더*/
+    font-family: AppleSDGothicNeoB;
+    font-size: 1.7vmin;
+}
+
+.cal_header2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: "AppleSDGothicNeoEB" ;
+    font-size: 2vmin;
+    line-height: 2.9vmin;
+    justify-content: center;
+    margin-left: 15%;
+}
+
+/*투데이 - 체크리스트 */
+#marg_bottom {
+    padding-left: 23px;
+    padding-top: 4px;
+}
+
+#cb1, #cb2 {
+    accent-color: #50CFBC;
+}
+
+/* .marg_text {
+    text-decoration: line-through;
+} */
+
+#cb3, #cb4, #cb5 {
+    accent-color: #45BFFF;
+}
+
+.dec_show {
+    text-decoration: line-through;
+}
+
+#cb6 {
+    accent-color: #FFBC54;
+}
+
+#cb7, #cb8, #cb9 {
+    accent-color: #222B45;
+}
+
+.syn_1 {
+    display: inline-block;
+    width: 30%;
+    color: #50CFBC;
+}
+
+.syn_2 {
+    display: inline-block;
+    width: 30%;
+    color: #45BFFF;
+}
+
+.syn_3 {
+    display: inline-block;
+    width: 30%;
+    color: #FFBC54;
+}
+
+.syn_4 {
+    display: inline-block;
+    width: 30%;
+    color: #222B45;
+}
+
+table {
+    padding-left: 30%;
+    margin-top: -11%;
+}
+
+/* 투데이 - 디데이 */
+#dday1{
+    background-color: #50CFBC;
+}
+
+#dday2{
+    background-color: #45BFFF;
+}
+
+#dday3{
+    background-color:  #FFBC54;
+}
+    
+.subject_name{
+    font-family: 'AppleSDGothicNeoM';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5vmin;
+    line-height: 18px;
+    margin:10px;
+    margin-bottom: 4px;
+    color: #FFFFFF;   
+}
+
+.meeting_subject{
+    font-family: 'AppleSDGothicNeoB';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2vmin;
+    line-height: 18px;
+    margin:10px;
+    margin-top: 0;
+    color: #FFFFFF; 
+}
+
+.count_dday{
+    font-family: 'AppleSDGothicNeoB';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 4.5vmin;
+    line-height: 20px;
+    color: #FFFFFF; 
+    margin-left: 75%;
+
+    margin-bottom: 10px;
+}
