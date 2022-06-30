@@ -363,7 +363,11 @@ span{
     font-size: 2.2vmin;
 }
 
-
+#plus{
+    display: inline-block; 
+    font-size:larger; 
+    vertical-align: middle;
+}
 /*mainpage : 러닝메이트*/
 #runningmate{
     overflow-x:auto; white-space:nowrap;
