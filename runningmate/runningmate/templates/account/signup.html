@@ -5,25 +5,31 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-<h1>{% trans "Sign Up" %}</h1>
 
-<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+<div class = "signup">
+  <div class = "login_logo"><div id = "login_logo"></div>learningmate</div>
+  <h1>러닝메이트에 오신걸 환영합니다!</h1>
+  <h5>러닝메이트를 찾기 위해 회원가입을 진행해주세요!</h5>
 
-<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-  {% csrf_token %}
-  이메일 : {{ form.email }} <br>
-  비밀번호 : {{ form.password1 }}<br>
-  비밀번호 확인 : {{ form.password2 }}<br>
-  성 : {{ form.last_name }}<br>
-  이름 : {{ form.first_name }}<br>
-  휴대전화 : {{ form.phone }}<br>
-  MBTI : {{ form.mbti }}<br>
-  한줄소개 {{ form.intro }}<br>
-  시간표 등록 {{ form.timetable }}<br>
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
-</form>
+  <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
 
+
+  <form id="signup_form" method="post" action="{% url 'account_signup' %}">
+    {% csrf_token %}
+    <p>이메일 : {{ form.email }}</p>
+    <p>비밀번호 : {{ form.password1 }}</p>
+    <P>비밀번호 확인 : {{ form.password2 }}</p>
+    <p>성 : {{ form.last_name }}</p>
+    <p> 이름 : {{ form.first_name }}</p>
+    <p>휴대전화 : {{ form.phone }}</p>
+    <p>MBTI : {{ form.mbti }}</p>
+    <p>한줄소개 {{ form.intro }}</p>
+    <p>시간표 등록 {{ form.timetable }}</p>
+
+    {% if redirect_field_value %}
+    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    {% endif %}
+    <button type="submit">{% trans "Sign Up" %} &raquo;</button>
+  </form>
+</div>
 {% endblock %}

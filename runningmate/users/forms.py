@@ -7,6 +7,7 @@ from .models import *
 
 
 class CustomSignupForm(accountform):
+
     password1 = forms.CharField(
         min_length=8,
         label="비밀번호",
