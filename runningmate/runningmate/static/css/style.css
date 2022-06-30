@@ -367,6 +367,7 @@ span{
     display: inline-block; 
     font-size:larger; 
     vertical-align: middle;
+    cursor: pointer;
 }
 /*mainpage : 러닝메이트*/
 #runningmate{
