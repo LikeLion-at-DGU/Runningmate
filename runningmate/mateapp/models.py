@@ -22,3 +22,7 @@ class Project(models.Model):
     writer = models.ForeignKey(User,on_delete=models.CASCADE)
     pub_date = models.DateTimeField()
     body = models.TextField()
+
+class Todo(models.Model):
+    id = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=50)

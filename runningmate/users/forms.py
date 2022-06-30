@@ -49,41 +49,6 @@ class CustomSignupForm(accountform):
             }
         ),
     )
-    phone = forms.CharField(
-        max_length=13,
-        min_length=13,
-        label="휴대전화 번호",
-        widget=forms.TextInput(
-            attrs={
-                "type": "tel",
-                "placeholder": "010-0000-0000",
-            }
-        ),
-    )
-    mbti = forms.CharField(
-        max_length=4,
-        min_length=4,
-        label="MBTI",
-        widget=forms.TextInput(
-            attrs={
-                "type": "text",
-                "placeholder": "ESTJ",
-            }
-        ),
-    )
-    intro = forms.CharField(
-        max_length=100,
-        min_length=0,
-        label="한 줄 소개",
-        widget=forms.TextInput(
-            attrs={
-                "type": "text",
-                "placeholder": "한 줄 소개",
-            }
-        ),
-    )
-
-
 
     def save(self, request):
         user = super(CustomSignupForm, self).save(request)
@@ -92,9 +57,9 @@ class CustomSignupForm(accountform):
         user.save()
         profile = Profile()
         profile.user = user
-        profile.phone = self.cleaned_data["phone"]
-        profile.mbti = self.cleaned_data["mbti"]
-        profile.intro = self.cleaned_data["intro"]
+    #    profile.phone = self.cleaned_data["phone"]
+    #    profile.mbti = self.cleaned_data["mbti"]
+    #    profile.intro = self.cleaned_data["intro"]
         profile.save()
         return user
 
@@ -140,41 +105,6 @@ class SocialSignupForm(socialaccountform):
             }
         ),
     )
-    phone = forms.CharField(
-        max_length=13,
-        min_length=0,
-        label="휴대전화 번호",
-        widget=forms.TextInput(
-            attrs={
-                "type": "tel",
-                "placeholder": "010-0000-0000",
-            }
-        ),
-    )
-    mbti = forms.CharField(
-        max_length=4,
-        min_length=4,
-        label="MBTI",
-        widget=forms.TextInput(
-            attrs={
-                "type": "text",
-                "placeholder": "ESTJ",
-            }
-        ),
-    )
-    intro = forms.CharField(
-        max_length=100,
-        min_length=0,
-        label="한 줄 소개",
-        widget=forms.TextInput(
-            attrs={
-                "type": "text",
-                "placeholder": "한 줄 소개",
-            }
-        ),
-    )
-
-
 
     def save(self, request):
         user = super(SocialSignupForm, self).save(request)
@@ -183,8 +113,8 @@ class SocialSignupForm(socialaccountform):
         user.save()
         profile = Profile()
         profile.user = user
-        profile.phone = self.cleaned_data["phone"]
-        profile.mbti = self.cleaned_data["mbti"]
-        profile.intro = self.cleaned_data["intro"]
+    #    profile.phone = self.cleaned_data["phone"]
+    #    profile.mbti = self.cleaned_data["mbti"]
+    #    profile.intro = self.cleaned_data["intro"]
         profile.save()
         return user
