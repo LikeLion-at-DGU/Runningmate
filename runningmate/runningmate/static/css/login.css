@@ -38,7 +38,7 @@ html, body{
     height: 100%;
     width: 100%;
     background-color: #ECF0FF;
-    font-family: AppleSDGothicNeoB;
+    font-family: 'AppleSDGothicNeoB';
     margin: 0;
 }
 #login_logo{
@@ -54,7 +54,6 @@ html, body{
 }
 
 .login_logo{
-    font-family: Pacifico;
     font-family: 'Pacifico';
     font-style: normal;
     font-weight: 400;

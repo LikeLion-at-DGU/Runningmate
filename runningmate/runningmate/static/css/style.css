@@ -18,6 +18,12 @@
     font-family: "AppleSDGothicNeoEB";
     src: url(../font/AppleSDGothicNeoEB.ttf);
 }
+
+@font-face {
+    font-family: "Pacifico";
+    src: url(../font/Pacifico-Regular.ttf);
+}
+
 .container{
     display:grid;
     grid-template-columns: 1fr 1.5fr 1.5fr;
@@ -321,8 +327,7 @@ span{
 
 ::-webkit-scrollbar { /*스크롤 안보이게*/
     display: none;
-  }
-
+}
 
 
 .scroll--element>h6{
@@ -556,15 +561,16 @@ span{
     top: 90vh;
 }
 
+
+/* navbar */
 .nav {
     list-style: none;
-    padding-left: 13px;
+    padding-left: 20px;
 }
 
 #home_logo {
-    width: 30px;
-    height: 30px;
-    font-family: 'Pacifico';
+    width: 40px;
+    height: 40px;
     background: #735BF2;
     border-radius: 7px;
     background-image: url(../images/logo.png);
@@ -578,17 +584,20 @@ span{
     font-family: 'Pacifico';
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 30px;
     line-height: 70px;
     display: flex;
     align-items: center;
-    color: #252525;
+    color: #735BF2;
+    padding-left: 12px;
+    padding-top: 25px;
 }
 
 .wrap button {
-    width: 160px;
-    height: 35px;
-    border-radius: 9px;
+    font-family: 'AppleSDGothicNeoB';
+    width: 200px;
+    height: 50px;
+    border-radius: 12px;
     background-color: #ECF0FF;
     text-align: left;
     border: none;
@@ -605,21 +614,21 @@ span{
 
 .home_img {
     display: inline-block;
-    width: 30px;
-    height: 30px;
+    width: 27px;
+    height: 27px;
     background-image: url(../images/home.png);
 }
 
 .calender_img {
     display: inline-block;
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
     background-image: url(../images/date_range.png);
 }
 
 .project_img {
     display: inline-block;
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
     background-image: url(../images/Vector.png);
 }
