@@ -439,14 +439,14 @@ span{
     font-family: AppleSDGothicNeoM;
     font-weight: 500;
     font-size: 1.8vmin;
-   
+
 }
 
 
 /*메인페이지 - 캘린더*/
 .calendar * {
     box-sizing: border-box;
-  }
+}
 
 .calendar {
     width: 100%;
@@ -508,7 +508,7 @@ span{
     margin-right: 2.5vmin;
 }
 
-  
+
 .go-today {
     width: 6vmin;
     border: 1px solid #DDDDDD;
@@ -523,12 +523,12 @@ span{
     margin: 1vmin 0 1vmin;
     color: #9C9D9F;
 }
-  
+
 .day {
     width: calc(100% / 7);
     text-align: center;
 }
-  
+
 .dates {
     display: flex;
     flex-flow: row wrap;
@@ -536,7 +536,7 @@ span{
     margin-top: 0;
 
 }
-  
+
 .date {
     width: calc(100% / 7);
     padding-bottom : 1.65vmin;
@@ -556,3 +556,70 @@ span{
     top: 90vh;
 }
 
+.nav {
+    list-style: none;
+    padding-left: 13px;
+}
+
+#home_logo {
+    width: 30px;
+    height: 30px;
+    font-family: 'Pacifico';
+    background: #735BF2;
+    border-radius: 7px;
+    background-image: url(../images/logo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.home_logo{
+    font-family: 'Pacifico';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 70px;
+    display: flex;
+    align-items: center;
+    color: #252525;
+}
+
+.wrap button {
+    width: 160px;
+    height: 35px;
+    border-radius: 9px;
+    background-color: #ECF0FF;
+    text-align: left;
+    border: none;
+}
+
+#home {
+    background: #735BF2;
+    color: white;
+}
+
+.dropdown-content {
+    padding-left: 20px;
+}
+
+.home_img {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url(../images/home.png);
+}
+
+.calender_img {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url(../images/date_range.png);
+}
+
+.project_img {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url(../images/Vector.png);
+}
