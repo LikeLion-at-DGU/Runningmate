@@ -1,12 +1,8 @@
-from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
-from django.urls import reverse
 from users.models import Profile
 from .models import Todo
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
+from rest_framework import viewsets
 from .serializer import TodoSerializer
-from .models import Todo
 
 
 def showmain(request):
@@ -31,50 +27,8 @@ def timetable(request):
         profile.save(update_fields=['timetable'])
     return redirect('mateapp:showmain') # render 보단 redirect 가 낫다.
 
-def checklist(request):
-    _todos = Todo.objects.all()
-    return render(request, 'mateapp/checklist.html', {'todos': _todos})
-
-def create_todo(request):
-    content = request.POST['todocontent']
-    new_todo = Todo(title=content)
-    new_todo.save()
-    return HttpResponseRedirect(reverse('checklist'))
-
-def delete_todo(request):
-    _id = request.GET['todoNum']
-    todo = Todo.objects.get(id=_id)
-    todo.delete()
-    return HttpResponseRedirect(reverse('checklist'))
-
-@api_view(["GET"])
-def todolist(req):
-    todos = Todo.objects.all()
-    serializer = TodoSerializer(todos, many=True)
-    return Response(serializer.data)
-
-
-@api_view(["POST"])
-def todocreate(req):
-    serializer = TodoSerializer(data=req.data)
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data)
-    return Response(serializer.errors)
-
-
-@api_view(["DELETE"])
-def tododelete(req, pk):
-    todo = Todo.objects.get(id=pk)
-    todo.delete()
-    return Response("Delete Success")
-
-
-@api_view(["PUT"])
-def todoupdate(req, pk):
-    todo = Todo.objects.get(id=pk)
-    serializer = TodoSerializer(todo, data=req.data)
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data)
-    return Response(serializer.errors)
+class TodoModelViewSet(viewsets.ModelViewSet):
+    queryset = Todo.objects.all()
+    serializer_class = TodoSerializer
+# TodoModelViewSet은 Create, Retrieve, Update, Partial_update, Destory, List를 지원
+# 별다른 함수 없이 장고에서 기능을 불러올 수 있음

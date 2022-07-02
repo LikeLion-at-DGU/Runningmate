@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.forms import CharField
 
 # Create your models here.
 
@@ -25,4 +26,8 @@ class Project(models.Model):
 
 class Todo(models.Model):
     id = models.AutoField(primary_key=True)
-    title = models.CharField(max_length=50)
+    title = models.CharField(max_length=50, null=True) # 과목명
+    description = models.TextField(null=True) # 세부사항
+
+    def __str__(self):
+        return self.title
