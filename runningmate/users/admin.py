@@ -3,7 +3,7 @@ from .models import *
 
 # Register your models here.
 @admin.register(Profile)
-class UserAdmin(admin.ModelAdmin):
+class ProfileAdmin(admin.ModelAdmin): # 장고 기본 모델이름과 충돌 될까봐 변경
     list_display = (
         "user",
         "phone",
@@ -18,5 +18,5 @@ class UserAdmin(admin.ModelAdmin):
     search_fields = (
         "user",
         "phone",
-         "timetable",
+        "timetable",
     )

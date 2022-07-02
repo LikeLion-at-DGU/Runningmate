@@ -6,10 +6,10 @@ from .models import Todo
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializer import TodoSerializer
-from .models import Todo
-
+from .models import Calendar
 
 def showmain(request):
+    calendar = Calendar.objects.get(writer=request.user) # 글을 작성한 유저의 캘린더 정보만 가져오겠다.
     return render(request,'mateapp/mainpage.html')
 
 
@@ -24,6 +24,7 @@ def login(request):
 def calendar(request):
     return render(request,'mateapp/calendar.html')
 
+
 def timetable(request):
     if request.method == "POST":
         profile = Profile.objects.get(user=request.user) # Profile에서 요청받은 user의 정보만 불러옴
@@ -31,15 +32,18 @@ def timetable(request):
         profile.save(update_fields=['timetable'])
     return redirect('mateapp:showmain') # render 보단 redirect 가 낫다.
 
+
 def checklist(request):
     _todos = Todo.objects.all()
     return render(request, 'mateapp/checklist.html', {'todos': _todos})
+
 
 def create_todo(request):
     content = request.POST['todocontent']
     new_todo = Todo(title=content)
     new_todo.save()
     return HttpResponseRedirect(reverse('checklist'))
+
 
 def delete_todo(request):
     _id = request.GET['todoNum']
