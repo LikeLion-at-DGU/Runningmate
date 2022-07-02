@@ -14,7 +14,7 @@
             </form>
         </div>
 
-
+<!-- 캘린더 섹션 -->
         <div class = "item" id = "calendar_text">캘린더</div>
         <div class = "item" id = "calendar">
             <div class="calendar">
@@ -40,13 +40,24 @@
             </div>
             <script src="{% static 'js/calendar.js'%}"></script>
         </div>
+        {% if calendar.count == 0 %}
         <div class = "item" id = "schedule_1">
-
+            오늘은 할일이 없습니다.
         </div>
         <div class = "item" id = "schedule_2">
-
+            오늘은 할일이 없습니다.
         </div>
-
+        {% else %}
+        <div class = "item" id = "schedule_1">
+            {{calendar.0.title}}<br>
+            {{calendar.0.datetime}}<br>
+        </div>
+        
+        <div class = "item" id = "schedule_2">
+            {{calendar.1.title}}<br>
+            {{calendar.1.datetime}}<br>
+        </div>
+        {% endif %}
 
 
         <div class = "item" id = "runningmate_text">러닝메이트</div>

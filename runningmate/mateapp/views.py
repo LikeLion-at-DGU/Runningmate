@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
@@ -7,10 +8,44 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializer import TodoSerializer
 from .models import Calendar
+import json, datetime
+from django.http import JsonResponse
 
 def showmain(request):
-    calendar = Calendar.objects.get(writer=request.user) # 글을 작성한 유저의 캘린더 정보만 가져오겠다.
-    return render(request,'mateapp/mainpage.html')
+    calendar = Calendar.objects.filter(writer=request.user,datetime__contains=datetime.date.today()).order_by('datetime') # 글을 작성한 유저의 캘린더 정보만 가져오겠다. 가까운 날짜 순으로 정렬
+    return render(request,'mateapp/mainpage.html', {'calendar':calendar})
+
+
+def showevent(request):
+    if request.method == 'POST':
+        date_num = json.loads(request.body)
+        year = datetime.date.today().year
+        month = datetime.date.today().month
+        calendar = Calendar.objects.filter(writer=request.user, datetime__contains=datetime.date(year, month, int(date_num))).order_by('datetime')
+        
+        if calendar.length != 0:
+            
+            if calendar.length == 1:
+                c0_title = calendar[0].title
+                c0_datetime = calendar[0].datetime
+                c1_title = None
+                c1_datetime = None
+            elif calendar.length > 0:
+                c0_title = calendar[0].title
+                c0_datetime = calendar[0].datetime
+                c1_title = calendar[1].title
+                c1_datetime = calendar[1].datetime
+            context = {
+                "status": "exist",
+                "title1": c0_title,
+                "datetime1": c0_datetime,
+                "title2": c1_title,
+                "datetime2": c1_datetime,
+            }
+        else:
+            context = {"status": "null"}
+        return JsonResponse(context)
+
 
 
 def login(request):
