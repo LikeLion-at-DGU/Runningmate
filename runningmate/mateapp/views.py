@@ -3,9 +3,10 @@ from users.models import Profile
 from .models import Todo
 from rest_framework import viewsets
 from .serializer import TodoSerializer
-
+from .models import Calendar
 
 def showmain(request):
+    calendar = Calendar.objects.get(writer=request.user) # 글을 작성한 유저의 캘린더 정보만 가져오겠다.
     return render(request,'mateapp/mainpage.html')
 
 
@@ -19,6 +20,7 @@ def login(request):
 
 def calendar(request):
     return render(request,'mateapp/calendar.html')
+
 
 def timetable(request):
     if request.method == "POST":
