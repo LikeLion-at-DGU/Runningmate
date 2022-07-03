@@ -442,6 +442,9 @@ span{
     top: 90vh;
 }
 
+.date > .this{
+    cursor: pointer;
+}
 
 /* navbar */
 /* .nav {
