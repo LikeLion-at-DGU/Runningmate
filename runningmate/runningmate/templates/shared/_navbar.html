@@ -24,10 +24,10 @@
         <a href="{% url 'mateapp:showmain' %}"><img src="{% static 'images/logo.png' %}" class="nav_logo"/><span>learningmate</span></a>
     </div>
 
-    <a href="{% url 'mateapp:showmain' %}"><div class="nav_icon" id="home_logo"><img src="{% static 'images/home.png' %}"/><span>대시보드</span></div></a>
-    <a href="{% url 'mateapp:calendar' %}"><div class="nav_icon" id="calender_logo"><img src="{% static 'images/date_range.png' %}"/><span>캘린더</span></div></a>
-    <div class="nav_icon" id="project_logo">
-        <img src="{% static 'images/Vector.png' %}" class="project_img" /><span>프로젝트</span>
+    <a href="{% url 'mateapp:showmain' %}"><div class="nav_button" data-id="0" id="nav_rep"><img src="{% static 'images/home.png' %}" id="home_logo"/><span>대시보드</span></div></a>
+    <a href="{% url 'mateapp:calendar' %}"><div class="nav_button" data-id="1" id="nav_rep"><img src="{% static 'images/date_range.png' %}" id="calender_logo"/><span>캘린더</span></div></a>
+    <div class="nav_button" data-id="2">
+        <div class="nav_project"><img src="{% static 'images/Vector.png' %}" id="project_logo"/><span>프로젝트</span></div>
         <ul class="project_sub">
             <li>IT 서비스 관리</li>
             <li>마케팅원론 04</li>
@@ -37,3 +37,12 @@
         </ul>
     </div>
 </div>
+
+<script>
+    // document.querySelectorAll(".nav_button")[0].addEventListener("click", function(){
+    //     document.querySelectorAll(".nav_button")[0].classList.remove("current");
+    //     document.querySelectorAll(".nav_button")[1].classList.remove("current");
+    //     document.querySelectorAll(".nav_button")[2].classList.remove("current");
+    //     document.querySelectorAll(".nav_button")[0].classList.add("current");
+    // });
+</script>

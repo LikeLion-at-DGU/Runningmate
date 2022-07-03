@@ -65,7 +65,7 @@
             <script src="{% static 'js/dday.js'%}"></script>
         </div>
 
-         <!-- 체크리스트 -->
+        <!-- 체크리스트 -->
         <div class = "item2" id = "marg_bottom">
             <div class="detail_1">
                 <p class="syn_1">IT 서비스 관리</p>
@@ -120,15 +120,6 @@
 </div>
 
 <script>
-
-//     document.querySelectorAll(".cb")[0].addEventListener("click", function(e){
-//         clickCheckbox(e.target.dataset.id);
-//     });
-    
-// function clickCheckbox(a) {
-//     document.querySelectorAll(".marg_text")[a].classList.toggle("dec_show");
-// };
-
 // css링크 연결 불가 현상, 코드 간소화 실패로 임시 처리
 document.getElementById("cb1").addEventListener("click", function(){
     document.getElementById("marg_text1").classList.toggle("dec_show");
@@ -163,5 +154,4 @@ document.getElementById("cb9").addEventListener("click", function(){
 // }); 안되는 이유 파악 필요
 
 </script>
-
 {% endblock %}
