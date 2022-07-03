@@ -88,18 +88,8 @@ const goToday = () => {
   renderCalendar();
 };
 
-const today = new Date();
-if (viewMonth === today.getMonth() && viewYear === today.getFullYear()) {
-  for (let date of document.querySelectorAll(".this")) {
-    if (+date.innerText === today.getDate()) {
-      date.classList.add("today");
-      break;
-    }
-  }
-}
 
-const calendarDates = document.querySelectorAll(".date");
-const eventTypes = ["focus", "mousedown"];
+
 
 function getCookie(name) {
   var cookieValue = null;
@@ -129,47 +119,57 @@ $.ajaxSetup({
   },
 });
 
-function objectToJson(object) {
-  const object_to_string = JSON.stringify(object);
-  const string_to_json = JSON.parse(object_to_string);
-  return string_to_json;
+
+function contextToJson(context) {
+  const context_to_string = JSON.stringify(context);
+  const string_to_json = JSON.parse(context_to_string);
+  return string_to_json; 
 }
 
-calendarDates.forEach((date) => {
-  eventTypes.forEach((type) => {
-    date.addEventListener(type, () => {
-      const dateNum = date.childNodes[0].innerText;
-      $.ajax({
-        type: "POST",
-        url: "/showevent",
-        data: JSON.stringify(dateNum),
-        success: function (context) {
-          const object = objectToJson(context);
-          const status = object.status;
-          if (status == "exist") {
-            const title1 = object.title1;
-            const datetime1 = object.datetime1;
-            schedule_1.innerHTML = "<p>" + title1 + "<br>" + datetime1 + "</p>";
-            const title2 = object.title2;
-            const datetime2 = object.datetime2;
-            schedule_2.innerHTML = "<p>" + title2 + "<br>" + datetime2 + "</p>";
-          } else {
-            schedule_1.innerHTML = "<p>오늘 할 일이 없습니다.</p>";
-            schedule_2.innerHTML = "<p>오늘 할 일이 없습니다.</p>";
-          }
-        },
-        error: function (xhr, errmsg, err) {
-          console.log(
-            xhr.status +
-              ": " +
-              xhr.responseText +
-              "\n\n" +
-              errmsg +
-              "\n\n" +
-              err
-          );
-        },
-      });
+document.querySelectorAll(".date").forEach((date) => {
+  date.addEventListener("click", () => {
+    const dateNum = date.childNodes[0].innerText;
+    $.ajax({
+      type: "POST",
+      url: "/showevent",
+      data: JSON.stringify(dateNum),
+      success: function (context) {
+        const object = contextToJson(context);
+        const status = object.status;
+        if (status == "exist") {
+          const title1 = object.title1;
+          const datetime1 = object.datetime1;
+          const place1 = object.place1;
+          schedule_1.innerHTML = "<p>" + title1 + "<br>" + datetime1 +  "<br>" + place1 + "</p>";
+          const title2 = object.title2;
+          const datetime2 = object.datetime2;
+          const place2 = object.place2;
+          schedule_2.innerHTML = "<p>" + title2 + "<br>" + datetime2 +  "<br>" + place2 + "</p>";
+        } else {
+          schedule_1.innerHTML = "<p>오늘 할 일이 없습니다.</p>";
+          schedule_2.innerHTML = "<p>오늘 할 일이 없습니다.</p>";
+        }
+      },
+      error: function (xhr, errmsg, err) {
+        console.log(
+          xhr.status + ": " + xhr.responseText
+        );
+      },
     });
   });
 });
+
+
+
+
+
+const today = new Date();
+if (viewMonth === today.getMonth() && viewYear === today.getFullYear()) {
+  for (let date of document.querySelectorAll(".this")) {
+    if (+date.innerText === today.getDate()) {
+      date.classList.add("today");
+      break;
+    }
+  }
+}
+

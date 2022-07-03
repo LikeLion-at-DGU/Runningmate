@@ -12,6 +12,11 @@
                 <input type="file" name="timetable" id="timetable" accept="image/png">
                 <input type="submit" value="시간표 추가하기">
             </form>
+            {% if request.user.is_authenticated %}
+                {% if request.user.profile.timetable %}
+                <img src="{{ request.user.profile.timetable.url }}" style="width: 100%;"/>
+                {% endif %}
+            {% endif %}
         </div>
 
 <!-- 캘린더 섹션 -->
@@ -51,11 +56,14 @@
         <div class = "item" id = "schedule_1">
             {{calendar.0.title}}<br>
             {{calendar.0.datetime}}<br>
+            {{calendar.0.place}}
         </div>
         
         <div class = "item" id = "schedule_2">
             {{calendar.1.title}}<br>
             {{calendar.1.datetime}}<br>
+            {{calendar.1.place}}
+
         </div>
         {% endif %}
 
