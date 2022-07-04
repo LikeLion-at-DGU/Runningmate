@@ -53,11 +53,13 @@
         <div class = "item" id = "schedule_2">
             오늘은 할일이 없습니다.
         </div>
+
+ 
         {% else %}
         <div class = "item" id = "schedule_1">
             {{calendar.0.title}}<br>
             {{calendar.0.datetime}}<br>
-            {{calendar.0.place}}
+            {{calendar.0.place}}<br>
         </div>
         
         <div class = "item" id = "schedule_2">
