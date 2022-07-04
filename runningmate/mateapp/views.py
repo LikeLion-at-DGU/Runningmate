@@ -1,22 +1,13 @@
-<<<<<<< HEAD
 from django.shortcuts import render, redirect, get_object_or_404
 from users.models import Profile
 from .models import Calendar, TodoComment, TodoTitle
-=======
 from datetime import datetime
-from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
-from django.urls import reverse
 from users.models import Profile
-from .models import Todo
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
 from .models import Calendar
 import json
 import datetime
 from django.http import JsonResponse
-
->>>>>>> 432a85ac9c70527b7e04daf8847b8cc14d7f1d41
 
 def showmain(request):
     calendar = Calendar.objects.filter(writer=request.user, datetime__contains=datetime.date.today(
