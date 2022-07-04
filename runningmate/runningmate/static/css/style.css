@@ -352,7 +352,7 @@ span{
 #runningmate h4{
     text-align:center; 
     margin: 0;
-    font-family: AppleSDGothicNeoM;
+    font-family: 'AppleSDGothicNeoM';
     font-weight: 500;
     font-size: 1.8vmin;
 
@@ -374,7 +374,7 @@ span{
     
 }
 .cal_main{
-    font-family: AppleSDGothicNeoB;
+    font-family: 'AppleSDGothicNeoB';
     font-size: 1.5vmin;
 }
 
@@ -464,74 +464,6 @@ span{
 }
 
 /* navbar */
-/* .nav {
-    list-style: none;
-    padding-left: 20px;
-}
-
-.nav_text {
-    color: #5D7285;
-}
-
-#home_logo {
-    width: 45px;
-    height: 45px;
-    background: #735BF2;
-    border-radius: 10px;
-    background-image: url(../images/logo.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    display: inline-block;
-    margin-right: 10px;
-}
-
-.home_logo{
-    font-family: 'Pacifico';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 70px;
-    display: flex;
-    align-items: center;
-    color: #735BF2;
-    padding-left: 12px;
-    padding-top: 25px;
-}
-
-.wrap button {
-    font-family: 'AppleSDGothicNeoB';
-    font-size: 16px;
-    width: 180px;
-    height: 50px;
-    border-radius: 12px;
-    background-color: #ECF0FF;
-    text-align: left;
-    border: none;
-}
-
-.dropdown-content {
-    padding-left: 20px;
-}
-
-.home_img {
-    display: inline-block;
-    width: 26.5px;
-    height: 27.9px;
-    
-}
-
-.calender_img {
-    display: inline-block;
-    width: 27px;
-    height: 30px;
-}
-
-.project_img {
-    display: inline-block;
-    width: 27.9px;
-    height: 27.9px;
-} */
-
 .navbar a {
     text-decoration: none;
 }
@@ -543,17 +475,15 @@ span{
     height: 40px;
     margin-left: 15px;
     transition: all .5s;
+    padding-bottom: 10px;
+    font-family: 'AppleSDGothicNeoB';
+    font-size: 15px;
+    color: #5D7285;
 }
 
 .nav_button:hover {
     background-color: #735BF2;
-}
-
-.nav_button span {
-    font-family: 'AppleSDGothicNeoB';
-    font-size: 15px;
-    color: #5D7285;
-    
+    color: white;
 }
 
 .nav_button img {
