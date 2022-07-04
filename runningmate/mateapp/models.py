@@ -30,10 +30,15 @@ class Project(models.Model):
     pub_date = models.DateTimeField()
     body = models.TextField()
 
-class Todo(models.Model):
+class TodoTitle(models.Model):
     id = models.AutoField(primary_key=True)
-    title = models.CharField(max_length=50, null=True) # 과목명
-    description = models.TextField(null=True) # 세부사항
+    title = models.CharField(max_length=200)
 
     def __str__(self):
         return self.title
+
+class TodoComment(models.Model):
+    content = models.TextField()
+    post = models.ForeignKey(TodoTitle ,on_delete=models.CASCADE, related_name ='comments')
+    created_at = models.DateTimeField(auto_now_add=True)
+    update_at = models.DateTimeField(auto_now=True)

@@ -1,10 +1,9 @@
 from django.contrib import admin
 from .models import *
-from .models import Todo
 
 # Register your models here.
-
-admin.site.register(Todo)
+admin.site.register(TodoTitle)
+admin.site.register(TodoComment)
 
 @admin.register(Calendar)
 class CalendarAdmin(admin.ModelAdmin):
