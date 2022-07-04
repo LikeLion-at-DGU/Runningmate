@@ -190,6 +190,8 @@ table {
 
 /* 투데이 - 디데이 */
 #dday1{
+
+
     background-color: #50CFBC;
 }
 
@@ -209,6 +211,7 @@ table {
     line-height: 18px;
     margin:10px;
     margin-bottom: 4px;
+    margin-left: 20px;
     color: #FFFFFF;   
 }
 
@@ -220,6 +223,7 @@ table {
     line-height: 18px;
     margin:10px;
     margin-top: 0;
+    margin-left: 20px;
     color: #FFFFFF; 
 }
 
@@ -230,7 +234,26 @@ table {
     font-size: 4.5vmin;
     line-height: 20px;
     color: #FFFFFF; 
-    margin-left: 75%;
+    margin-left: 73%;
 
     margin-bottom: 10px;
+}
+
+#plus{
+    font-family:AppleSDGothicNeoM;
+    display: inline-block; 
+    font-size:larger; 
+    vertical-align: middle;
+    cursor: pointer;
+    background: #FFFFFF;
+    /* Gray Light */
+    
+    border: 1px solid #DDDDDD;
+    border-radius: 8px;
+    padding: 0;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 30px;
+    margin-left: 8px;
 }

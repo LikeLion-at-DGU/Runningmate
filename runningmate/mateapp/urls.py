@@ -1,6 +1,6 @@
-from django.urls import path
+from django.urls import path, include
 from .views import *
-
+from . import views
 
 app_name = "mateapp"
 urlpatterns = [
@@ -9,8 +9,5 @@ urlpatterns = [
     path('showevent',showevent, name = "showevent"),
     path('', login, name="login"),
     path('timetable',timetable, name='timetable'),
-    path('todolist', todolist, name="todolist"),
-    path('todocreate/', todocreate, name='todocreate'),
-    path('todoupdate/<str:pk>/', todoupdate, name='todoupdate'),
-    path('tododelete/<str:pk>/', tododelete, name='tododelete'),
+    path('todo_new/', todo_new, name="todo_new")
 ]

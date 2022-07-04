@@ -38,7 +38,7 @@
             
         </div>
         <div class = "item2" id = "today">투데이
-            <a href="#" onclick="window.open('todolist','todolist','resizable=no width=600 height=500');return false" style="text-decoration-line: none;">+</a>
+            <a id = "plus" href="#" onclick="window.open('todo_new','todo_new','resizable=no, width=600, height=500');return false" style="text-decoration-line: none;">+</a>
         </div>
 
         <div class = "item2" id = "today_date">
@@ -67,17 +67,20 @@
 
         <!-- 체크리스트 -->
         <div class = "item2" id = "marg_bottom">
+        {% for todo in todos %}
             <div class="detail_1">
-                <p class="syn_1">IT 서비스 관리</p>
+                <p class="syn_1">{{ todo.title }}</p>
                 <table class="tb1">
+                    
                     <tr>
-                        <td><input type="checkbox" class="cb" id="cb1"> <span class="marg_text" id="marg_text1" data-id="0">회의 사전 조사</span></td>
+                        <td><input type="checkbox" class="cb" id="cb1"> <span class="marg_text" id="marg_text1" data-id="0">{{ todo.1.content }}</span></td>
                     </tr>
                     <tr>
                         <td><input type="checkbox" class="cb" id="cb2"> <span class="marg_text" id="marg_text2" data-id="1">인시던트 관리 에세이 작성</span></td>
                     </tr>
                 </table>
             </div>
+        <!--
             <div class="detail_2">
                 <p class="syn_2">조직행위 03</p>
                 <table class="tb2">
@@ -114,8 +117,9 @@
                     </tr>
                 </table>
             </div>
+        -->
+        {% endfor %}
         </div>
-        
     </div>
 </div>
 
