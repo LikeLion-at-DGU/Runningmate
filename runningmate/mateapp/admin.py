@@ -13,6 +13,7 @@ class CalendarAdmin(admin.ModelAdmin):
         "writer",
         "datetime",
         "body",
+        "place",
     )
     list_display_links = (
         "id",
@@ -20,6 +21,7 @@ class CalendarAdmin(admin.ModelAdmin):
         "writer",
         "datetime",
         "body",
+        "place",
     )
     search_fields = (
         "id",
@@ -27,4 +29,5 @@ class CalendarAdmin(admin.ModelAdmin):
         "writer",
         "datetime",
         "body",
+        "place",
     )
