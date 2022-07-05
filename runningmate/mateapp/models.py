@@ -24,12 +24,14 @@ class Calendar(models.Model): # 대시보드 캘린더 모델
 # 캘린더 모델을 다룰거다라는 request를 보냄 but 반영이 안돼서 에러가뜸
 # no such column 은 migrations 오류임
 
-class Project(models.Model):
-    id = models.AutoField(primary_key=True)
-    title = models.CharField(max_length=200)
-    writer = models.ForeignKey(User,on_delete=models.CASCADE)
-    pub_date = models.DateTimeField()
-    body = models.TextField()
+
+# 프로젝트 입력폼을 만들기 위해 주석처리
+# class Project(models.Model):
+#     id = models.AutoField(primary_key=True)
+#     title = models.CharField(max_length=200)
+#     writer = models.ForeignKey(User,on_delete=models.CASCADE)
+#     pub_date = models.DateTimeField()
+#     body = models.TextField()
 
 class TodoTitle(models.Model):
     id = models.AutoField(primary_key=True)
@@ -43,3 +45,4 @@ class TodoComment(models.Model):
     post = models.ForeignKey(TodoTitle ,on_delete=models.CASCADE, related_name ='comments')
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
+
