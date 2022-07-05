@@ -101,3 +101,6 @@ def timetable(request):
         profile.timetable = request.FILES.get('timetable')
         profile.save(update_fields=['timetable'])
     return redirect('mateapp:showmain')  # render 보단 redirect 가 낫다.
+
+def project(request):
+    return render(request, 'mateapp/project.html')

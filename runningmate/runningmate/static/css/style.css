@@ -534,3 +534,8 @@ span{
 .nav_project {
     padding-left: 15px;
 }
+
+.project_sub a{
+    color: #5D7285;
+    text-decoration: none;
+}
