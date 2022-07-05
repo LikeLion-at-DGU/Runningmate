@@ -1,6 +1,7 @@
 from django.urls import path, include
 from .views import *
 from . import views
+from addproject import *
 
 app_name = "mateapp"
 urlpatterns = [
