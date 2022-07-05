@@ -15,3 +15,5 @@ class Profile(models.Model):
     class Meta:
         verbose_name = "프로필"
         verbose_name_plural = "프로필(들)"
+
+        ## 프로필 사항 추가 및 변경
