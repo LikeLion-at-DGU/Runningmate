@@ -1,0 +1,29 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+
+<div class = "signup">
+  <div class = "login_logo"><div id = "login_logo"></div>learningmate</div>
+  <div class = "signup_body">
+    <div class="signup_top">
+      <h1 style="margin-bottom: 0px;">러닝메이트에 오신걸 환영합니다!</h1>
+      <h4 style="margin-top: 5px; font-weight: 100;">러닝메이트를 찾기 위해 회원가입을 진행해주세요!</h4>
+    </div>
+    <div class = "signup_form">
+      <form id="signup_form" method="post" action="{% url 'account_signup' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <button type="submit"> 가입하기 </button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

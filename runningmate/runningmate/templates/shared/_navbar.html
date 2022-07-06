@@ -1,0 +1,21 @@
+{% load static %}
+<!-- navbar -->
+
+<div class="navbar">
+    <div class="nav_main">
+        <a href="{% url 'mateapp:showmain' %}"><img src="{% static 'images/logo.png' %}" class="nav_logo"/><span>learningmate</span></a>
+    </div>
+
+    <a href="{% url 'mateapp:showmain' %}"><div class="nav_button" id="nav_rep"><img src="{% static 'images/home.png' %}" id="home_logo"/>대시보드</div></a>
+    <a href="{% url 'mateapp:calendar' %}"><div class="nav_button" id="nav_rep"><img src="{% static 'images/date_range.png' %}" id="calender_logo"/>캘린더</div></a>
+    <div class="nav_button">
+        <div class="nav_project"><img src="{% static 'images/Vector.png' %}" id="project_logo"/>프로젝트</div>
+        <ul class="project_sub">
+            <a href = "{% url 'mateapp:project' %}"><li id = "project">IT 서비스 관리</li></a>
+            <li>마케팅원론 04</li>
+            <li>조직행위 03</li>
+            <li>파이썬과 경영 01</li>
+            <li>사물인터넷 기초</li>
+        </ul>
+    </div>
+</div>
