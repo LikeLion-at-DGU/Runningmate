@@ -4,7 +4,7 @@ from .models import Calendar, TodoComment, TodoTitle
 from datetime import datetime
 from django.shortcuts import render, redirect
 from users.models import Profile
-from .models import Calendar
+from .models import Calendar, Project
 import json
 import datetime
 from django.http import JsonResponse
@@ -106,5 +106,5 @@ def timetable(request):
         profile.save(update_fields=['timetable'])
     return redirect('mateapp:showmain')  # render 보단 redirect 가 낫다.
 
-def project(request):
+def project_name(request):
     return render(request, 'mateapp/project.html')
