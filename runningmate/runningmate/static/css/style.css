@@ -25,7 +25,7 @@
 }
 
 .container{
-    display:grid;
+    display: grid;
     grid-template-columns: 1fr 1.5fr 1.5fr;
     grid-template-rows: 70px 1.5fr 60px 1fr 1fr 1fr 50px 2.5fr;
     height: 100%;
@@ -96,12 +96,12 @@
 
 }
 
-
 .item:nth-child(9){
     grid-column: 3/4;
     grid-row : 3/4;
     margin-top: 20px;
 }
+
 .item:nth-child(10){
     grid-column: 3/4;
     grid-row : 4/5;
@@ -117,7 +117,6 @@
     background-color: #FFFFFF;
     border-radius: 20px;
     margin-right: 2em;
-
 }
 
 .item:nth-child(12){
@@ -126,7 +125,6 @@
     background-color: #FFFFFF;
     border-radius: 20px;
     margin-right: 2em;
-
 }
 
 .item:nth-child(13){
@@ -142,7 +140,6 @@
     margin-right: 2em;
     margin-bottom: 20px;
     margin-left: 1.5em;
-
 }
 
 #rec3{
@@ -253,7 +250,7 @@ span{
 }
 
 #plus{
-    font-family:AppleSDGothicNeoM;
+    font-family:'AppleSDGothicNeoM';
     display: inline-block; 
     font-size:larger; 
     vertical-align: middle;
@@ -396,7 +393,6 @@ span{
     margin-left: 7vmin;
 }
 
-
 .nav-btn {
     width: 2.8vmin;
     height: 3vmin;
@@ -410,7 +406,6 @@ span{
     margin-left: 2.5vmin;
     margin-right: 2.5vmin;
 }
-
 
 .go-today {
     width: 6vmin;
@@ -463,50 +458,22 @@ span{
     cursor: pointer;
 }
 
-/* navbar */
+/* navbar ---------------------------------------*/
+.navbar {
+    border: 1px solid black;
+    width: 220px;
+    padding: 5px;
+    margin: 15px;
+
+    position: absolute;
+}
+
 .navbar a {
     text-decoration: none;
 }
 
-.nav_button {
-    /* border: 1px solid #5D7285; */
-    border-radius: 12px;
-    width: 180px;
-    height: 40px;
-    margin-left: 15px;
-    transition: all .5s;
-    padding-bottom: 10px;
-    font-family: 'AppleSDGothicNeoB';
-    font-size: 15px;
-    color: #5D7285;
-}
 
-.nav_button:hover {
-    background-color: #735BF2;
-    color: white;
-}
-
-.nav_button img {
-    width: 25px;
-    height: 25px;
-    padding-right: 15px;
-    padding-top: 7px;
-}
-
-.nav_button ul {
-    font-family: 'AppleSDGothicNeoM';
-    font-size: 15px;
-    color: #5D7285;
-    list-style: none;
-    line-height: 50px;
-    padding-left: 55px;
-}
-
-.current {
-    background-color: #735BF2;
-    color: white;
-}
-
+/* navbar main logo -----------------------------*/
 .nav_logo {
     width: 25px;
     height: 25px;
@@ -526,11 +493,40 @@ span{
     vertical-align: middle;
 }
 
-#nav_rep {
+/* navbar button --------------------------------*/
+.nav_button {
+    border: 1px solid #5D7285;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     padding-left: 15px;
-    width: 165px;
+    width: 180px;
+    height: 50px;
+    margin-left: 15px;
+    transition: all .5s;
+    font-family: 'AppleSDGothicNeoB';
+    font-size: 15px;
+    color: #5D7285;
 }
 
-.nav_project {
-    padding-left: 15px;
+.nav_button:hover {
+    background-color: #735BF2;
+    color: white;
+}
+
+.nav_button img {
+    width: 25px;
+    height: 25px;
+    padding-right: 15px;
+}
+
+/* navbar button ul ------------------------------*/
+.button_wrap ul {
+    font-family: 'AppleSDGothicNeoM';
+    font-size: 15px;
+    color: #5D7285;
+    list-style: none;
+    line-height: 50px;
+    padding-left: 70px;
 }
