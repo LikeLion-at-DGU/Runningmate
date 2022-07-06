@@ -65,10 +65,9 @@ def login(request):
 
 def calendar(request):
     projects = Project.objects.all() # 모델을 전부 불러옴 
-    todos_list = [] # 빈리스트를 만듬 , 담아서 렌더링하는 경우가 많음 
-    for project in projects: # 불러온 프로젝트를 하나씩 불러와서 
-        todos = project.todos.all() # 모두 불러 온 것을 개별로 가져와서
-        todos_list.append(todos) # 그 프로젝트의 등록된 투두를 불러와서 그걸 넣은거임 
+    todos_list = [] # 빈리스트를 만듬 , 담아서 렌더링하는 경우가 많음
+    todos = Todo.objects.all()
+    todos_list.append(todos) # 그 프로젝트의 등록된 투두를 불러와서 그걸 넣은거임 
         # 보내고 싶은거 리스트로 보내서 장고나 뭐든 저런식으로 할 일이 많음
         # 알아두기
     return render(request, 'mateapp/calendar.html', {'todos_list':todos_list, 'projects':projects})
