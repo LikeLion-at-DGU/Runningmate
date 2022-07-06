@@ -13,8 +13,8 @@
                 {% else %}
                 <form action="{% url 'mateapp:timetable' %}" method="POST" enctype="multipart/form-data">
                     {%csrf_token%}
-                    <input type="file" name="timetable" id="timetable" accept="image/png">
-                    <input type="submit" value="시간표 추가하기">
+                    <input type="file" name="timetable" id="timetable" accept="image/png" class="custom-file-input">
+                    <input type="submit" value="시간표 추가하기" id = "timetable_submit">
                 </form>
                 {% endif %}
             {% endif %}
