@@ -5,5 +5,5 @@ from runningmate import addproject
 
 app_name = "addproject"
 urlpatterns = [
-    path('addproject',addproject, name = "addproject"),
+    path('addproject',addproject, name="addproject"),
 ]

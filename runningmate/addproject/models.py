@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 
 class Project(models.Model): #프로젝트 추가
+    id = models.BigAutoField(help_text="Comment ID", primary_key=True) # 
     startday = models.DateField('프로젝트 시작일')
     endday = models.DateField('프로젝트 마감일')
     title = models.CharField(max_length=200)
