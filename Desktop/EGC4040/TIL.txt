@@ -1,8 +1,0 @@
-딕셔너리 안 딕셔너리 [ ] [ ] 로 내부 딕서너리에 접근
-https://dojang.io/mod/page/view.php?id=2310
-
-파이썬 Python - 딕셔너리 Dictionary 안의 리스트 List 에서 특정 키 Key 값만 가져오기
-https://nanchachaa.tistory.com/26
-
-소수 출력
-https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=javaking75&logNo=220787467355
