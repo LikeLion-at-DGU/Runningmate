@@ -62,69 +62,58 @@
       <section class="count_dday" id="dday3_dday"></section>
       <script src="{% static 'js/dday.js'%}"></script>
     </div>
-{{new_todocomment.0}}
     <!-- 체크리스트 -->
-    <div class="item2" id="marg_bottom">
-      {% for todo in todos %}
-      <div class="detail_1">
-        <p class="syn_1">{{ todotitle.title }}</p>
-        <table class="tb1">
-          {% for todocomment in new_todocomment %}
-          <tr>
-            <td>
-              <input type="checkbox" class="cb" id="cb1" />
-              <span class="marg_text" id="marg_text1" data-id="0">{{todocomment.content}}</span>
-            </td>
-          </tr>
-          <!-- <tr>
-                        <td><input type="checkbox" class="cb" id="cb2"> <span class="marg_text" id="marg_text2" data-id="1"></span></td>
-                    </tr> -->
-            {% endfor %}
+    <!-- <div class="detail_2">
+        <p class="syn_2">조직행위 03</p>
+        <table class="tb2">
+            <tr>
+                <td><input type="checkbox" class="cb" id="cb3"> <span class="marg_text" id="marg_text3" data-id="2">커뮤니케이션 이론 쪽지 시험 준비</span><br></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="cb" id="cb4"> <span class="marg_text" id="marg_text4" data-id="3">인터뷰 기업 후보 리스트 작성</span><br></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="cb" id="cb5"> <span class="marg_text" id="marg_text5" data-id="4">인터뷰 질문 작성</span><br></td>
+            </tr>
         </table>
-      </div>
-      {% endfor %}
-
-      <!--
-            <div class="detail_2">
-                <p class="syn_2">조직행위 03</p>
-                <table class="tb2">
-                    <tr>
-                        <td><input type="checkbox" class="cb" id="cb3"> <span class="marg_text" id="marg_text3" data-id="2">커뮤니케이션 이론 쪽지 시험 준비</span><br></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" class="cb" id="cb4"> <span class="marg_text" id="marg_text4" data-id="3">인터뷰 기업 후보 리스트 작성</span><br></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" class="cb" id="cb5"> <span class="marg_text" id="marg_text5" data-id="4">인터뷰 질문 작성</span><br></td>
-                    </tr>
-                </table>
-            </div>
-            <div class="detail_3">
-                <p class="syn_3">파이썬과 경영 01</p>
-                <table class="tb3">
-                    <tr>
-                        <td><input type="checkbox" class="cb" id="cb6"> <span class="marg_text" id="marg_text6" data-id="5">문자열 메소드 암기</span></td>
-                    </tr>
-                </table>
-            </div>
-            <div class="detail_4">
-                <p class="syn_4">개인</p>
-                <table class="tb4">
-                    <tr>
-                        <td><input type="checkbox" class="cb" id="cb7"> <span class="marg_text" id="marg_text7" data-id="6">계절학기 수강 정정</span><br></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" class="cb" id="cb8"> <span class="marg_text" id="marg_text8" data-id="7">계절학기 수강료 납부</span><br></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" class="cb" id="cb9"> <span class="marg_text" id="marg_text9" data-id="8">공모전 제출</span></td>
-                    </tr>
-                </table>
-            </div>
-        -->
+    </div>
+    <div class="detail_3">
+        <p class="syn_3">파이썬과 경영 01</p>
+        <table class="tb3">
+            <tr>
+                <td><input type="checkbox" class="cb" id="cb6"> <span class="marg_text" id="marg_text6" data-id="5">문자열 메소드 암기</span></td>
+            </tr>
+        </table>
+    </div>
+    <div class="detail_4">
+        <p class="syn_4">개인</p>
+        <table class="tb4">
+            <tr>
+                <td><input type="checkbox" class="cb" id="cb7"> <span class="marg_text" id="marg_text7" data-id="6">계절학기 수강 정정</span><br></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="cb" id="cb8"> <span class="marg_text" id="marg_text8" data-id="7">계절학기 수강료 납부</span><br></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="cb" id="cb9"> <span class="marg_text" id="marg_text9" data-id="8">공모전 제출</span></td>
+            </tr>
+        </table>
+    </div> -->
+    {% for project in projects %}
+        {{project.title}}
+            {% for todos in todos_list %}
+            {% for todo in todos %}
+            {% if todo.project == project %}
+                {{todo.content}}
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+    {% endfor %}
+    <!-- 리스트에 담긴걸 포문 두개로 나눠서 투두 하나씩 불러와서 if문으로 
+    불러온 하나의 투두랑 연결된 하나의 프로젝트가
+    투두모델에서 외래  -->
     </div>
   </div>
-</div>
 
 <script>
   // css링크 연결 불가 현상, 코드 간소화 실패로 임시 처리

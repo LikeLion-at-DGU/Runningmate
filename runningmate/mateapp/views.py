@@ -1,10 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from users.models import Profile
-from .models import Calendar, TodoComment, TodoTitle
+from .models import *
 from datetime import datetime
 from django.shortcuts import render, redirect
 from users.models import Profile
-from .models import Calendar, Project
 import json
 import datetime
 from django.http import JsonResponse
@@ -63,40 +62,18 @@ def login(request):
     else:
         return render(request, 'account/login.html')
 
+
 def calendar(request):
-    todos = TodoTitle.objects.all()
-    return render(request,'mateapp/calendar.html', {'todos':todos})
+    projects = Project.objects.all() # 모델을 전부 불러옴 
+    todos_list = [] # 빈리스트를 만듬 , 담아서 렌더링하는 경우가 많음 
+    for project in projects: # 불러온 프로젝트를 하나씩 불러와서 
+        todos = project.todos.all() # 모두 불러 온 것을 개별로 가져와서
+        todos_list.append(todos) # 그 프로젝트의 등록된 투두를 불러와서 그걸 넣은거임 
+        # 보내고 싶은거 리스트로 보내서 장고나 뭐든 저런식으로 할 일이 많음
+        # 알아두기
+    return render(request, 'mateapp/calendar.html', {'todos_list':todos_list, 'projects':projects})
+    # 리스트 자체를 렌더링함
 
-def todo_detail(request, id):
-    todo = get_object_or_404(TodoTitle, pk = id)
-    all_comments = todo.comments.all().order_by('-created_at')
-    return render(request, 'mateapp/detail.html', {'todo':todo, 'todocomments':all_comments})
-
-def todo_new(request) :
-    return render(request, 'mateapp/todo_new.html')
-
-def todo_create(requset):
-    new_todo = TodoTitle()
-    new_todo.title = requset.POST['title']
-    new_todo.save()
-    return redirect('mateapp:todo_detail', new_todo.id)
-
-def todo_delete(request, id):
-    del_todo = TodoTitle.objects.get(id=id)
-    del_todo.delete()
-    return redirect('mateapp:calendar')
-
-def todocomment_create(request, todo_id):
-    new_todocomment = TodoComment()
-    new_todocomment.content = request.POST['content']
-    new_todocomment.post = get_object_or_404(TodoTitle, pk = todo_id)
-    new_todocomment.save()
-    return redirect('mateapp:detail', todo_id)
-
-def todocomment_delete(request, todocomment_id):
-    del_todocomment = get_object_or_404(TodoComment, pk = todocomment_id)
-    del_todocomment.delete()
-    return redirect('mateapp:caledar')
 
 def timetable(request):
     if request.method == "POST":
