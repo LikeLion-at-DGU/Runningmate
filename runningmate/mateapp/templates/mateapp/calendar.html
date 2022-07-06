@@ -42,7 +42,7 @@
         </div>
         {% else %}
         <div class="item2" id="calendar2_2">
-            {{calendar.0.title}}        {{calendar.0.datetime}} / {{calendar.0.place}}<br>
+            {{calendar.0.title}}        {{calendar.0.datetime}}  {{calendar.0.place}}<br>
             {{calendar.0.body}}
         </div>
         {% endif %}
@@ -60,6 +60,7 @@
             <section class = "subject_name" id = "dday1_subject">{{calendar.0.title}}</section>
             <section class = "meeting_subject" id = "dday1_meeting">{{calendar.0.body}}</section>
             <section class="count_dday" id="dday1_dday">
+                {{calendar.0.datetime|timeuntil}}
                 <script>
                     function CalcDday(finalDay) { //디데이 계산기
                         // 오늘 날짜+시간
@@ -73,7 +74,6 @@
                             return "D-" + day;
                         }  
                     }
-
                 
                 </script>
             </section>
@@ -96,17 +96,17 @@
             <div class="detail_1">
                 <p class="syn_1">{{ todo.title }}</p>
                 <table class="tb1">
-                    {% if todo.title == todocomment.post %}
-                    {% for comment in todocomments %}
+                    {% for comment in comments %}
+                        {% if todotitle.title == comment.post %}
                     <tr>
                         <td><input type="checkbox" class="cb" id="cb1"> <span class="marg_text" id="marg_text1" data-id="0">{{ comment.content }}</span></td>
                     </tr>
+                        {% endif %}
                     {% endfor %}
-                    {% else %}
+                    
                     <tr>
                         <td></td>
                     </tr>
-                    {% endif %}
                 </table>
             </div>
         <!--

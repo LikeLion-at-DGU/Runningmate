@@ -1,6 +1,7 @@
 from django.urls import path, include
 from .views import *
-from . import views
+# from . import views
+# from addproject import *
 
 app_name = "mateapp"
 urlpatterns = [
@@ -10,4 +11,5 @@ urlpatterns = [
     path('', login, name="login"),
     path('timetable',timetable, name='timetable'),
     path('todo_new/', todo_new, name="todo_new"),
+    path('project_name/', project_name, name="project_name"),
 ]

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'users',
     'rest_framework',
+    'addproject',
 ]
 
 REST_FRAMEWORK = {

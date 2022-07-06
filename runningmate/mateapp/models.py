@@ -38,10 +38,10 @@ class TodoTitle(models.Model):
         return self.title
 
 class TodoComment(models.Model):
-    content = models.TextField()
+    content = models.CharField(max_length=200)
     post = models.ForeignKey(TodoTitle ,on_delete=models.CASCADE, related_name ='comments')
-    created_at = models.DateTimeField(auto_now_add=True)
-    update_at = models.DateTimeField(auto_now=True)
+#    created_at = models.DateTimeField(auto_now_add=True)
+#    update_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.content

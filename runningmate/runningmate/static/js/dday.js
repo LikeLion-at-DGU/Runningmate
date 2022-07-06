@@ -9,7 +9,7 @@
 // document.getElementById("dday3_meeting").innerHTML = "그룹 스터디 2주차"
 
 //디데이 계산 
-// var sub1_finalDay = new Date("2022-07-07:23:59:59+0900"); //dday 첫째 칸 마감일
+var sub1_finalDay = new Date("{{calendar.datetime}}"); //dday 첫째 칸 마감일
 // var sub2_finalDay = new Date("2022-07-30:23:59:59+0900"); //dday 둘째 칸 마감일
 // var sub3_finalDay = new Date("2022-08-10:23:59:59+0900"); //dday 셋째칸 마감일 
 
@@ -29,6 +29,6 @@ function CalcDday(finalDay) { //디데이 계산기
         
 }
 
-// document.getElementById("dday_dday").innerHTML = CalcDday(sub1_finalDay); //첫째칸 d-day 출력
+document.getElementById("dday_dday").innerHTML = CalcDday(sub1_finalDay); //첫째칸 d-day 출력
 // document.getElementById("dday2_dday").innerHTML = CalcDday(sub2_finalDay); //둘째칸 d-day 출력
 // document.getElementById("dday3_dday").innerHTML = CalcDday(sub3_finalDay); //셋째칸 d-day 출력
