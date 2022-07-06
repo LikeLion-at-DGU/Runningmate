@@ -3,7 +3,38 @@
 
 {% block content %} 
 
+<style>
+    *{
+        margin: 0;
+        padding:0;
+        box-sizing:border-box;
+    }
 
+    #btn2 {
+        background-color: #735BF2;
+        color: white;
+    }
+
+    #home_logo {
+    width: 40px;
+    height: 40px;
+    background-image: url("{% static 'images/home.png' %}");
+    background-repeat: no-repeat;
+    display: inline-block;
+    padding-right: 10px;
+    }
+
+
+    #calender_logo {
+    width: 40px;
+    height: 40px;
+    /* background: #735BF2; */
+    background-image: url("{% static 'images/CalenderOn.png' %}");
+    background-repeat: no-repeat;
+    display: inline-block;
+    padding-right: 10px;
+    }
+</style>
 <div id = "rec4">
     <div class = "container2">
         <div class = "item2" id = "chart_text">러닝차트</div>
@@ -29,7 +60,7 @@
                     <li>sun</li>
                 </ul>
 
-                <ul class="chart-bars">
+                <ul class="chart-bars" style="padding: 0; margin:0; box-sizing:border-box">
                     <li data-duration="tue½-thu" data-color="#50cfbc">주제선정</li>
                     <li data-duration="mon-wed" data-color="#fe7782">팀 빌딩</li>
                     <!-- <li data-duration="thu½-fri" data-color="#fe7782">가입 선정</li> -->
@@ -45,8 +76,10 @@
             </div>
             <script src="{% static 'js/gantt.js'%}"></script>
         </div>
-        <div class = "item2" id = "calendar2_text" >캘린더</div>
+
+        <div class = "item2" id = "calendar2_text">캘린더</div>
         <div class = "item2" id = "calendar2" >
+
             <div class="calendar">
                 <div class="cal_header2">
                     <button class="nav-btn go-prev" onclick="prevMonth()">&lt;</button>
@@ -70,11 +103,19 @@
             </div>
             <script src="{% static 'js/calendar.js'%}"></script>
         </div>
+        {% if calendar.count == 0 %}
         <div class = "item2" id = "calendar2_2">
-            
+            오늘은 할일이 없습니다.
         </div>
+        {% else %}
+        <div class="item2" id="calendar2_2">
+            {{calendar.0.title}}        {{calendar.0.datetime}}  {{calendar.0.place}}<br>
+            {{calendar.0.body}}
+        </div>
+        {% endif %}
+
         <div class = "item2" id = "today">투데이
-            <a id = "plus" href="#" onclick="window.open('todo_new','todo_new','resizable=no, width=600, height=500');return false" style="text-decoration-line: none;">+</a>
+            <section id = "plus" >+</section>
         </div>
 
         <div class = "item2" id = "today_date">
@@ -83,22 +124,37 @@
 
         <!-- 디데이 -->
         <div class = "item2" id = "dday1">
-            <section class = "subject_name" id = "dday1_subject"></section>
-            <section  class = "meeting_subject" id = "dday1_meeting"></section>
-            <section  class = "count_dday" id = "dday1_dday"></section>
-            <script src="{% static 'js/dday.js'%}"></script>
+            <section class = "subject_name" id = "dday1_subject">{{calendar.0.title}}</section>
+            <section class = "meeting_subject" id = "dday1_meeting">{{calendar.0.body}}</section>
+            <section class="count_dday" id="dday1_dday">
+                {{calendar.0.datetime|timeuntil}}
+                <script>
+                    function CalcDday(finalDay) { //디데이 계산기
+                        // 오늘 날짜+시간
+                        const today = new Date();
+                        const milliSecond = finalDay - today;
+                        const day = Math.floor(milliSecond / 1000 / 60 / 60 / 24);
+                        if (day === 0){
+                            return "D-day"
+                        }
+                        else{
+                            return "D-" + day;
+                        }  
+                    }
+                
+                </script>
+            </section>
         </div>
         <div class = "item2" id = "dday2">
-            <section  class = "subject_name" id = "dday2_subject"></section>
-            <section  class = "meeting_subject" id = "dday2_meeting"></section>
-            <section  class = "count_dday" id = "dday2_dday"></section>
-            <script src="{% static 'js/dday.js'%}"></script>
+            <p class = "subject_name" id = "dday2_subject">{{calendar.1.title}}</p>
+            <p class = "meeting_subject" id = "dday2_meeting">{{calendar.1.body}}</p>
+            <p class = "count_dday" id = "dday2_dday">{{calendar.1.place}}</p>
+
         </div>
         <div class = "item2" id = "dday3">
-            <section  class = "subject_name" id = "dday3_subject"></section>
-            <section  class = "meeting_subject" id = "dday3_meeting"></section>
-            <section  class = "count_dday" id = "dday3_dday"></section>
-            <script src="{% static 'js/dday.js'%}"></script>
+            <p class = "subject_name" id = "dday3_subject">{{calendar.2.title}}</p>
+            <p class = "meeting_subject" id = "dday3_meeting">{{calendar.2.body}}</p>
+            <p class = "count_dday" id = "dday3_dday">{{calendar.2.place}}</p>
         </div>
 
         <!-- 체크리스트 -->
@@ -107,12 +163,16 @@
             <div class="detail_1">
                 <p class="syn_1">{{ todo.title }}</p>
                 <table class="tb1">
+                    {% for comment in comments %}
+                        {% if todotitle.title == comment.post %}
+                    <tr>
+                        <td><input type="checkbox" class="cb" id="cb1"> <span class="marg_text" id="marg_text1" data-id="0">{{ comment.content }}</span></td>
+                    </tr>
+                        {% endif %}
+                    {% endfor %}
                     
                     <tr>
-                        <td><input type="checkbox" class="cb" id="cb1"> <span class="marg_text" id="marg_text1" data-id="0">{{ todo.1.content }}</span></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" class="cb" id="cb2"> <span class="marg_text" id="marg_text2" data-id="1">인시던트 관리 에세이 작성</span></td>
+                        <td></td>
                     </tr>
                 </table>
             </div>

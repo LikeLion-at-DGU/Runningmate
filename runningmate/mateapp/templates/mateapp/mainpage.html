@@ -3,6 +3,33 @@
 
 {% block content %} 
 
+<style>
+    #btn1 {
+        background-color: #735BF2;
+        color: white;
+    }
+
+    #home_logo {
+    width: 40px;
+    height: 40px;
+    /* background: #735BF2; */
+    background-image: url("{% static 'images/homeOn.png' %}");
+    background-repeat: no-repeat;
+    display: inline-block;
+    padding-right: 10px;
+    }
+
+    #calender_logo {
+    width: 40px;
+    height: 40px;
+    /* background: #735BF2; */
+    background-image: url("{% static 'images/date_range.png' %}");
+    background-repeat: no-repeat;
+    display: inline-block;
+    padding-right: 10px;
+    }
+</style>
+
 <div id = "rec3">
     <div class = "container">
         <div class = "item" id = "timetable_text">시간표</div>
@@ -95,14 +122,14 @@
         </div>
 
 
-
+<!-- 프로젝트 관리 -->
         <div class = "item" id = "project_text">프로젝트 관리
             <section id = "plus" >+</section>
         </div>
 
         <div class = "item" id = "project">
             <div class="scroll--element" id = "subject1">
-                <h6>2022.03.12~2022.06.21</h6>
+                <h6>2022.03.12~ {{addproject.Project.startday.0}}</h6>
                 <h2> IT 서비스 관리</h2>
                 <h3> 인시던트 관리 프레임워크 기획</h3>
             </div>
