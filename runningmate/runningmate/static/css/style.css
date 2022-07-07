@@ -463,6 +463,64 @@ span{
     cursor: pointer;
 }
 
+#sch1, #sch2{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    float: left;
+    width: 65%;
+}
+
+#sch2_team{
+    float: right;
+    width: 35%;
+    height: 100%;
+    bottom: 0;
+}
+#cal_title, #cal_title2{
+    margin-left:20px;
+    font-family: 'AppleSDGothicNeoB';
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 14px;
+    letter-spacing: 0.75px;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+#cal_body, #cal_body2{
+    margin-left: 20px;
+    font-family: 'AppleSDGothicNeoB';
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+#cal_time_place, #cal_time_place2{
+    margin-left: 20px;
+    font-family: 'AppleSDGothicNeoM';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 14px;
+    letter-spacing: 0.75px;
+    color: #8F9BB3;
+    
+}
+
+
+#no_schedule{
+    margin-left: 20px;
+    font-family: 'AppleSDGothicNeoM';
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #8F9BB3;
+}
+
 /* navbar ---------------------------------------*/
 .navbar {
     /* border: 1px solid black; */
