@@ -21,6 +21,7 @@ class Calendar(models.Model): # 대시보드 캘린더 모델
         ]
     color = ColorField(samples=COLOR_PALETTE)
 
+
     def __str__(self):
         return self.title
 
@@ -33,13 +34,13 @@ class Calendar(models.Model): # 대시보드 캘린더 모델
 # 캘린더 모델을 다룰거다라는 request를 보냄 but 반영이 안돼서 에러가뜸
 # no such column 은 migrations 오류임
 
-class Project(models.Model):
-    id = models.AutoField(primary_key=True)
-    title = models.CharField(max_length=200)
-    writer = models.ForeignKey(User,on_delete=models.CASCADE)
-    pub_date = models.DateField() # 시간이 필요 없어서 변경함
-    body = models.TextField()
-
+# class Project(models.Model):
+#     id = models.AutoField(primary_key=True)
+#     title = models.CharField(max_length=200)
+#     writer = models.ForeignKey(User,on_delete=models.CASCADE)
+#     pub_date = models.DateField() # 시간이 필요 없어서 변경함
+#     body = models.TextField()
+# 캘린더랑 Todo 연결해서 필요 없어짐 ..
 
 # 프로젝트 관리에서 받아오기 떄문에 필요 없음 
 # class TodoTitle(models.Model):
@@ -51,7 +52,7 @@ class Project(models.Model):
 
 class Todo(models.Model):
     content = models.TextField()
-    project = models.ForeignKey(Project ,on_delete=models.CASCADE, related_name='todos')
+    project = models.ForeignKey(Calendar ,on_delete=models.CASCADE, related_name='todos')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
