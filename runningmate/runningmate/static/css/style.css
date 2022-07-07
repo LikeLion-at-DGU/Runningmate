@@ -463,21 +463,59 @@ span{
     cursor: pointer;
 }
 
-/* navbar */
+/* navbar ---------------------------------------*/
+.navbar {
+    /* border: 1px solid black; */
+    width: auto;
+    padding: 10px;
+    margin: 10px;
+    box-sizing: initial;
+    position: absolute;
+}
+
 .navbar a {
     text-decoration: none;
 }
 
+.navbar img {
+    box-sizing: initial;
+}
+
+/* navbar main logo -----------------------------*/
+.nav_logo {
+    width: 35px;
+    height: 35px;
+    background: #735BF2;
+    border-radius: 10px;
+    padding: 7px;
+    margin: 30px 5px 30px 15px;
+    vertical-align: middle;
+    box-sizing: initial;
+}
+
+.nav_main span {
+    font-family: 'Pacifico';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    color: #735BF2;
+    vertical-align: middle;
+}
+
+/* navbar button --------------------------------*/
 .nav_button {
     /* border: 1px solid #5D7285; */
-    border-radius: 12px;
-    width: 180px;
-    height: 40px;
+    border-radius: 22px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 15px;
+    width: 240px;
+    height: 65px;
     margin-left: 15px;
     transition: all .5s;
-    padding-bottom: 10px;
     font-family: 'AppleSDGothicNeoB';
-    font-size: 15px;
+    font-size: 18px;
     color: #5D7285;
 }
 
@@ -487,57 +525,20 @@ span{
 }
 
 .nav_button img {
-    width: 25px;
-    height: 25px;
-    padding-right: 15px;
-    padding-top: 7px;
+    width: 30px;
+    height: 30px;
+    padding-right: 20px;
 }
 
-.nav_button ul {
+/* navbar button ul ------------------------------*/
+.button_wrap ul {
     font-family: 'AppleSDGothicNeoM';
-    font-size: 15px;
-    color: #5D7285;
-    list-style: none;
-    line-height: 50px;
-    padding-left: 55px;
-}
-
-.current {
-    background-color: #735BF2;
-    color: white;
-}
-
-.nav_logo {
-    width: 25px;
-    height: 25px;
-    background: #735BF2;
-    border-radius: 10px;
-    padding: 7px;
-    margin: 30px 5px 30px 15px;
-    vertical-align: middle;
-}
-
-.nav_main span {
-    font-family: 'Pacifico';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    color: #735BF2;
-    vertical-align: middle;
-}
-
-#nav_rep {
-    padding-left: 15px;
-    width: 165px;
-}
-
-.nav_project {
-    padding-left: 15px;
-}
-
-.project_sub a{
+    font-size: 18px;
     color: #5D7285;
     text-decoration: none;
+    list-style: none;
+    line-height: 70px;
+    padding-left: 80px;
 }
 
 /*시간표*/
@@ -558,18 +559,18 @@ input{
 }
 
 .custom-file-input::before {
-    content: '파일선택';
+    content: '파일 불러오기';
     background-color: #735BF2;;
     color: whitesmoke;
     display: inline-block;
-    border-radius: 3px;
+    border-radius: 5px;
     cursor: pointer;
     font-size: 15px;
     width: 110px;
     text-align: center;
-    height: 50px;
+    height: 40px;
     vertical-align: middle;
-    line-height: 50px;
+    line-height: 40px;
 
 }
 
@@ -577,12 +578,12 @@ input{
     background-color: #735BF2;;
     color: whitesmoke;
     display: inline-block;
-    border-radius: 3px;
+    border-radius: 5px;
     cursor: pointer;
     font-size: 15px;
     width: 110px;
     text-align: center;
-    height: 50px;
+    height: 40px;
     text-align: center;
     border: none;
     margin: 0;
@@ -598,4 +599,11 @@ input{
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+    
+}
+
+#upload_text{
+    font-family: AppleSDGothicNeoM;
+    margin-bottom: 10px;
+    color: #5D7285;
 }

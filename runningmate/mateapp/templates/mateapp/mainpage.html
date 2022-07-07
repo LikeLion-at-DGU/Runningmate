@@ -2,7 +2,42 @@
 {% load static %}
 
 {% block content %} 
+<style>
+    /* navbar 현재 페이지 표시 */
+    #btn1 {
+        background-color: #735BF2;
+        color: white;
+    }
 
+    #home_logo {
+    width: 40px;
+    height: 40px;
+    /* background: #735BF2; */
+    background-image: url("{% static 'images/homeOn.png' %}");
+    background-repeat: no-repeat;
+    display: inline-block;
+    padding-right: 10px;
+    }
+
+    #calender_logo {
+    width: 40px;
+    height: 40px;
+    /* background: #735BF2; */
+    background-image: url("{% static 'images/calender.png' %}");
+    background-repeat: no-repeat;
+    display: inline-block;
+    padding-right: 10px;
+    }
+
+    #project_logo {
+    width: 40px;
+    height: 40px;
+    background-image: url("{% static 'images/project.png' %}");
+    background-repeat: no-repeat;
+    display: inline-block;
+    padding-right: 10px;
+    }
+</style>
 <div id = "rec3">
     <div class = "container">
         <div class = "item" id = "timetable_text">시간표</div>
@@ -11,10 +46,13 @@
                 {% if request.user.profile.timetable %}
                 <img src="{{ request.user.profile.timetable.url }}" style="width: 100%; height: 100%; border-radius: 15px;"/>
                 {% else %}
+
                 <form action="{% url 'mateapp:timetable' %}" method="POST" enctype="multipart/form-data">
+                    <div id = "upload_text">시간표 파일을 불러오고<br>
+                    등록을 완료하여 확인하세요.</div>
                     {%csrf_token%}
-                    <input type="file" name="timetable" id="timetable" accept="image/png" class="custom-file-input">
-                    <input type="submit" value="시간표 추가하기" id = "timetable_submit">
+                    <input type="file" name="timetable" id="timetable" accept="image/png" class="custom-file-input"><br>
+                    <input type="submit" value="등록 완료하기" id = "timetable_submit" style="margin-top:10px;">
                 </form>
                 {% endif %}
             {% endif %}
@@ -58,13 +96,13 @@
         {% else %}
         <div class = "item" id = "schedule_1">
             {{calendar.0.title}}<br>
-            {{calendar.0.datetime}}<br>
+            {{calendar.0.startday}}~{{calendar.0.endday}}<br>
             {{calendar.0.place}}<br>
         </div>
         
         <div class = "item" id = "schedule_2">
             {{calendar.1.title}}<br>
-            {{calendar.1.datetime}}<br>
+            {{calendar.1.startday}}~{{calendar.1.endday}}<br>
             {{calendar.1.place}}
 
         </div>
@@ -97,9 +135,9 @@
 
 <!-- 프로젝트 관리 -->
         <div class = "item" id = "project_text">프로젝트 관리
-            <section id = "plus" >+</section>
+            <section id = "plus" ><a href="{% url 'addproject:newproject' %}">+</a></section>
         </div>
-
+<!-- 
         <div class = "item" id = "project">
             <div class="scroll--element" id = "subject1">
                 <h6>2022.03.12~ {{addproject.Project.startday.0}}</h6>
@@ -126,8 +164,21 @@
                 <h2> 사물인터넷 기초</h2>
                 <h3> 프로젝트 기획서 초찬 작성</h3>
             </div>
+        </div> -->
+        <div class = "item" id = "project">
+
+            {% for project in projects %}
+            <div class = "item" id = "project">
+                <div class="scroll--element" id = "subject1">
+                        <h2>{{project.title}}</h2>
+                        <h6>{{project.startday}}~{{project.endday}}</h6>
+                        <h3>{{project.summary}}</h3>
+                </div>
+            </div>
+            {% endfor %}
 
         </div>
+
     </div>
 </div>
 <a href="{% url 'account_logout' %}"><img id = "logout_button" src =  "{% static 'images/logout.png' %}"/></a>

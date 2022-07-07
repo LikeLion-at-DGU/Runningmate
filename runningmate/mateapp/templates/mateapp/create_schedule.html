@@ -1,0 +1,9 @@
+<form action="{% url 'mateapp:create_schedule' %}" method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    <p>날짜 선택 :</p>
+    <p><input type="date" name="startday">~<input type="date" name="endday"></p>
+    <p>과목명 : <input type="text" name="title"></p>
+    <p>일정 : <br><textarea type="text" name="body" id="" cols="30" rows="10"></textarea></p>
+    <p>컬러 :<br> <input type="color" id="project_color" value="#50cfbc"></p>
+    <button type="submit">추가하기</button>
+</form>

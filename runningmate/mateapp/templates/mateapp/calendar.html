@@ -1,9 +1,84 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 
+<link rel = "stylesheet" type="text/css" href = "{% static 'css/gantt.css' %}?after">
+
+<style>
+  /* navbar 현재 페이지 표시 */
+  #btn2 {
+      background-color: #735BF2;
+      color: white;
+  }
+
+  #home_logo {
+  width: 40px;
+  height: 40px;
+  background-image: url("{% static 'images/home.png' %}");
+  background-repeat: no-repeat;
+  display: inline-block;
+  padding-right: 10px;
+  }
+
+
+  #calender_logo {
+  width: 40px;
+  height: 40px;
+  /* background: #735BF2; */
+  background-image: url("{% static 'images/calenderOn.png' %}");
+  background-repeat: no-repeat;
+  display: inline-block;
+  padding-right: 10px;
+  }
+
+  #project_logo {
+    width: 40px;
+    height: 40px;
+    background-image: url("{% static 'images/project.png' %}");
+    background-repeat: no-repeat;
+    display: inline-block;
+    padding-right: 10px;
+    }
+</style>
+
 <div id="rec3">
   <div class="container2">
     <div class="item2" id="chart_text">러닝차트</div>
-    <div class="item2" id="chart"></div>
+
+    <div class="item2" id="gantt">
+      <div class="chart-axis">
+        <ul class="chart-subject">
+            <li style="color: 'calendar.0.color';"><img src="{% static 'images/Oval_mint.png' %}" class="Oval"/> IT 서비스 관리</li>
+            <li style="color: #fe7782;"><img src="{% static 'images/Oval_red.png' %}" class="Oval"/> 마케팅 원론 04</li>
+            <li style="color: #45bfff;"><img src="{% static 'images/Oval_blue.png' %}" class="Oval"/> 조직행위 03</li>
+            <li style="color: #ffbc54;"><img src="{% static 'images/Oval_yel.png' %}" class="Oval"/> 파이썬과 경영 01</li>
+            <li style="color: #735bf2;"><img src="{% static 'images/Oval_pur.png' %}" class="Oval"/> 사물인터넷 기초</li>
+        </ul>
+      </div>
+      <div class="chart-wrapper">
+        <ul class="chart-values">
+          <li>mon</li>
+          <li>tue</li>
+          <li>wed</li>
+          <li>thu</li>
+          <li>fri</li>
+          <li>sat</li>
+          <li>sun</li>
+        </ul>
+
+        <ul class="chart-bars">
+          <li data-duration="tue½-thu" data-color="#50cfbc">주제선정</li>
+          <li data-duration="mon-wed" data-color="#fe7782">팀 빌딩</li>
+          <!-- <li data-duration="thu½-fri" data-color="#fe7782">가입 선정</li> -->
+          <li data-duration="thu-sun" data-color="#45bfff">기업의 커뮤니케이션 우수 사례 조사</li>
+          <li data-duration="wed½-sat" data-color="#ffbc54">문자열 메소드 암기</li>
+          <li data-duration="fri-sat½" data-color="#735bf2">프로젝트 기획서 초안 작성</li>
+          <!-- <li data-duration="wed-wed" data-color="#색추가">Task</li>
+          <li data-duration="thu-fri½" data-color="#색추가">Task</li>
+          <li data-duration="mon½-wed½" data-color="#색추가">Task</li>
+          <li data-duration="fri-sat" data-color="#색추가">Task</li> -->
+        </ul>
+      </div>
+      <script src="{% static 'js/gantt.js'%}"></script>
+    </div>
     <div class="item2" id="calendar2_text">캘린더</div>
     <div class="item2" id="calendar2">
       <div class="calendar">
@@ -29,13 +104,25 @@
       </div>
       <script src="{% static 'js/calendar.js'%}"></script>
     </div>
-    <div class="item2" id="calendar2_2"></div>
+
+    {% if calendar.count == 0 %}
+    <div class="item2" id="calendar2_2">
+        오늘은 할일이 없습니다.
+    </div>
+    {% else %}
+    <div class="item2" id="calendar2_2">
+        {{calendar.0.title}}
+        {{calendar.0.starttime}}~{{calendar.0.endtime}}
+        {{calendar.0.place}}
+        {{calendar.0.body}}
+    </div>
+    {% endif %}
     <div class="item2" id="today">
       투데이
       <a
         id="plus"
         href="#"
-        onclick="window.open('todo_new','todo_new','resizable=no, width=600, height=500');return false"
+        onclick="window.open('create_schedule','create_schedule','resizable=no, width=600, height=500');return false"
         style="text-decoration-line: none"
         >+</a
       >
@@ -45,22 +132,103 @@
 
     <!-- 디데이 -->
     <div class="item2" id="dday1">
-      <section class="subject_name" id="dday1_subject"></section>
-      <section class="meeting_subject" id="dday1_meeting"></section>
-      <section class="count_dday" id="dday1_dday"></section>
-      <script src="{% static 'js/dday.js'%}"></script>
+        {% if calendar.0.title %}
+        <section class="subject_name" id="dday1_subject">{{calendar.0.title}}</section>
+        <section class="meeting_subject" id="dday1_meeting">{{calendar.0.body}}</section>
+        <section class="count_dday" id="dday1_dday"></section>
+        <script>
+        const finalDay1 = "{{calendar.0.endday|date:'Y-m-d'}}"
+  
+        function CalcDday(finalDay) {
+            var today = new Date();
+            finalDay = new Date(finalDay);
+            var year = today.getFullYear();
+            var month = ('0'+(today.getMonth() +1)).slice(-2);
+            var day = ('0'+today.getDate()).slice(-2);
+  
+            var dateString = year + '-' + month + '-' + day;
+            dateString = new Date(dateString);
+  
+            var dday = Math.ceil(((finalDay.getTime() - dateString.getTime()) / (1000*24*60*60)));
+                  
+            if (dday === 0){
+                return "D-day"
+            }
+            else{
+                return "D-" + dday;
+            }
+        }
+  
+        document.getElementById("dday1_dday").innerHTML = CalcDday(finalDay1); 
+  
+    </script>
+    {% endif %}
     </div>
     <div class="item2" id="dday2">
-      <section class="subject_name" id="dday2_subject"></section>
-      <section class="meeting_subject" id="dday2_meeting"></section>
+    {% if calendar.1.title %}
+      <section class="subject_name" id="dday2_subject">{{calendar.1.title}}</section>
+      <section class="meeting_subject" id="dday2_meeting">{{calendar.1.body}}</section>
       <section class="count_dday" id="dday2_dday"></section>
-      <script src="{% static 'js/dday.js'%}"></script>
+      <script>
+        const finalDay2 = "{{calendar.1.endday|date:'Y-m-d'}}"
+  
+        function CalcDday(finalDay) {
+            var today = new Date();
+            finalDay = new Date(finalDay);
+            var year = today.getFullYear();
+            var month = ('0'+(today.getMonth() +1)).slice(-2);
+            var day = ('0'+today.getDate()).slice(-2);
+  
+            var dateString = year + '-' + month + '-' + day;
+            dateString = new Date(dateString);
+  
+            var dday = Math.ceil(((finalDay.getTime() - dateString.getTime()) / (1000*24*60*60)));
+                  
+            if (dday === 0){
+                return "D-day"
+            }
+            else{
+                return "D-" + dday;
+            }
+        }
+  
+        document.getElementById("dday2_dday").innerHTML = CalcDday(finalDay2); 
+  
+    </script>
+    {% endif %}
     </div>
     <div class="item2" id="dday3">
-      <section class="subject_name" id="dday3_subject"></section>
-      <section class="meeting_subject" id="dday3_meeting"></section>
+        {% if calendar.2.title %}
+      <section class="subject_name" id="dday3_subject">{{calendar.2.title}}</section>
+      <section class="meeting_subject" id="dday3_meeting">{{calendar.2.body}}</section>
       <section class="count_dday" id="dday3_dday"></section>
-      <script src="{% static 'js/dday.js'%}"></script>
+      <script>
+        const finalDay3 = "{{calendar.2.endday|date:'Y-m-d'}}"
+  
+        function CalcDday(finalDay) {
+            var today = new Date();
+            finalDay = new Date(finalDay);
+            var year = today.getFullYear();
+            var month = ('0'+(today.getMonth() +1)).slice(-2);
+            var day = ('0'+today.getDate()).slice(-2);
+  
+            var dateString = year + '-' + month + '-' + day;
+            dateString = new Date(dateString);
+  
+            var dday = Math.ceil(((finalDay.getTime() - dateString.getTime()) / (1000*24*60*60)));
+                  
+            if (dday === 0){
+                return "D-day"
+            }
+            else{
+                return "D-" + dday;
+            }
+        }
+  
+        document.getElementById("dday3_dday").innerHTML = CalcDday(finalDay3); 
+  
+    </script>
+    {% endif %}
     </div>
     <!-- 체크리스트 -->
     <!-- <div class="detail_2">
