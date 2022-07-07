@@ -12,7 +12,3 @@ def createproject(request):
     new_post.body = request.POST.get('body')
     new_post.save()
     return redirect('mateapp:showmain')
-
-def detailproject(request, post_id):
-    post = get_object_or_404(Project, pk = post_id)
-    return render(request,'addproject/detailproject.html', {'post':post})
