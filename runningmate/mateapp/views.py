@@ -24,49 +24,72 @@ def showevent(request):
         month = datetime.date.today().month
         calendar = Calendar.objects.filter(writer=request.user, endday__contains=datetime.date(
             year, month, int(date_num))).order_by('endday')
-        if calendar.count() != 0:
-
-            if calendar.count() == 1:
-                c0_title = calendar[0].title
-                c0_startday = calendar[0].startday
-                c0_endday = calendar[0].endday
-                c0_starttime = calendar[0].starttime
-                c0_endtime = calendar[0].endtime
-                c0_place = calendar[0].place
-                c1_title = None
-                c1_startday = None
-                c1_endday = None
-                c1_starttime = None
-                c1_endtime = None
-                c1_place = None
-            elif calendar.count() > 1:
-                c0_title = calendar[0].title
-                c0_startday = calendar[0].startday
-                c0_endday = calendar[0].endday
-                c0_starttime = calendar[0].starttime
-                c0_endtime = calendar[0].endtime
-                c0_place = calendar[0].place
-                c1_title = calendar[1].title
-                c1_startday = calendar[1].startday
-                c1_endday = calendar[1].endday
-                c1_starttime = calendar[1].starttime
-                c1_endtime = calendar[1].endtime
-                c1_place = calendar[1].place
+  
+        if calendar.count() == 1:
+            c0_title = calendar[0].title
+            c0_startday = calendar[0].startday
+            c0_endday = calendar[0].endday
+            c0_starttime = calendar[0].starttime
+            c0_endtime = calendar[0].endtime
+            c0_place = calendar[0].place
+            c0_body = calendar[0].body
+            c1_title = None
+            c1_startday = None
+            c1_endday = None
+            c1_starttime = None
+            c1_endtime = None
+            c1_place = None
+            c1_body = None
             context = {
-                "status": "exist",
-                "title1": c0_title,
-                "startday1": c0_startday,
-                "endday1": c0_endday,
-                "starttime1": c0_starttime,
-                "endtime1": c0_endtime,
-                "place1": c0_place,
-                "title2": c1_title,
-                "startday2": c1_startday,
-                "endday2": c1_endday,
-                "starttime2": c1_starttime,
-                "endtime2": c1_endtime,
-                "place2": c1_place,
-            }
+            "status": "exist1",
+            "title1": c0_title,
+            "startday1": c0_startday,
+            "endday1": c0_endday,
+            "starttime1": c0_starttime,
+            "endtime1": c0_endtime,
+            "place1": c0_place,
+            "body1" : c0_body,
+            "title2": c1_title,
+            "startday2": c1_startday,
+            "endday2": c1_endday,
+            "starttime2": c1_starttime,
+            "endtime2": c1_endtime,
+            "place2": c1_place,
+            "body2" : c1_body,
+        }
+        elif calendar.count() == 2:
+            c0_title = calendar[0].title
+            c0_startday = calendar[0].startday
+            c0_endday = calendar[0].endday
+            c0_starttime = calendar[0].starttime
+            c0_endtime = calendar[0].endtime
+            c0_place = calendar[0].place
+            c0_body = calendar[0].body
+            c1_title = calendar[1].title
+            c1_startday = calendar[1].startday
+            c1_endday = calendar[1].endday
+            c1_starttime = calendar[1].starttime
+            c1_endtime = calendar[1].endtime
+            c1_place = calendar[1].place
+            c1_body = calendar[1].body
+            context = {
+            "status": "exist2",
+            "title1": c0_title,
+            "startday1": c0_startday,
+            "endday1": c0_endday,
+            "starttime1": c0_starttime,
+            "endtime1": c0_endtime,
+            "place1": c0_place,
+            "body1" : c0_body,
+            "title2": c1_title,
+            "startday2": c1_startday,
+            "endday2": c1_endday,
+            "starttime2": c1_starttime,
+            "endtime2": c1_endtime,
+            "place2": c1_place,
+            "body2" : c1_body,
+        }
+        
         else:
             context = {"status": "null"}
         return JsonResponse(context)

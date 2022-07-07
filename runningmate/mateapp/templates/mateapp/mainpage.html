@@ -86,24 +86,65 @@
         </div>
         {% if calendar.count == 0 %}
         <div class = "item" id = "schedule_1">
-            오늘은 할일이 없습니다.
+            
+           
         </div>
         <div class = "item" id = "schedule_2">
-            오늘은 할일이 없습니다.
+            
         </div>
 
- 
+        {% elif calendar.count == 1 %}
+            <div class = "item" id = "schedule_1">
+                <div id = "sch1">
+                    <section id = "cal_title" style="color: {{calendar.0.color}}; ">{{calendar.0.title}}</section>
+                    <section id = "cal_body">{{calendar.0.body}}</section>
+                    <section id = "cal_time_place">{{calendar.0.starttime}}~{{calendar.0.endtime}} / {{calendar.0.place}}</section>
+                </div>
+                <div id = "sch2_team">
+                    <div class = "cal_friend" style="border-radius: 50%; width: 25px;height: 25px; margin-top:50px; display: inline-block; background-color: {{calendar.0.color}};" id = "friend1" ></div>
+                    <div class = "cal_friend" style="border-radius: 50%; width: 25px;height: 25px; margin-top:50px; display: inline-block; background-color: {{calendar.0.color}};" id = "friend2"></div>
+                    <div class = "cal_friend" style="border-radius: 50%; width: 25px;height: 25px; margin-top:50px; display: inline-block; background-color: {{calendar.0.color}};" id = "friend3"></div>
+                    <div class = "cal_friend" style="border-radius: 50%; width: 25px;height: 25px; margin-top:50px; display: inline-block; background-color: {{calendar.0.color}};" id = "friend4"></div>
+                    <div class = "cal_friend" style="border-radius: 50%; width: 25px;height: 25px; margin-top:50px; display: inline-block; background-color: {{calendar.0.color}};" id = "friend5"></div>
+                    <div class = "cal_friend" style="border-radius: 50%; width: 25px;height: 25px; margin-top:50px; display: inline-block; background-color: {{calendar.0.color}};" id = "friend6"></div>
+                </div>
+            </div>
+            
+            <div class = "item" id = "schedule_2">
+            
+            </div>
+        
         {% else %}
         <div class = "item" id = "schedule_1">
-            {{calendar.0.title}}<br>
-            {{calendar.0.startday}}~{{calendar.0.endday}}<br>
-            {{calendar.0.place}}<br>
+            <div id = "sch1">
+                <section id = "cal_title" style="color: {{calendar.0.color}}; ">{{calendar.0.title}}</section>
+                <section id = "cal_body">{{calendar.0.body}}</section>
+                <section id = "cal_time_place">{{calendar.0.starttime}}~{{calendar.0.endtime}} / {{calendar.0.place}}</section>
+            </div>
+            <div id = "sch2_team">
+                <div class = "cal_friend" style="border-radius: 50%; width: 25px;height: 25px; margin-top:50px; display: inline-block; background-color: {{calendar.0.color}};" id = "friend1" ></div>
+                <div class = "cal_friend" style="border-radius: 50%; width: 25px;height: 25px; margin-top:50px; display: inline-block; background-color: {{calendar.0.color}};" id = "friend2"></div>
+                <div class = "cal_friend" style="border-radius: 50%; width: 25px;height: 25px; margin-top:50px; display: inline-block; background-color: {{calendar.0.color}};" id = "friend3"></div>
+                <div class = "cal_friend" style="border-radius: 50%; width: 25px;height: 25px; margin-top:50px; display: inline-block; background-color: {{calendar.0.color}};" id = "friend4"></div>
+                <div class = "cal_friend" style="border-radius: 50%; width: 25px;height: 25px; margin-top:50px; display: inline-block; background-color: {{calendar.0.color}};" id = "friend5"></div>
+                <div class = "cal_friend" style="border-radius: 50%; width: 25px;height: 25px; margin-top:50px; display: inline-block; background-color: {{calendar.0.color}};" id = "friend6"></div>
+            </div>
         </div>
         
         <div class = "item" id = "schedule_2">
-            {{calendar.1.title}}<br>
-            {{calendar.1.startday}}~{{calendar.1.endday}}<br>
-            {{calendar.1.place}}
+            <div id = "sch2">
+                <section id = "cal_title2" style="color: {{calendar.1.color}}; ">{{calendar.1.title}}</section>
+                <section id = "cal_body2">{{calendar.1.body}}</section>
+                <section id = "cal_time_place2">{{calendar.1.starttime}}~{{calendar.1.endtime}} / {{calendar.1.place}}</section>
+            </div>
+            <div id = "sch2_team">
+                <div class = "cal_friend" style="border-radius: 50%; width: 25px;height: 25px; margin-top:50px; display: inline-block; background-color: {{calendar.1.color}};" id = "friend1" ></div>
+                <div class = "cal_friend" style="border-radius: 50%; width: 25px;height: 25px; margin-top:50px; display: inline-block; background-color: {{calendar.1.color}};" id = "friend2"></div>
+                <div class = "cal_friend" style="border-radius: 50%; width: 25px;height: 25px; margin-top:50px; display: inline-block; background-color: {{calendar.1.color}};" id = "friend3"></div>
+                <div class = "cal_friend" style="border-radius: 50%; width: 25px;height: 25px; margin-top:50px; display: inline-block; background-color: {{calendar.1.color}};" id = "friend4"></div>
+                <div class = "cal_friend" style="border-radius: 50%; width: 25px;height: 25px; margin-top:50px; display: inline-block; background-color: {{calendar.1.color}};" id = "friend5"></div>
+                <div class = "cal_friend" style="border-radius: 50%; width: 25px;height: 25px; margin-top:50px; display: inline-block; background-color: {{calendar.1.color}};" id = "friend6"></div>
+            </div>
 
         </div>
         {% endif %}
@@ -121,7 +162,7 @@
 
 
 
-        <div class = "item" id = "chatting_text">최근 채팅</div>
+        <div class = "item" id = "chatting_text">최근 프로젝트</div>
         <div class = "item" id = "chatting_1">
             
         </div>
