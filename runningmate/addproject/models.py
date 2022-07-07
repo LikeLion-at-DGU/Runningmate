@@ -3,14 +3,20 @@ from django.contrib.auth.models import User
 
 
 class Project(models.Model): #프로젝트 추가
-    id = models.BigAutoField(help_text="Comment ID", primary_key=True) # 
-    startday = models.DateField('프로젝트 시작일')
-    endday = models.DateField('프로젝트 마감일')
+    id = models.BigAutoField(help_text="Comment ID", primary_key=True) 
+    startday = models.DateField()
+    endday = models.DateField()
     title = models.CharField(max_length=200)
-    intro = models.CharField(max_length=100)
+    body = models.TextField(null=True)
 
-
+    def __str__(self):
+        return self.startday
     
-    class Meta:
-        verbose_name = "프로젝트"
-        verbose_name_plural = "프로젝트"
+    def __str__(self):
+        return self.endday
+    
+    def __str__(self):
+        return self.title
+    
+    def summary(self):
+        return self.body[:30]
