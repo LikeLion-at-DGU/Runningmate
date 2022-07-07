@@ -67,7 +67,19 @@
       </div>
       <script src="{% static 'js/calendar.js'%}"></script>
     </div>
-    <div class="item2" id="calendar2_2"></div>
+
+    {% if calendar.count == 0 %}
+    <div class="item2" id="calendar2_2">
+        오늘은 할일이 없습니다.
+    </div>
+    {% else %}
+    <div class="item2" id="calendar2_2">
+        {{calendar.0.title}}
+        {{calendar.0.datetime}}
+        {{calendar.0.place}}
+        {{calendar.0.body}}
+    </div>
+    {% endif %}
     <div class="item2" id="today">
       투데이
       <a
@@ -83,22 +95,103 @@
 
     <!-- 디데이 -->
     <div class="item2" id="dday1">
-      <section class="subject_name" id="dday1_subject"></section>
-      <section class="meeting_subject" id="dday1_meeting"></section>
-      <section class="count_dday" id="dday1_dday"></section>
-      <script src="{% static 'js/dday.js'%}"></script>
+        {% if calendar.0.title %}
+        <section class="subject_name" id="dday1_subject">{{calendar.0.title}}</section>
+        <section class="meeting_subject" id="dday1_meeting">{{calendar.0.body}}</section>
+        <section class="count_dday" id="dday1_dday"></section>
+        <script>
+        const finalDay1 = "{{calendar.0.datetime|date:'Y-m-d'}}"
+  
+        function CalcDday(finalDay) {
+            var today = new Date();
+            finalDay = new Date(finalDay);
+            var year = today.getFullYear();
+            var month = ('0'+(today.getMonth() +1)).slice(-2);
+            var day = ('0'+today.getDate()).slice(-2);
+  
+            var dateString = year + '-' + month + '-' + day;
+            dateString = new Date(dateString);
+  
+            var dday = Math.ceil(((finalDay.getTime() - dateString.getTime()) / (1000*24*60*60)));
+                  
+            if (dday === 0){
+                return "D-day"
+            }
+            else{
+                return "D-" + dday;
+            }
+        }
+  
+        document.getElementById("dday1_dday").innerHTML = CalcDday(finalDay1); 
+  
+    </script>
+    {% endif %}
     </div>
     <div class="item2" id="dday2">
-      <section class="subject_name" id="dday2_subject"></section>
-      <section class="meeting_subject" id="dday2_meeting"></section>
+    {% if calendar.1.title %}
+      <section class="subject_name" id="dday2_subject">{{calendar.1.title}}</section>
+      <section class="meeting_subject" id="dday2_meeting">{{calendar.1.body}}</section>
       <section class="count_dday" id="dday2_dday"></section>
-      <script src="{% static 'js/dday.js'%}"></script>
+      <script>
+        const finalDay2 = "{{calendar.1.datetime|date:'Y-m-d'}}"
+  
+        function CalcDday(finalDay) {
+            var today = new Date();
+            finalDay = new Date(finalDay);
+            var year = today.getFullYear();
+            var month = ('0'+(today.getMonth() +1)).slice(-2);
+            var day = ('0'+today.getDate()).slice(-2);
+  
+            var dateString = year + '-' + month + '-' + day;
+            dateString = new Date(dateString);
+  
+            var dday = Math.ceil(((finalDay.getTime() - dateString.getTime()) / (1000*24*60*60)));
+                  
+            if (dday === 0){
+                return "D-day"
+            }
+            else{
+                return "D-" + dday;
+            }
+        }
+  
+        document.getElementById("dday2_dday").innerHTML = CalcDday(finalDay2); 
+  
+    </script>
+    {% endif %}
     </div>
     <div class="item2" id="dday3">
-      <section class="subject_name" id="dday3_subject"></section>
-      <section class="meeting_subject" id="dday3_meeting"></section>
+        {% if calendar.2.title %}
+      <section class="subject_name" id="dday3_subject">{{calendar.2.title}}</section>
+      <section class="meeting_subject" id="dday3_meeting">{{calendar.2.body}}</section>
       <section class="count_dday" id="dday3_dday"></section>
-      <script src="{% static 'js/dday.js'%}"></script>
+      <script>
+        const finalDay3 = "{{calendar.2.datetime|date:'Y-m-d'}}"
+  
+        function CalcDday(finalDay) {
+            var today = new Date();
+            finalDay = new Date(finalDay);
+            var year = today.getFullYear();
+            var month = ('0'+(today.getMonth() +1)).slice(-2);
+            var day = ('0'+today.getDate()).slice(-2);
+  
+            var dateString = year + '-' + month + '-' + day;
+            dateString = new Date(dateString);
+  
+            var dday = Math.ceil(((finalDay.getTime() - dateString.getTime()) / (1000*24*60*60)));
+                  
+            if (dday === 0){
+                return "D-day"
+            }
+            else{
+                return "D-" + dday;
+            }
+        }
+  
+        document.getElementById("dday3_dday").innerHTML = CalcDday(finalDay3); 
+  
+    </script>
+    {% endif %}
     </div>
     <!-- 체크리스트 -->
     <!-- <div class="detail_2">
