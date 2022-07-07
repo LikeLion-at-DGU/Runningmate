@@ -20,3 +20,5 @@ class Project(models.Model): #프로젝트 추가
     
     def summary(self):
         return self.body[:30]
+
+        ## test
