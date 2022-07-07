@@ -6,7 +6,7 @@
 {% block content %}
 
 <div class = "logout">
-  <p>정말로 로그아웃 하시겠습니까?</p>
+  <p>정말 로그아웃 하시겠습니까?</p>
 
   <form method="post" action="{% url 'account_logout' %}">
     {% csrf_token %}

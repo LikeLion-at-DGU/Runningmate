@@ -94,8 +94,21 @@ html, body{
     text-align: center;
     height: 100%;
     width: 100%;
+    font-size: 30px;
     background-color: #ECF0FF;
     font-family:"AppleSDGothicNeoM";
+}
+
+.logout button {
+    width: 350px;
+    height: 45px;
+    font-family: "AppleSDGothicNeoM";
+    background-color: #735BF2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
 }
 
 .social_login{
