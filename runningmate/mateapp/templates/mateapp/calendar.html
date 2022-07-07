@@ -58,7 +58,7 @@
     <div class="item2" id="gantt">
       <div class="chart-axis">
         <ul class="chart-subject">
-            <li style="color: #50cfbc;"><img src="{% static 'images/Oval_mint.png' %}" class="Oval"/> IT 서비스 관리</li>
+            <li style="color: #50cfbc;"><img src="{% static 'images/Oval_mint.png' %}" class="Oval"/> {{calendar.title}}</li>
             <li style="color: #fe7782;"><img src="{% static 'images/Oval_red.png' %}" class="Oval"/> 마케팅 원론 04</li>
             <li style="color: #45bfff;"><img src="{% static 'images/Oval_blue.png' %}" class="Oval"/> 조직행위 03</li>
             <li style="color: #ffbc54;"><img src="{% static 'images/Oval_yel.png' %}" class="Oval"/> 파이썬과 경영 01</li>
@@ -124,7 +124,7 @@
     {% else %}
     <div class="item2" id="calendar2_2">
         {{calendar.0.title}}
-        {{calendar.0.datetime}}
+        {{calendar.0.starttime}}~{{calendar.0.endtime}}
         {{calendar.0.place}}
         {{calendar.0.body}}
     </div>
@@ -134,7 +134,7 @@
       <a
         id="plus"
         href="#"
-        onclick="window.open('todo_new','todo_new','resizable=no, width=600, height=500');return false"
+        onclick="window.open('create_schedule','create_schedule','resizable=no, width=600, height=500');return false"
         style="text-decoration-line: none"
         >+</a
       >
@@ -149,7 +149,7 @@
         <section class="meeting_subject" id="dday1_meeting">{{calendar.0.body}}</section>
         <section class="count_dday" id="dday1_dday"></section>
         <script>
-        const finalDay1 = "{{calendar.0.datetime|date:'Y-m-d'}}"
+        const finalDay1 = "{{calendar.0.endday|date:'Y-m-d'}}"
   
         function CalcDday(finalDay) {
             var today = new Date();
@@ -182,7 +182,7 @@
       <section class="meeting_subject" id="dday2_meeting">{{calendar.1.body}}</section>
       <section class="count_dday" id="dday2_dday"></section>
       <script>
-        const finalDay2 = "{{calendar.1.datetime|date:'Y-m-d'}}"
+        const finalDay2 = "{{calendar.1.endday|date:'Y-m-d'}}"
   
         function CalcDday(finalDay) {
             var today = new Date();
@@ -215,7 +215,7 @@
       <section class="meeting_subject" id="dday3_meeting">{{calendar.2.body}}</section>
       <section class="count_dday" id="dday3_dday"></section>
       <script>
-        const finalDay3 = "{{calendar.2.datetime|date:'Y-m-d'}}"
+        const finalDay3 = "{{calendar.2.endday|date:'Y-m-d'}}"
   
         function CalcDday(finalDay) {
             var today = new Date();

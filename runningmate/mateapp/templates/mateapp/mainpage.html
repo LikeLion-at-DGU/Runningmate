@@ -94,13 +94,15 @@
         {% else %}
         <div class = "item" id = "schedule_1">
             {{calendar.0.title}}<br>
-            {{calendar.0.datetime}}<br>
+            {{calendar.0.body}}<br>
+            {{calendar.0.starttime}}~{{calendar.0.endtime}}<br>
             {{calendar.0.place}}<br>
         </div>
         
         <div class = "item" id = "schedule_2">
             {{calendar.1.title}}<br>
-            {{calendar.1.datetime}}<br>
+            {{calendar.1.body}}<br>
+            {{calendar.1.starttime}}~{{calendar.1.endtime}}<br>
             {{calendar.1.place}}
 
         </div>
