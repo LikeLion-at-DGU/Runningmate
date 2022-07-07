@@ -105,4 +105,13 @@ def timetable(request):
     return redirect('mateapp:showmain')  # render 보단 redirect 가 낫다.
 
 def project_name(request):
+    posts = Post.objects.all()
     return render(request, 'mateapp/project.html')
+
+
+
+def create_post(request): # 게시글을 생성하는 함수
+    if request.method == 'POST':
+        title = request.POST['title']
+        user = request.user
+
