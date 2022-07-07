@@ -1,16 +1,16 @@
 {% load static %}
 <!-- navbar -->
 
-<div class="navbar" style="padding: 10px; margin: 10px; box-sizing: initial;">
+<div class="navbar">
     <div class="nav_main">
-        <a href="{% url 'mateapp:showmain' %}"><img src="{% static 'images/logo.png' %}" class="nav_logo"/><span>learningmate</span></a>
+        <a href="{% url 'mateapp:showmain' %}"><img src="{% static 'images/logo.png' %}" class="nav_logo"/> <span>learningmate</span></a>
     </div>
 
     <div class="button_wrap">
-        <a href="{% url 'mateapp:showmain' %}"><div class="nav_button" id="btn1"><img src="{% static 'images/home.png' %}" id="home_logo"/>대시보드</div></a>
-        <a href="{% url 'mateapp:calendar' %}"><div class="nav_button" id="btn2"><img src="{% static 'images/date_range.png' %}" id="calender_logo"/>캘린더</div></a>
-        <a href="#"><div class="nav_button" id="btn3"><img src="{% static 'images/Vector.png' %}" id="project_logo"/>프로젝트</div></a>
-        <ul class="project_sub">
+        <a href="{% url 'mateapp:showmain' %}"><div class="nav_button" id="btn1"><div id="home_logo"></div> 대시보드</div></a>
+        <a href="{% url 'mateapp:calendar' %}"><div class="nav_button" id="btn2"><div id="calender_logo"></div> 캘린더</div></a>
+        <a href="#"><div class="nav_button" id="btn3"><div id="project_logo"></div> 프로젝트</div></a>
+        <ul class="project_wrap">
             <a href = "{% url 'mateapp:project_name' %}"><li id = "project">IT 서비스 관리</li></a>
             <li>마케팅원론 04</li>
             <li>조직행위 03</li>
