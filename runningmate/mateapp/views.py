@@ -14,8 +14,8 @@ from addproject import models
 def showmain(request):
     calendar = Calendar.objects.filter(writer=request.user, endday__contains=datetime.date.today(
     )).order_by('endday')  # 글을 작성한 유저의 캘린더 정보만 가져오겠다. 가까운 날짜 순으로 정렬
-    project = Project.objects.all()
-    return render(request, 'mateapp/mainpage.html', {'calendar': calendar, 'project':project})
+    # project = Project.objects.all()
+    return render(request, 'mateapp/mainpage.html', {'calendar': calendar, })
 
 def showevent(request):
     if request.method == 'POST':
@@ -87,7 +87,7 @@ def create_schedule(request):
 
 def calendar(request):
     calendar = Calendar.objects.filter(writer=request.user)  # 글을 작성한 유저의 캘린더 정보만 가져오겠다. 가까운 날짜 순으로 정렬
-    projects = Calendar.objects.all() # 모델을 전부 불러옴 
+    projects = Calendar.objects.all() # 모델을 전부 불러옴
     todos_list = [] # 빈리스트를 만듬 , 담아서 렌더링하는 경우가 많음
     todos = Todo.objects.all()
     todos_list.append(todos) # 그 프로젝트의 등록된 투두를 불러와서 그걸 넣은거임 
