@@ -524,11 +524,13 @@ span{
 /* navbar ---------------------------------------*/
 .navbar {
     /* border: 1px solid black; */
-    width: auto;
+    position: absolute;
+    top: 3%;
+    left: 0.2%;
+    width: 15%;
     padding: 10px;
     margin: 10px;
     box-sizing: initial;
-    position: absolute;
 }
 
 .navbar a {
@@ -566,14 +568,15 @@ span{
     border-radius: 22px;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
-    padding-left: 15px;
-    width: 240px;
+    padding-left: 20px;
+    width: 250px;
     height: 65px;
     margin-left: 15px;
     transition: all .5s;
     font-family: 'AppleSDGothicNeoB';
-    font-size: 18px;
+    font-size: 19px;
     color: #5D7285;
 }
 
