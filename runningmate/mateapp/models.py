@@ -21,6 +21,7 @@ class Calendar(models.Model): # 대시보드 캘린더 모델
         ]
     color = ColorField(samples=COLOR_PALETTE)
 
+
     def __str__(self):
         return self.title
 
@@ -51,7 +52,7 @@ class Project(models.Model):
 
 class Todo(models.Model):
     content = models.TextField()
-    project = models.ForeignKey(Project ,on_delete=models.CASCADE, related_name='todos')
+    project = models.ForeignKey(Calendar ,on_delete=models.CASCADE, related_name='todos')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
