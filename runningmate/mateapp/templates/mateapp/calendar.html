@@ -2,6 +2,43 @@
 
 <link rel = "stylesheet" type="text/css" href = "{% static 'css/gantt.css' %}?after">
 
+<style>
+  /* navbar 현재 페이지 표시 */
+  #btn2 {
+      background-color: #735BF2;
+      color: white;
+  }
+
+  #home_logo {
+  width: 40px;
+  height: 40px;
+  background-image: url("{% static 'images/home.png' %}");
+  background-repeat: no-repeat;
+  display: inline-block;
+  padding-right: 10px;
+  }
+
+
+  #calender_logo {
+  width: 40px;
+  height: 40px;
+  /* background: #735BF2; */
+  background-image: url("{% static 'images/calenderOn.png' %}");
+  background-repeat: no-repeat;
+  display: inline-block;
+  padding-right: 10px;
+  }
+
+  #project_logo {
+    width: 40px;
+    height: 40px;
+    background-image: url("{% static 'images/project.png' %}");
+    background-repeat: no-repeat;
+    display: inline-block;
+    padding-right: 10px;
+    }
+</style>
+
 <div id="rec3">
   <div class="container2">
     <div class="item2" id="chart_text">러닝차트</div>
