@@ -17,7 +17,6 @@ def showmain(request):
     project = Project.objects.all()
     return render(request, 'mateapp/mainpage.html', {'calendar': calendar, 'project':project})
 
-
 def showevent(request):
     if request.method == 'POST':
         date_num = json.loads(request.body)
@@ -55,6 +54,7 @@ def showevent(request):
         return JsonResponse(context)
 
 
+
 def login(request):
     if request.user.is_authenticated:
         return render(request, 'mateapp/mainpage.html')
@@ -64,15 +64,15 @@ def login(request):
 
 
 def calendar(request):
+    calendar = Calendar.objects.filter(writer=request.user)  # 글을 작성한 유저의 캘린더 정보만 가져오겠다. 가까운 날짜 순으로 정렬
     projects = Project.objects.all() # 모델을 전부 불러옴 
     todos_list = [] # 빈리스트를 만듬 , 담아서 렌더링하는 경우가 많음
     todos = Todo.objects.all()
     todos_list.append(todos) # 그 프로젝트의 등록된 투두를 불러와서 그걸 넣은거임 
         # 보내고 싶은거 리스트로 보내서 장고나 뭐든 저런식으로 할 일이 많음
         # 알아두기
-    return render(request, 'mateapp/calendar.html', {'todos_list':todos_list, 'projects':projects})
+    return render(request, 'mateapp/calendar.html', {'todos_list':todos_list, 'projects':projects, 'calendar':calendar})
     # 리스트 자체를 렌더링함
-
 
 def timetable(request):
     if request.method == "POST":
