@@ -22,7 +22,7 @@ def showevent(request):
         date_num = json.loads(request.body)
         year = datetime.date.today().year
         month = datetime.date.today().month
-        calendar = Calendar.objects.filter(writer=request.user, datetime__contains=datetime.date(
+        calendar = Calendar.objects.filter(writer=request.user, endday__contains=datetime.date(
             year, month, int(date_num))).order_by('endday')
         if calendar.count() != 0:
 
@@ -47,7 +47,7 @@ def showevent(request):
                 c0_endtime = calendar[0].endtime
                 c0_place = calendar[0].place
                 c1_title = calendar[1].title
-                c1_starday = calendar[1].startday
+                c1_startday = calendar[1].startday
                 c1_endday = calendar[1].endday
                 c1_starttime = calendar[1].starttime
                 c1_endtime = calendar[1].endtime
@@ -61,10 +61,10 @@ def showevent(request):
                 "endtime1": c0_endtime,
                 "place1": c0_place,
                 "title2": c1_title,
-                "startday2": c0_startday,
-                "endday2": c0_endday,
-                "starttime2": c0_starttime,
-                "endtime2": c0_endtime,
+                "startday2": c1_startday,
+                "endday2": c1_endday,
+                "starttime2": c1_starttime,
+                "endtime2": c1_endtime,
                 "place2": c1_place,
             }
         else:
@@ -82,6 +82,7 @@ def login(request):
 
 def create_schedule(request):
     new_schedule = Calendar.objects.filter(writer=request.user)
+    new_schedule.save()
     return render(request, 'mateapp/create_schedule.html')
 
 def calendar(request):
