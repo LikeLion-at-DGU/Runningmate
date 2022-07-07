@@ -3,20 +3,19 @@ from django.contrib.auth.models import User
 
 
 class Project(models.Model): #프로젝트 추가
-    id = models.BigAutoField(help_text="Comment ID", primary_key=True) # 
+    id = models.BigAutoField(help_text="Comment ID", primary_key=True) 
     startday = models.DateField()
     endday = models.DateField()
     title = models.CharField(max_length=200)
-    intro = models.CharField(max_length=100)
     body = models.TextField(null=True)
 
-    def startday(self):
+    def __str__(self):
         return self.startday
     
-    def endday(self):
+    def __str__(self):
         return self.endday
     
-    def title(self):
+    def __str__(self):
         return self.title
     
     def summary(self):
