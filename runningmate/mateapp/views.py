@@ -13,7 +13,7 @@ from addproject import models
 
 def showmain(request):
     calendar = Calendar.objects.filter(writer=request.user, datetime__contains=datetime.date.today(
-    )).order_by('datetime')  # 글을 작성한 유저의 캘린더 정보만 가져오겠다. 가까운 날짜 순으로 정렬
+    )).order_by('endday')  # 글을 작성한 유저의 캘린더 정보만 가져오겠다. 가까운 날짜 순으로 정렬
     project = Project.objects.all()
     return render(request, 'mateapp/mainpage.html', {'calendar': calendar, 'project':project})
 
@@ -23,30 +23,48 @@ def showevent(request):
         year = datetime.date.today().year
         month = datetime.date.today().month
         calendar = Calendar.objects.filter(writer=request.user, datetime__contains=datetime.date(
-            year, month, int(date_num))).order_by('datetime')
+            year, month, int(date_num))).order_by('endday')
         if calendar.count() != 0:
 
             if calendar.count() == 1:
                 c0_title = calendar[0].title
-                c0_datetime = calendar[0].datetime
+                c0_startday = calendar[0].startday
+                c0_endday = calendar[0].endday
+                c0_starttime = calendar[0].starttime
+                c0_endtime = calendar[0].endtime
                 c0_place = calendar[0].place
                 c1_title = None
-                c1_datetime = None
+                c1_startday = None
+                c1_endday = None
+                c1_starttime = None
+                c1_endtime = None
                 c1_place = None
             elif calendar.count() > 1:
                 c0_title = calendar[0].title
-                c0_datetime = calendar[0].datetime
+                c0_startday = calendar[0].startday
+                c0_endday = calendar[0].endday
+                c0_starttime = calendar[0].starttime
+                c0_endtime = calendar[0].endtime
                 c0_place = calendar[0].place
                 c1_title = calendar[1].title
-                c1_datetime = calendar[1].datetime
+                c1_starday = calendar[1].startday
+                c1_endday = calendar[1].endday
+                c1_starttime = calendar[1].starttime
+                c1_endtime = calendar[1].endtime
                 c1_place = calendar[1].place
             context = {
                 "status": "exist",
                 "title1": c0_title,
-                "datetime1": c0_datetime,
+                "startday1": c0_startday,
+                "endday1": c0_endday,
+                "starttime1": c0_starttime,
+                "endtime1": c0_endtime,
                 "place1": c0_place,
                 "title2": c1_title,
-                "datetime2": c1_datetime,
+                "startday2": c0_startday,
+                "endday2": c0_endday,
+                "starttime2": c0_starttime,
+                "endtime2": c0_endtime,
                 "place2": c1_place,
             }
         else:
@@ -62,6 +80,9 @@ def login(request):
     else:
         return render(request, 'account/login.html')
 
+def create_schedule(request):
+    new_schedule = Calendar.objects.filter(writer=request.user)
+    return render(request, 'mateapp/create_schedule.html')
 
 def calendar(request):
     calendar = Calendar.objects.filter(writer=request.user)  # 글을 작성한 유저의 캘린더 정보만 가져오겠다. 가까운 날짜 순으로 정렬
