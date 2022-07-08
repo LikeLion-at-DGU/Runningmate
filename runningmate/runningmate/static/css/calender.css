@@ -257,3 +257,13 @@ table {
     line-height: 30px;
     margin-left: 8px;
 }
+
+/* 캘린더 일정 */
+#cal_sch1{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    float: left;
+    width: 55%;
+}
