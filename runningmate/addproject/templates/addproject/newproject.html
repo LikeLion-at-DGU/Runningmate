@@ -43,14 +43,17 @@
             {%csrf_token%}
             <h1>프로젝트 관리</h1>
             <h2>과목별 새로운 프로젝트를 추가해주세요!</h2>
-            <br>
-            <div class="project_content">
+            <div class="project_content" id="bg">
                 <div class="content_title">
                     <span>프로젝트 기간</span><br><br>
                     <span>과목명</span><br><br>
                     <span>프로젝트명</span><br><br>
                     <span>러닝메이트 1</span><br><br>
                     <span>러닝메이트 2</span><br><br>
+                    <span>러닝메이트 3</span><br><br>
+                    <span>러닝메이트 4</span><br><br>
+                    <span>러닝메이트 5</span><br><br>
+                    <span>러닝메이트 6</span><br><br>
                     <span>과목 컬러</span>
                 </div>
 
@@ -60,20 +63,24 @@
                     <input type="text" id="it3" name="body" placeholder=" 프로젝트명을 입력해주세요  ex) 가치 사슬 분석"><br><br>
                     <input type="text" id="it4" name="teammate1" placeholder=" 팀원의 아이디를 입력해주세요"><br><br>
                     <input type="text" id="it5" name="teammate2" placeholder=" 팀원의 아이디를 입력해주세요"><br><br>
-                    <button id="btn_1" onclick=""><input type="color" id="pj_color1" value="#fe7782" onclick=""></button>
-                    <button id="btn_2" onclick=""><input type="color" id="pj_color2" value="#ffbc54" onclick=""></button>
-                    <button id="btn_3" onclick=""><input type="color" id="pj_color3" value="#50cfbc" onclick=""></button>
-                    <button id="btn_4" onclick=""><input type="color" id="pj_color4" value="#45bfff" onclick=""></button>
-                    <button id="btn_5" onclick=""><input type="color" id="pj_color5" value="#735bf2" onclick=""></button>
-                    <br><br>
+                    <input type="text" id="it5" name="teammate3" placeholder=" 팀원의 아이디를 입력해주세요"><br><br>
+                    <input type="text" id="it5" name="teammate4" placeholder=" 팀원의 아이디를 입력해주세요"><br><br>
+                    <input type="text" id="it5" name="teammate5" placeholder=" 팀원의 아이디를 입력해주세요"><br><br>
+                    <input type="text" id="it5" name="teammate6" placeholder=" 팀원의 아이디를 입력해주세요"><br><br>
+                    <div id = "color_select">
+                        <button id="btn_1" onclick=""><input type="color" id="pj_color1" value="#fe7782" onclick=""></button>
+                        <button id="btn_2" onclick=""><input type="color" id="pj_color2" value="#ffbc54" onclick=""></button>
+                        <button id="btn_3" onclick=""><input type="color" id="pj_color3" value="#50cfbc" onclick=""></button>
+                        <button id="btn_4" onclick=""><input type="color" id="pj_color4" value="#45bfff" onclick=""></button>
+                        <button id="btn_5" onclick=""><input type="color" id="pj_color5" value="#735bf2" onclick=""></button>
+                    </div>
                 </div>
             </div>
-            <div id="btn">
-                <button type="submit">추가하기</button>
+            <div id="btn" >
+                <button type="submit" style="margin-top:10px">추가하기</button>
             </div>
         </form>
     </div>
 </div>
-
 
 {% endblock %}

@@ -634,6 +634,7 @@ span{
 .nav_button:hover {
     background-color: #735BF2;
     color: white;
+    border: 0.1px solid #d5ddff;
 }
 
 .nav_button img {
