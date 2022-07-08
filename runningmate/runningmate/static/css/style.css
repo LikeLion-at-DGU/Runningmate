@@ -521,6 +521,48 @@ span{
     color: #8F9BB3;
 }
 
+#sch1_team1, #sch2_team1{
+    background-image: url(../images/memoji.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#sch1_team2, #sch2_team2{
+    background-image: url(../images/memoji2.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#sch1_team3, #sch2_team3{
+    background-image: url(../images/memoji3.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#sch1_team4, #sch2_team4{
+    background-image: url(../images/memoji4.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#sch1_team5, #sch2_team5{
+    background-image: url(../images/memoji.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#sch1_team6, #sch2_team6{
+    background-image: url(../images/memoji3.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
 /* navbar ---------------------------------------*/
 .navbar {
     /* border: 1px solid black; */
