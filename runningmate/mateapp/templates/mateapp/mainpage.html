@@ -176,37 +176,36 @@
         <div class = "item" id = "project_text">프로젝트 관리
             <section id = "plus" ><a href="{% url 'addproject:newproject' %}">+</a></section>
         </div>
-<!-- 
         <div class = "item" id = "project">
             <div class="scroll--element" id = "subject1">
-                <h6>2022.03.12~ {{addproject.Project.startday.0}}</h6>
-                <h2> IT 서비스 관리</h2>
-                <h3> 인시던트 관리 프레임워크 기획</h3>
+                <h6>{{addproject.project.startday.0}} {{addproject.project.endday.0}}</h6>
+                <h2>{{addproject.project.title.0}}</h2>
+                <h3>{{addproject.project.body.0}}</h3>
             </div>
             <div class="scroll--element" id= "subject2">
-                <h6>2022.04.02~2022.06.21</h6>
-                <h2> 마케팅원론 04</h2>
-                <h3> ESG 경영 실천 기업 사례분석 및 전략 개선</h3>
+                <h6>{{addproject.project.startday.1}} {{addproject.project.endday.1}}</h6>
+                <h2>{{addproject.project.title.1}}</h2>
+                <h3>{{addproject.project.body.1}}</h3>
             </div>
             <div class="scroll--element" id = "subject3">
-                <h6>2022.04.05~2022.06.22</h6>
-                <h2> 조직행위 03</h2>
-                <h3> 기업 커뮤니케이션의 모범 사례 조사 및 평가</h3>
+                <h6>{{addproject.project.startday.2}} {{addproject.project.endday.2}}</h6>
+                <h2>{{addproject.project.title.2}}</h2>
+                <h3>{{addproject.project.body.2}}</h3>
             </div>
             <div class="scroll--element" id = "subject4">
-                <h6>2022.03.12~2022.06.21</h6>
-                <h2> 파이썬과 경영 01</h2>
-                <h3> 그룹 스터디 2주차</h3>
+                <h6>{{addproject.project.startday.3}} {{addproject.project.endday.3}}</h6>
+                <h2>{{addproject.project.title.3}}</h2>
+                <h3>{{addproject.project.body.3}}</h3>
             </div>
             <div class="scroll--element" id = "subject5">
-                <h6>2022.03.12~2022.06.21</h6>
-                <h2> 사물인터넷 기초</h2>
-                <h3> 프로젝트 기획서 초찬 작성</h3>
+                <h6>{{addproject.project.startday.4}} {{addproject.project.endday.4}}</h6>
+                <h2>{{addproject.project.title.4}}</h2>
+                <h3>{{addproject.project.title.4}}</h3>
             </div>
         </div> -->
         <div class = "item" id = "project">
 
-            {% for project in projects %}
+        <!--{% for project in projects %}
             <div class = "item" id = "project">
                 <div class="scroll--element" id = "subject1">
                         <h2>{{project.title}}</h2>
@@ -214,7 +213,7 @@
                         <h3>{{project.summary}}</h3>
                 </div>
             </div>
-            {% endfor %}
+            {% endfor %}-->    
 
         </div>
 
