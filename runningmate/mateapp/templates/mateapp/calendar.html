@@ -308,15 +308,27 @@
     </div> -->
       <div class="item2">
         {% for calendar in calendars %}
-        {{calendar.title}}
-            {% for schedules in schedules_list %}
-            {% for schedule in schedules %}
-            {% if schedule.title == calendar.title %}
-            {{calendar.body}}
-            {% endif %}
-            {% endfor %}
-            {% endfor %}
-            {% endfor %}
+        <section class="calendar_wrap">
+          
+          <div class="calendar_title">
+            {{calendar.title}}
+          </div>
+          <div class="calendar_content">
+            <div class="calendar_cb">
+              <input type="checkbox" class="cb" id="cb3">
+            </div>
+            <div class="calendar_body">
+              {% for schedules in schedules_list %}
+              {% for schedule in schedules %}
+              {% if schedule.title == calendar.title %}
+              <span id="marg_text">{{calendar.body}}</span>
+              {% endif %}
+              {% endfor %}
+              {% endfor %}
+              {% endfor %}
+            </div>
+          </div>
+        </section>
       <!-- 리스트에 담긴걸 포문 두개로 나눠서 투두 하나씩 불러와서 if문으로 
       불러온 하나의 투두랑 연결된 하나의 프로젝트가
       투두모델에서 외래  -->
@@ -325,37 +337,8 @@
   </div>
 
 <script>
-  // 코드 간소화 실패로 임시 처리
-  document.getElementById("cb1").addEventListener("click", function () {
-    document.getElementById("marg_text1").classList.toggle("dec_show");
+  document.querySelector(".calendar_cb").addEventListener("click", function () {
+    document.getElementById("marg_text").classList.toggle("dec_show");
   });
-  document.getElementById("cb2").addEventListener("click", function () {
-    document.getElementById("marg_text2").classList.toggle("dec_show");
-  });
-  document.getElementById("cb3").addEventListener("click", function () {
-    document.getElementById("marg_text3").classList.toggle("dec_show");
-  });
-  document.getElementById("cb4").addEventListener("click", function () {
-    document.getElementById("marg_text4").classList.toggle("dec_show");
-  });
-  document.getElementById("cb5").addEventListener("click", function () {
-    document.getElementById("marg_text5").classList.toggle("dec_show");
-  });
-  document.getElementById("cb6").addEventListener("click", function () {
-    document.getElementById("marg_text6").classList.toggle("dec_show");
-  });
-  document.getElementById("cb7").addEventListener("click", function () {
-    document.getElementById("marg_text7").classList.toggle("dec_show");
-  });
-  document.getElementById("cb8").addEventListener("click", function () {
-    document.getElementById("marg_text8").classList.toggle("dec_show");
-  });
-  document.getElementById("cb9").addEventListener("click", function () {
-    document.getElementById("marg_text9").classList.toggle("dec_show");
-  });
-
-  // document.querySelectorAll(".cb")[0].addEventListener("click", function(){
-  //     document.querySelectorAll(".marg_text")[0].classList.togle("dec_show");
-  // }); 안되는 이유 파악 필요
 </script>
 {% endblock %}
