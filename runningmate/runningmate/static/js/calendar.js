@@ -136,48 +136,106 @@ document.querySelectorAll(".date").forEach((date) => {
         let object = contextToJson(context);
         let status = object.status;
         if(status == "exist1"){
+           /*데이터베이스 받아오기*/
           let title1 = object.title1;
           let body1 = object.body1;
           let starttime1 = object.starttime1;
           let endtime1 = object.endtime1;
           let place1 = object.place1;
           let color1 = object.color1;
-          // schedule_1.innerHTML = "<p>" + title1 + "<br>" + datetime1 +  "<br>" + place1 + "</p>";
+          
+          /*html에 영역 추가*/
+          schedule_1.innerHTML = [
+            "<div id = 'sch1'>",
+            "<section id = 'cal_title' ></section>",
+            "<section id = cal_body></section>",
+            "<section id = cal_time_place></section>",
+            "</div>",
+          ].join("")
+
+          
+          /*html에 내용 추가*/
           cal_title.innerHTML = title1;
-          cal_title.style.color =color1;
           cal_body.innerHTML = body1;
           cal_time_place.innerHTML = starttime1 + "~" + endtime1 + "/" + place1;
           schedule_2.innerHTML = "<div id = 'no_schedule'>아직 등록된 일정이 없어요</div>";
           
+          /*제목 색 css 변경 (과목 색이랑 같게) */
+          cal_title.style.color =color1;
+
+          /*미모지 css 변경 추가*/
+          sch1_team1.style.backgroundColor=color1;
+          sch1_team2.style.backgroundColor=color1;
+          sch1_team3.style.backgroundColor=color1;
+          sch1_team4.style.backgroundColor=color1;
+          sch1_team5.style.backgroundColor=color1;
+          sch1_team6.style.backgroundColor=color1;
+
         } 
         else if (status == "exist2") {
+          /*데이터베이스 받아오기*/
           let title1 = object.title1;
           let body1 = object.body1;
           let starttime1 = object.starttime1;
           let endtime1 = object.endtime1;
           let place1 = object.place1;
           let color1 = object.color1;
-          // schedule_1.innerHTML = "<p>" + title1 + "<br>" + datetime1 +  "<br>" + place1 + "</p>";
-          cal_title.innerHTML = title1;
-          cal_body.innerHTML = body1;
-          cal_time_place.innerHTML = starttime1 + "~" + endtime1 + "/" + place1;
-          cal_title.style.color =color1;
-          // document.getElementsByClassName("cal_friend").style.backgroundColor=color1;
+
           let title2 = object.title2;
           let body2 = object.body2;
           let starttime2 = object.starttime2;
           let endtime2 = object.endtime2;
           let place2 = object.place2;
           let color2 = object.color2;
+          
+          /*html에 영역 추가*/
+          schedule_1.innerHTML = [
+            "<div id = 'sch1'>",
+            "<section id = 'cal_title' ></section>",
+            "<section id = cal_body></section>",
+            "<section id = cal_time_place></section>",
+            "</div>"
+          ].join("")
+
+          schedule_2.innerHTML = [
+            "<div id = 'sch2'>",
+            "<section id = 'cal_title2' ></section>",
+            "<section id = cal_body2></section>",
+            "<section id = cal_time_place2></section>",
+            "</div>"
+          ].join("")
+
+          /*html에 내용 추가 (스케줄1) */
+          cal_title.innerHTML = title1;
+          cal_body.innerHTML = body1;
+          cal_time_place.innerHTML = starttime1 + "~" + endtime1 + "/" + place1;
+
+
+          /*html에 내용 추가 (스케줄2) */
           cal_title2.innerHTML = title2;
           cal_body2.innerHTML = body2;
           cal_time_place2.innerHTML = starttime2 + "~" + endtime2 + "/" + place2;
-          ca2_title.style.color =color2;
-          // document.getElementsByClassName("cal_friend2").style.backgroundColor=color2;
-          // schedule_2.innerHTML = "<p>" + title2 + "<br>" + datetime2 +  "<br>" + place2 + "</p>";
-          "cal_title2".innerHTML = title2;
-          "cal_body2".innerHTML = body2;
-          // document.getElementById("cal_time_place").innerHTML = starttime2 + "~" + endtime2 + "/" + place2;
+
+          /*제목 색 css 변경 (과목 색이랑 같게) */
+          cal_title.style.color =color1;
+          cal_title2.style.color =color2;
+
+          /*일정 1 미모지 css 배경색 변경*/
+          sch1_team1.style.backgroundColor=color1;
+          sch1_team2.style.backgroundColor=color1;
+          sch1_team3.style.backgroundColor=color1;
+          sch1_team4.style.backgroundColor=color1;
+          sch1_team5.style.backgroundColor=color1;
+          sch1_team6.style.backgroundColor=color1;
+
+          /*일정 2 미모지 css 배경색 변경*/
+          sch2_team1.style.backgroundColor=color2;
+          sch2_team2.style.backgroundColor=color2;
+          sch2_team3.style.backgroundColor=color2;
+          sch2_team4.style.backgroundColor=color2;
+          sch2_team5.style.backgroundColor=color2;
+          sch2_team6.style.backgroundColor=color2;
+
         }
         else {
           schedule_1.innerHTML = "<div id = 'no_schedule'>아직 등록된 일정이 없어요</div>";
