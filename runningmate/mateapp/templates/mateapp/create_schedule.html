@@ -1,9 +1,85 @@
-<form action="{% url 'mateapp:create_schedule' %}" method="post" enctype="multipart/form-data">
-    {%csrf_token%}
-    <p>날짜 선택 :</p>
-    <p><input type="date" name="startday">~<input type="date" name="endday"></p>
-    <p>시간 선택 : <input type="time" name="starttime">~<input type="time" name="endtime"></p>
-    <p>과목명 : <input type="title" name="title"></p>
-    <p>일정 : <br><textarea type="body" name="body" id="" cols="30" rows="10"></textarea></p>
-    <button type="submit">추가하기</button>
-</form>
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<style>
+/* navbar 현재 페이지 표시 */
+    .nav_button {
+        padding: initial;
+        margin: initial;
+        box-sizing: initial;
+        padding-left: 10px;
+        margin-left: 20px;
+        width: 257px;
+    }
+
+    .nav_button span {
+        margin-left: 10px;
+    }
+
+    #btn2 {
+        background-color: #735BF2;
+        color: white;
+    }
+
+    #home_logo {
+        width: 30px;
+        height: 30px;
+        background-image: url("{% static 'images/home.png' %}");
+        background-repeat: no-repeat;
+        display: inline-block;
+        margin-left: 10px;
+    }
+
+    #calender_logo {
+        width: 30px;
+        height: 30px;
+        /* background: #735BF2; */
+        background-image: url("{% static 'images/calenderOn.png' %}");
+        background-repeat: no-repeat;
+        display: inline-block;
+        margin-left: 10px;
+    }
+
+    #project_logo {
+        width: 30px;
+        height: 30px;
+        background-image: url("{% static 'images/project.png' %}");
+        background-repeat: no-repeat;
+        display: inline-block;
+        margin-left: 10px;
+        }
+</style>
+
+<link rel = "stylesheet" href = "{% static 'css/create_schedule.css' %}?after">
+
+<div id="rec3">
+    <div class="rec_today">
+        <h1>투데이</h1>
+        <h2>할 일이 있나요? 일정을 추가해주세요!</h2>
+        <br>
+        <form action="{% url 'mateapp:create_schedule' %}" method="post" enctype="multipart/form-data">
+        {%csrf_token%}
+            <div class="today_wrap">
+                <div class="today_title">
+                    <span>날짜</span><br><br>
+                    <span>시간</span><br><br>
+                    <span>과목명</span><br><br>
+                    <span>장소</span><br><br>
+                    <span>일정</span><br><br>
+                </div>
+
+                <div class="today_content">
+                <input type="date" id="ipt1" name="date_picker" data-placeholer=" 우측 아이콘 클릭하여 날짜를 입력해주세요" required aria-required="true"><br><br>
+                <input type="time" id="ipt2" name="starttime">~<input type="time" id="ipt2" name="endtime"><br><br>
+                <input type="title" id="ipt3" name="title" placeholder="  과목명을 입력해주세요"><br><br>
+                <input type="place" id="ipt5" name="place" placeholder="  장소를 입력해주세요"><br><br>
+                <textarea type="body" id="ipt4" name="body" id="" cols="30" rows="10" placeholder="  일정을 입력해주세요"></textarea><br><br>
+                </div>
+            </div>
+            <div id="btn">
+                <button type="submit">추가하기</button>
+            </div>            
+        </form>
+    </div>    
+</div>
+
+{% endblock %}

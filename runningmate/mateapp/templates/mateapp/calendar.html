@@ -155,16 +155,15 @@
       <button class="nav-btn go-prev" onclick="preDay()">&lt;</button>
       <div class="today_day">
         <script>
+          function todayTime() {
 
-          var now = new Date();
-          function todayTime(now) {
-
+            var now = new Date();
             var week = ['SUN', 'MON', 'TUE', 'WED', 'TUH', 'FRI', 'SAT'];
-            var dayOfWeek = week[now.getDay()];
-
+            for (var i=0 in week){
+              if (i==now.getDay())  toweek = week[i];
+            }
           }
-          document.querySelector('today_day').textContent = {dayOfWeek};
-
+          document.write(<p>toweek</p>);
         </script>
       </div>
       <button class="nav-btn go-next" onclick="nextDay()">&gt;</button>
@@ -307,26 +306,26 @@
             </tr>
         </table>
     </div> -->
-
-    {% for calendar in calendars %}
-    {{calendar.title}}
-          {% for schedules in schedules_list %}
+      <div class="item2">
+        {% for calendar in calendars %}
+        {{calendar.title}}
+            {% for schedules in schedules_list %}
             {% for schedule in schedules %}
-              {% if schedule.title == calendar.title %}
-                {{calendar.body}}
-              {% endif %}
+            {% if schedule.title == calendar.title %}
+            {{calendar.body}}
+            {% endif %}
             {% endfor %}
-          {% endfor %}
-    {% endfor %}
-
-    <!-- 리스트에 담긴걸 포문 두개로 나눠서 투두 하나씩 불러와서 if문으로 
-    불러온 하나의 투두랑 연결된 하나의 프로젝트가
-    투두모델에서 외래  -->
+            {% endfor %}
+            {% endfor %}
+      <!-- 리스트에 담긴걸 포문 두개로 나눠서 투두 하나씩 불러와서 if문으로 
+      불러온 하나의 투두랑 연결된 하나의 프로젝트가
+      투두모델에서 외래  -->
+      </div>
     </div>
   </div>
 
 <script>
-  // css링크 연결 불가 현상, 코드 간소화 실패로 임시 처리
+  // 코드 간소화 실패로 임시 처리
   document.getElementById("cb1").addEventListener("click", function () {
     document.getElementById("marg_text1").classList.toggle("dec_show");
   });

@@ -13,7 +13,7 @@ def createproject(request):
     new_post.title = request.POST.get('title')
     new_post.body = request.POST.get('body')
     new_post.save()
-    return redirect('mateapp:showmain')
+    return render(request, 'mateapp/showmain.html', 'mateapp/calendar.html', 'mateapp/create_schedule.html')
 
 def showproject(request):
     if request.method == 'POST':

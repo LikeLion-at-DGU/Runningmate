@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 from django.contrib.auth.models import User
 from colorfield.fields import ColorField
@@ -7,9 +8,8 @@ from addproject.models import *
 
 class Calendar(models.Model): # 대시보드 캘린더 모델
     id = models.AutoField(primary_key=True)
-    title = models.ForeignKey(Project, on_delete=models.CASCADE)
+    title = models.CharField(max_length=200)
     writer = models.ForeignKey(User,on_delete=models.CASCADE)
-    startday = models.DateField(null=True)
     endday = models.DateField(null=True)
     starttime = models.TimeField(null=True)
     endtime = models.TimeField(null=True)
@@ -19,7 +19,11 @@ class Calendar(models.Model): # 대시보드 캘린더 모델
     COLOR_PALETTE = [
         ("#50cfbc","1",),("#fe7782","2",),("#45bfff","3",),("#ffbc54","4",),("#735bf2","5",),
         ]
-    color = ColorField(samples=COLOR_PALETTE)
+    color = ColorField(samples=COLOR_PALETTE, default="#50cfbc")
+
+
+    def __str__(self):
+        return self.title
 
     def summary(self):
         return self.body[:10]

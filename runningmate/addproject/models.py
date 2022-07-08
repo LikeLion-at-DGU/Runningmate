@@ -1,3 +1,4 @@
+from csv import writer
 from django.db import models
 from django.contrib.auth.models import User
 from colorfield.fields import ColorField
@@ -8,6 +9,7 @@ class Project(models.Model): #프로젝트 추가
     endday = models.DateField(default='1000-01-01')
     title = models.CharField(max_length=200)
     body = models.TextField(null=True)
+    writer = models.ForeignKey(User,on_delete=models.CASCADE)
     
     def __str__(self):
         return self.title

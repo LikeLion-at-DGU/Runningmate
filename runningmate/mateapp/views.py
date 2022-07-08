@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from users.models import Profile
 from .models import *
+from addproject.models import *
 from datetime import datetime
 from django.shortcuts import render, redirect
 from users.models import Profile
@@ -113,17 +114,22 @@ def login(request):
         return render(request, 'account/login.html')
 
 def create_schedule(request):
+    projecttitles = Project.objects.filter(writer=request.user)
     if request.method == 'POST':
         new_schedule = Calendar()
         new_schedule.title = request.POST['title']
         new_schedule.writer = request.user
         new_schedule.body = request.POST['body']
+        new_schedule.endday = request.POST.get('endday')
+        new_schedule.starttime = request.POST.get('starttime')
+        new_schedule.endtime = request.POST.get('endtime')
+        new_schedule.place = request.POST['place']
         
         new_schedule.save()
-        return redirect('mateapp:create_schedule')
+        return redirect('mateapp:calendar')
     else :
         new_schedule = Calendar.objects.all()
-        return render(request, 'mateapp/create_schedule.html',{'new_schedule':new_schedule})
+        return render(request, 'mateapp/create_schedule.html',{'new_schedule':new_schedule, 'projecttitles':projecttitles})
 
 def calendar(request):
     calendar = Calendar.objects.filter(writer=request.user)  # 글을 작성한 유저의 캘린더 정보만 가져오겠다. 가까운 날짜 순으로 정렬
