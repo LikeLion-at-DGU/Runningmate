@@ -58,7 +58,9 @@
     <div class="item2" id="gantt">
       <div class="chart-axis">
         <ul class="chart-subject">
-            <li style="color: {{calendar.0.color}};"><img src="{% static 'images/Oval_mint.png' %}" class="Oval"/> {{calendar.0.title}}</li>
+            {% for calendar in calendars %}
+            <li style="color: {{calendar.color}};"><img src="{% static 'images/Oval_mint.png' %}" class="Oval"/> {{calendar.title}}</li>
+            {% endfor %}
         </ul>
       </div>
       <div class="chart-wrapper">
@@ -73,13 +75,22 @@
         </ul>
 
         <ul class="chart-bars">
-          <li data-duration="wed-wed" data-color="{{calendar.0.color}}">{{calendar.0.body}}</li>
-          <li data-duration="mon-wed" data-color="#fe7782">팀 빌딩</li>
-          <!-- <li data-duration="thu½-fri" data-color="#fe7782">가입 선정</li> -->
+          {% for calendar in calendars %}
+          {% for schedules in schedules_list %}
+          {% for schedule in schedules %}
+          {% if schedule.title == calendar.title %}
+          <li data-duration="wed-wed" data-color="{{calendar.color}}">{{calendar.body}}</li>
+          {% endif %}
+          {% endfor %}
+          {% endfor %}
+          {% endfor %}
+
+          <!-- <li data-duration="mon-wed" data-color="#fe7782">팀 빌딩</li>
+          <li data-duration="thu½-fri" data-color="#fe7782">가입 선정</li>
           <li data-duration="thu-sun" data-color="#45bfff">기업의 커뮤니케이션 우수 사례 조사</li>
           <li data-duration="wed½-sat" data-color="#ffbc54">문자열 메소드 암기</li>
           <li data-duration="fri-sat½" data-color="#735bf2">프로젝트 기획서 초안 작성</li>
-          <!-- <li data-duration="wed-wed" data-color="#색추가">Task</li>
+          <li data-duration="wed-wed" data-color="#색추가">Task</li>
           <li data-duration="thu-fri½" data-color="#색추가">Task</li>
           <li data-duration="mon½-wed½" data-color="#색추가">Task</li>
           <li data-duration="fri-sat" data-color="#색추가">Task</li> -->
@@ -142,17 +153,18 @@
 
     <div class="item2" id="today_date">
       <button class="nav-btn go-prev" onclick="preDay()">&lt;</button>
-      <div class="today-day">
+      <div class="today_day">
         <script>
-          const todayTime = () => {
-            let now = new Date();
-            const week = ['SUN', 'MON', 'TUE', 'WED', 'TUH', 'FRI', 'SAT'];
-            let dayOfWeek = week[now.getDay()];
 
-            return dayOfWeek
+          var now = new Date();
+          function todayTime(now) {
+
+            var week = ['SUN', 'MON', 'TUE', 'WED', 'TUH', 'FRI', 'SAT'];
+            var dayOfWeek = week[now.getDay()];
+
           }
+          document.querySelector('today_day').textContent = {dayOfWeek};
 
-          document.getElementById("today-day").innerHTML = dayOfWeek;
         </script>
       </div>
       <button class="nav-btn go-next" onclick="nextDay()">&gt;</button>
@@ -295,16 +307,16 @@
             </tr>
         </table>
     </div> -->
-    {% for project in projects %}
-        {{project.title}}
-            {% for todos in todos_list %}
-            {% for todo in todos %}
-            {% if todo.project == project %}
-                {{todo.content}}
-            {% endif %}
-            {% endfor %}
-            {% endfor %}
-    {% endfor %}
+    {% for calendar in calendars %}
+    {{calendar.title}}
+          {% for schedules in schedules_list %}
+          {% for schedule in schedules %}
+          {% if schedule.title == calendar.title %}
+          {{calendar.body}}
+          {% endif %}
+          {% endfor %}
+          {% endfor %}
+          {% endfor %}
     <!-- 리스트에 담긴걸 포문 두개로 나눠서 투두 하나씩 불러와서 if문으로 
     불러온 하나의 투두랑 연결된 하나의 프로젝트가
     투두모델에서 외래  -->
