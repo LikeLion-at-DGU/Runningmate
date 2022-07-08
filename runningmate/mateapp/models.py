@@ -1,12 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
 from colorfield.fields import ColorField
+from addproject.models import *
 
 # Create your models here.
 
 class Calendar(models.Model): # 대시보드 캘린더 모델
     id = models.AutoField(primary_key=True)
-    title = models.CharField(max_length=200)
+    title = models.ForeignKey(Project, on_delete=models.CASCADE)
     writer = models.ForeignKey(User,on_delete=models.CASCADE)
     startday = models.DateField(null=True)
     endday = models.DateField(null=True)
@@ -19,10 +20,6 @@ class Calendar(models.Model): # 대시보드 캘린더 모델
         ("#50cfbc","1",),("#fe7782","2",),("#45bfff","3",),("#ffbc54","4",),("#735bf2","5",),
         ]
     color = ColorField(samples=COLOR_PALETTE)
-
-
-    def __str__(self):
-        return self.title
 
     def summary(self):
         return self.body[:10]
@@ -49,11 +46,11 @@ class Calendar(models.Model): # 대시보드 캘린더 모델
     # on_delete 설정을 안하면 그대로 남게된다. 네이버 지식인 같은 것임
     # 만약 온딜리트 설정을 해놨다면 회원탈퇴시 같이 삭제되는 것임 
 
-class Todo(models.Model):
-    content = models.TextField()
-    project = models.ForeignKey(Calendar ,on_delete=models.CASCADE, related_name='todos')
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+# class Todo(models.Model):
+#     content = models.TextField()
+#     project = models.ForeignKey(Calendar ,on_delete=models.CASCADE, related_name='todos')
+#     created_at = models.DateTimeField(auto_now_add=True)
+#     updated_at = models.DateTimeField(auto_now=True)
 
     # def __str__(self):
     #     return self.post
