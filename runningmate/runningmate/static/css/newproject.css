@@ -63,10 +63,15 @@
 }
 
 /* 프로젝트 입력란 ---------------------------------*/
+.content_title {
+    line-height: 27.5px;
+}
+
 .project_content {
     display: flex;
     flex-direction: row;
     margin-left: 500px;
+
 }
 
 .content_input {
@@ -96,13 +101,36 @@
     border-radius: 5px;
 }
 
+input[type="color"] {
+	-webkit-appearance: none;
+	border: none;
+    background: none;
+	width: 35px;
+	height: 35px;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+    border-radius: 50%;
+}
+
+#btn_1, #btn_2, #btn_3, #btn_4, #btn_5 {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
 /* 프로젝트 관리 버튼 -------------------------------*/
 #btn {
     display: flex;
     justify-content: center;
 }
 
-#rec_project button{
+#btn button{
     width: 495px;
     font-family: "AppleSDGothicNeoM";
     background-color: #735BF2;
