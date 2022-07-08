@@ -125,7 +125,6 @@ function contextToJson(context) {
   const string_to_json = JSON.parse(context_to_string);
   return string_to_json; 
 }
-
 document.querySelectorAll(".date").forEach((date) => {
   date.addEventListener("click", () => {
     let dateNum = date.childNodes[0].innerText;
@@ -136,40 +135,50 @@ document.querySelectorAll(".date").forEach((date) => {
       success: function (context) {
         let object = contextToJson(context);
         let status = object.status;
-        if (status == "exist2") {
+        if(status == "exist1"){
           let title1 = object.title1;
           let body1 = object.body1;
           let starttime1 = object.starttime1;
           let endtime1 = object.endtime1;
           let place1 = object.place1;
+          let color1 = object.color1;
+          // schedule_1.innerHTML = "<p>" + title1 + "<br>" + datetime1 +  "<br>" + place1 + "</p>";
+          cal_title.innerHTML = title1;
+          cal_title.style.color =color1;
+          cal_body.innerHTML = body1;
+          cal_time_place.innerHTML = starttime1 + "~" + endtime1 + "/" + place1;
+          schedule_2.innerHTML = "<div id = 'no_schedule'>아직 등록된 일정이 없어요</div>";
+          
+        } 
+        else if (status == "exist2") {
+          let title1 = object.title1;
+          let body1 = object.body1;
+          let starttime1 = object.starttime1;
+          let endtime1 = object.endtime1;
+          let place1 = object.place1;
+          let color1 = object.color1;
           // schedule_1.innerHTML = "<p>" + title1 + "<br>" + datetime1 +  "<br>" + place1 + "</p>";
           cal_title.innerHTML = title1;
           cal_body.innerHTML = body1;
           cal_time_place.innerHTML = starttime1 + "~" + endtime1 + "/" + place1;
+          cal_title.style.color =color1;
+          // document.getElementsByClassName("cal_friend").style.backgroundColor=color1;
           let title2 = object.title2;
           let body2 = object.body2;
           let starttime2 = object.starttime2;
           let endtime2 = object.endtime2;
           let place2 = object.place2;
+          let color2 = object.color2;
           cal_title2.innerHTML = title2;
           cal_body2.innerHTML = body2;
           cal_time_place2.innerHTML = starttime2 + "~" + endtime2 + "/" + place2;
+          ca2_title.style.color =color2;
+          // document.getElementsByClassName("cal_friend2").style.backgroundColor=color2;
           // schedule_2.innerHTML = "<p>" + title2 + "<br>" + datetime2 +  "<br>" + place2 + "</p>";
           "cal_title2".innerHTML = title2;
           "cal_body2".innerHTML = body2;
           // document.getElementById("cal_time_place").innerHTML = starttime2 + "~" + endtime2 + "/" + place2;
-        }else if(status == "exist1"){
-          let title1 = object.title1;
-          let body1 = object.body1;
-          let starttime1 = object.starttime1;
-          let endtime1 = object.endtime1;
-          let place1 = object.place1;
-          // schedule_1.innerHTML = "<p>" + title1 + "<br>" + datetime1 +  "<br>" + place1 + "</p>";
-          cal_title.innerHTML = title1;
-          cal_body.innerHTML = body1;
-          cal_time_place.innerHTML = starttime1 + "~" + endtime1 + "/" + place1;
-          schedule_2.innerHTML = "<div id = 'no_schedule'>아직 등록된 일정이 없어요</div>";
-        } 
+        }
         else {
           schedule_1.innerHTML = "<div id = 'no_schedule'>아직 등록된 일정이 없어요</div>";
           schedule_2.innerHTML = "<div id = 'no_schedule'>아직 등록된 일정이 없어요</div>";
