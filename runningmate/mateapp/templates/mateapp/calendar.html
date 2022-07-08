@@ -117,18 +117,25 @@
       <script src="{% static 'js/calendar.js'%}"></script>
     </div>
 
-    {% if calendar.count == 0 %}
-    <div class="item2" id="calendar2_2">
-        오늘은 할일이 없습니다.
-    </div>
-    {% else %}
-    <div class="item2" id="calendar2_2">
-        {{calendar.0.title}}
-        {{calendar.0.starttime}}~{{calendar.0.endtime}}
-        {{calendar.0.place}}
-        {{calendar.0.body}}
-    </div>
-    {% endif %}
+    <div class = "item2" id = "schedule_1">
+      {% if calendar.count == 0 %}
+          <div id = 'no_schedule'>아직 등록된 일정이 없어요</div>
+      {% else %} 
+          <div id = "sch1" style="float:left; width: 55%;">
+              <section id = "cal_title" style="color: {{calendar.0.color}};">{{calendar.0.title}}</section>
+              <section id = "cal_body">{{calendar.0.body}}</section>
+              <section id = "cal_time_place">{{calendar.0.starttime}}~{{calendar.0.endtime}} / {{calendar.0.place}}</section>
+          </div>
+          <div id = "sch1_team" style="float:right; width:45%;">
+              <div class = "cal_friend1" style="background-color: {{calendar.0.color}};" id = "sch1_team1" ></div>
+              <div class = "cal_friend1" style="background-color: {{calendar.0.color}};" id = "sch1_team2"></div>
+              <div class = "cal_friend1" style="background-color: {{calendar.0.color}};" id = "sch1_team3"></div>
+              <div class = "cal_friend1" style="background-color: {{calendar.0.color}};" id = "sch1_team4"></div>
+              <div class = "cal_friend1" style="background-color: {{calendar.0.color}};" id = "sch1_team5"></div>
+              <div class = "cal_friend1" style="background-color: {{calendar.0.color}};" id = "sch1_team6"></div>
+          </div>
+      {% endif %}
+  </div>
     <div class="item2" id="today">
       투데이
       <a
@@ -143,9 +150,9 @@
     <div class="item2" id="today_date"></div>
 
     <!-- 디데이 -->
-    <div class="item2" id="dday1">
+    <div class="item2" id="dday1" style="background-color: {{calendar.0.color}}">
         {% if calendar.0.title %}
-        <section class="subject_name" id="dday1_subject">{{calendar.0.title}}</section>
+        <section class="subject_name" id="dday1_subject" >{{calendar.0.title}}</section>
         <section class="meeting_subject" id="dday1_meeting">{{calendar.0.body}}</section>
         <section class="count_dday" id="dday1_dday"></section>
         <script>
@@ -176,7 +183,7 @@
     </script>
     {% endif %}
     </div>
-    <div class="item2" id="dday2">
+    <div class="item2" id="dday2" style="background-color: {{calendar.1.color}}">
     {% if calendar.1.title %}
       <section class="subject_name" id="dday2_subject">{{calendar.1.title}}</section>
       <section class="meeting_subject" id="dday2_meeting">{{calendar.1.body}}</section>
@@ -209,7 +216,7 @@
     </script>
     {% endif %}
     </div>
-    <div class="item2" id="dday3">
+    <div class="item2" id="dday3" style="background-color: {{calendar.2.color}}">
         {% if calendar.2.title %}
       <section class="subject_name" id="dday3_subject">{{calendar.2.title}}</section>
       <section class="meeting_subject" id="dday3_meeting">{{calendar.2.body}}</section>

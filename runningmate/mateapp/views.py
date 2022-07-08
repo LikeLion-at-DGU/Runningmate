@@ -61,7 +61,7 @@ def showevent(request):
             "body2" : c1_body,
             "color2" : c1_color,
         }
-        elif calendar.count() == 2:
+        elif calendar.count() >= 2:
             c0_title = calendar[0].title
             c0_startday = calendar[0].startday
             c0_endday = calendar[0].endday
