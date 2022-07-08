@@ -71,7 +71,21 @@ class Todo(models.Model):
 class Post(models.Model):
     day = models.DateField(auto_now_add=True) # 현재 생성일자를 출력
     title = models.CharField(max_length=30) # 할 일 리스트를 게시판 형식 제목으로 받음 
-    user = models.ForeignKey(User,on_delete=models.CASCADE) # 옆에 작성한 사람 얼굴이 떠야하니까 유저 모델 및 on_delete 적용
+    user = models.ForeignKey(User,verbose_name="작성자",on_delete=models.CASCADE) # 옆에 작성한 사람 얼굴이 떠야하니까 유저 모델 및 on_delete 적용
+
+    def __str__(self):
+        return self.title
+
+class Comment(models.Model):
+    day = models.DateField(auto_now_add=True) # 댓글 입력 날짜 출력
+    user = models.ForeignKey(User,on_delete=models.CASCADE) # 한 명의 유저한테 여러명의 댓글 관계를 맺는모델, 기본 모델이라소 related_name 쓸 필요없다
+    content = models.CharField(max_length=200) # 댓글을 입력할 창
+    post = models.ForeignKey(Post,on_delete=models.CASCADE, related_name ='comments') 
+    # 유저한명당 여러개의 코멘트가 가능해서 1(유저) N(코멘트)로써 적용됨
+    # 한 개의 게시글에도 여러개의 코멘트가 가능함
+    #  포스트는 게시글이고 이건 댓글인데, Post에 대한 Foreign을 작성해야함
+    # related_name 은 나중에 추적을 할 때 쓰는거임
+    # on_delated 는 게시글 삭제시 댓글을 다 삭제한다는 것임
 
     def __str__(self):
         return self.title

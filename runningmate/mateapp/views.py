@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from users.models import Profile
 from .models import *
-from datetime import datetime
+from datetime import date, datetime
 from django.shortcuts import render, redirect
 from users.models import Profile
 import json
@@ -152,4 +152,15 @@ def timetable(request):
 
 def project_name(request):
     posts = Post.objects.all()
-    return render(request, 'mateapp/project.html')
+    return render(request, 'mateapp/project.html', {'posts':posts})
+
+
+# 게시물 CRUD
+
+def create_post(request):
+    if request.method == "POST":
+        title = request.POST['title']
+        created_at = datetime.date.now() # 오늘 일자 출력됨
+        Post.objects.create(title=title, day=created_at) # 모델=뷰
+    return redirect('mateapp:project_name')
+        

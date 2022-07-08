@@ -41,22 +41,26 @@
 
 <div id = "rec3">
     <div class = "container3">
+        <form action="{% url 'mateapp:create_post' %}" method="POST" enctype="multipart/form-data">
+            {%csrf_token%}
+            <label for="title">
+                <input type="text" name="title" id='title' required placeholder="할 일을 입력해주세요">
+            </label>
+        </form>
         <div class = "item3" id = "pro_project_text">프로젝트</div>
         <div class = "item3" id = "pro_project"></div>
         <div class = "item3" id = "pro_runningmate_text">러닝메이트</div>
         <div class = "item3" id = "pro_runningmate"></div>
         <div class = "item3" id = "pro_runningspace_text">
             <span>러닝스페이스</span>
-            <section id = "plus2" >+</section>
+            <section id = "plus2">+</section>
         </div>
-        <div class = "item3" id = "pro_runningspace"></div>
-        <div class = "item3" id = "pro_meeting1"></div>
-        <div class = "item3" id = "pro_meeting2"></div>
-        <div class = "item3" id = "pro_meeting3"></div>
-        <div class = "item3" id = "pro_meeting4"></div>
-        <div class = "item3" id = "pro_meeting5"></div>
-        <div class = "item3" id = "pro_meeting6"></div>
-
+        {% for post in posts %}
+        <div class = "item3" id = "pro_runningspace">{{post.title}}</div>
+        {% empty %}
+        <div class = "item3" id = "pro_runningspace">qwd</div>
+        
+        {% endfor %}
     </div>
 
 </div>
