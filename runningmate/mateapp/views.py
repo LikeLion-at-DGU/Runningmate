@@ -33,6 +33,7 @@ def showevent(request):
             c0_endtime = calendar[0].endtime
             c0_place = calendar[0].place
             c0_body = calendar[0].body
+            c0_color = calendar[0].color
             c1_title = None
             c1_startday = None
             c1_endday = None
@@ -40,6 +41,7 @@ def showevent(request):
             c1_endtime = None
             c1_place = None
             c1_body = None
+            c1_color = None
             context = {
             "status": "exist1",
             "title1": c0_title,
@@ -49,6 +51,7 @@ def showevent(request):
             "endtime1": c0_endtime,
             "place1": c0_place,
             "body1" : c0_body,
+            "color1" : c0_color,
             "title2": c1_title,
             "startday2": c1_startday,
             "endday2": c1_endday,
@@ -56,8 +59,9 @@ def showevent(request):
             "endtime2": c1_endtime,
             "place2": c1_place,
             "body2" : c1_body,
+            "color2" : c1_color,
         }
-        elif calendar.count() == 2:
+        elif calendar.count() >= 2:
             c0_title = calendar[0].title
             c0_startday = calendar[0].startday
             c0_endday = calendar[0].endday
@@ -65,6 +69,7 @@ def showevent(request):
             c0_endtime = calendar[0].endtime
             c0_place = calendar[0].place
             c0_body = calendar[0].body
+            c0_color = calendar[0].color
             c1_title = calendar[1].title
             c1_startday = calendar[1].startday
             c1_endday = calendar[1].endday
@@ -72,6 +77,7 @@ def showevent(request):
             c1_endtime = calendar[1].endtime
             c1_place = calendar[1].place
             c1_body = calendar[1].body
+            c1_color = calendar[1].color
             context = {
             "status": "exist2",
             "title1": c0_title,
@@ -81,6 +87,7 @@ def showevent(request):
             "endtime1": c0_endtime,
             "place1": c0_place,
             "body1" : c0_body,
+            "color1" : c0_color,
             "title2": c1_title,
             "startday2": c1_startday,
             "endday2": c1_endday,
@@ -88,11 +95,13 @@ def showevent(request):
             "endtime2": c1_endtime,
             "place2": c1_place,
             "body2" : c1_body,
+            "color2" : c1_color,
         }
         
         else:
             context = {"status": "null"}
         return JsonResponse(context)
+
 
 
 
@@ -104,27 +113,34 @@ def login(request):
         return render(request, 'account/login.html')
 
 def create_schedule(request):
-    new_schedule = Calendar()
-    new_schedule.title = request.POST.get('title')
-    new_schedule.save()
-    return redirect(request, 'mateapp/create_schedule.html')
+    if request.method == 'POST':
+        new_schedule = Calendar()
+        return redirect('new_schedule')
+    else :
+        new_schedule = Calendar.objects.all()
+        return render(request, 'mateapp/create_schedule.html',{'new_schedule':new_schedule})
 
 def calendar(request):
     calendar = Calendar.objects.filter(writer=request.user)  # 글을 작성한 유저의 캘린더 정보만 가져오겠다. 가까운 날짜 순으로 정렬
+    
+    calendars_list = []
+    calendars = Calendar.objects.all()
+    calendars_list.append(calendars)
+    
     projects = Calendar.objects.all() # 모델을 전부 불러옴
     todos_list = [] # 빈리스트를 만듬 , 담아서 렌더링하는 경우가 많음
     todos = Todo.objects.all()
     todos_list.append(todos) # 그 프로젝트의 등록된 투두를 불러와서 그걸 넣은거임 
         # 보내고 싶은거 리스트로 보내서 장고나 뭐든 저런식으로 할 일이 많음
         # 알아두기
-    return render(request, 'mateapp/calendar.html', {'todos_list':todos_list, 'projects':projects, 'calendar':calendar})
+    return render(request, 'mateapp/calendar.html', {'todos_list':todos_list, 'projects':projects, 'calendar':calendar, 'calendars_list':calendars_list, 'calendars':calendars})
     # 리스트 자체를 렌더링함
 
 def timetable(request):
     if request.method == "POST":
         # Profile에서 요청받은 user의 정보만 불러옴
         profile = Profile.objects.get(user=request.user)
-        profile.timetable = request.FILESini.get('timetable')
+        profile.timetable = request.FILES.get('timetable')
         profile.save(update_fields=['timetable'])
     return redirect('mateapp:showmain')  # render 보단 redirect 가 낫다.
 
