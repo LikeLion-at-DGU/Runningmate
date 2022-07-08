@@ -15,7 +15,7 @@
 		<div id = "login_signup" style="display:block;text-align: right; margin-right:15px; ">
 			<a href="{% url 'account_signup' %}" style="color: #252525; font-size: 15px; text-decoration: none;" >회원가입</a>	 
 		</div>
-		 
+		
 		{% if redirect_field_value %}
 		<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
 		{% endif %}

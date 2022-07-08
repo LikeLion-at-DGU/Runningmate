@@ -1,9 +1,74 @@
-<form action="{% url 'addproject:createproject' %}" method="post" enctype="multipart/form-data">
-    {%csrf_token%}
-    <p>프로젝트 기한 :</p>
-    <p><input type="date" name="startday">~<input type="date" name="endday"></p>
-    <p>과목명 : <input type="text" name="title"></p>
-    <p>프로젝트 설명 : <br><textarea type="text" name="body" id="" cols="30" rows="10"></textarea></p>
-    <p>컬러 :<br> <input type="color" id="project_color" value="#50CFBC"></p>
-    <button type="submit">추가하기</button>
-</form>
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<style>
+    /* navbar 현재 페이지 표시 */
+    #btn1 {
+        background-color: #735BF2;
+        color: white;
+    }
+
+    #home_logo {
+    width: 30px;
+    height: 30px;
+    background-image: url("{% static 'images/homeOn.png' %}");
+    background-repeat: no-repeat;
+    display: inline-block;
+    padding-right: 10px;
+    }
+
+    #calender_logo {
+    width: 30px;
+    height: 30px;
+    background-image: url("{% static 'images/calender.png' %}");
+    background-repeat: no-repeat;
+    display: inline-block;
+    padding-right: 10px;
+    }
+
+    #project_logo {
+    width: 30px;
+    height: 30px;
+    background-image: url("{% static 'images/project.png' %}");
+    background-repeat: no-repeat;
+    display: inline-block;
+    padding-right: 10px;
+    }
+</style>
+
+<link rel = "stylesheet" href = "{% static 'css/newproject.css' %}?after">
+
+<div id="rec3">
+    <div id="rec_project">
+        <form action="{% url 'addproject:createproject' %}" method="post" enctype="multipart/form-data">
+            {%csrf_token%}
+            <h1>프로젝트 관리</h1>
+            <h2>과목별 새로운 프로젝트를 추가해주세요!</h2>
+            <br>
+            <div class="project_content">
+                <div class="content_title">
+                    <span>프로젝트 기간</span><br><br>
+                    <span>과목명</span><br><br>
+                    <span>프로젝트명</span><br><br>
+                    <span>러닝메이트 1</span><br><br>
+                    <span>러닝메이트 2</span><br><br>
+                    <span>과목 컬러</span>
+                </div>
+
+                <div class="content_input">
+                    <input type="date" name="startday" id="it1" placeholder=" 시작일">~<input type="date" name="endday" id="it1" placeholder=" 종료일"><br><br>
+                    <input type="text" id="it2" name="title" placeholder=" 과목명을 입력해주세요 ex)경영학원론"><br><br>
+                    <input type="text" id="it3" name="body" placeholder=" 프로젝트명을 입력해주세요 ex)가치 사슬 분석"><br><br>
+                    <input type="text" id="it4" name="teammate1" placeholder=" 팀원의 아이디를 입력해주세요"><br><br>
+                    <input type="text" id="it5" name="teammate2" placeholder=" 팀원의 아이디를 입력해주세요"><br><br>
+                    <input type="color" id="project_color" value="#50CFBC"><br><br>
+                </div>
+            </div>
+            <div id="btn">
+                <button type="submit">추가하기</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}
