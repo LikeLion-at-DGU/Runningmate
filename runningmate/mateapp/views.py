@@ -15,7 +15,7 @@ def showmain(request):
     calendar = Calendar.objects.filter(writer=request.user, endday__contains=datetime.date.today(
     )).order_by('endday')  # 글을 작성한 유저의 캘린더 정보만 가져오겠다. 가까운 날짜 순으로 정렬
     # project = Project.objects.all()
-    return render(request, 'mateapp/mainpage.html', {'calendar': calendar, })
+    return render(request, 'mateapp/mainpage.html', {'calendar': calendar })
 
 def showevent(request):
     if request.method == 'POST':
