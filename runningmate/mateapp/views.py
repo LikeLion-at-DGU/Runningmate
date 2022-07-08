@@ -15,7 +15,7 @@ def showmain(request):
     calendar = Calendar.objects.filter(writer=request.user, endday__contains=datetime.date.today(
     )).order_by('endday')  # 글을 작성한 유저의 캘린더 정보만 가져오겠다. 가까운 날짜 순으로 정렬
     # project = Project.objects.all()
-    return render(request, 'mateapp/mainpage.html', {'calendar': calendar, })
+    return render(request, 'mateapp/mainpage.html', {'calendar': calendar })
 
 def showevent(request):
     if request.method == 'POST':
@@ -113,19 +113,32 @@ def login(request):
         return render(request, 'account/login.html')
 
 def create_schedule(request):
-    new_schedule = Calendar.objects.filter(writer=request.user)
-    new_schedule.save()
-    return render(request, 'mateapp/create_schedule.html')
+    if request.method == 'POST':
+        new_schedule = Calendar()
+        new_schedule.title = request.POST['title']
+        new_schedule.writer = request.user
+        new_schedule.body = request.POST['body']
+        # 시간, 날짜,color 저장 추가 예정
+        new_schedule.save()
+        return redirect('mateapp:create_schedule')
+    else :
+        new_schedule = Calendar.objects.all()
+        return render(request, 'mateapp/create_schedule.html',{'new_schedule':new_schedule})
 
 def calendar(request):
     calendar = Calendar.objects.filter(writer=request.user)  # 글을 작성한 유저의 캘린더 정보만 가져오겠다. 가까운 날짜 순으로 정렬
+    
+    calendars_list = []
+    calendars = Calendar.objects.all()
+    calendars_list.append(calendars)
+    
     projects = Calendar.objects.all() # 모델을 전부 불러옴
     todos_list = [] # 빈리스트를 만듬 , 담아서 렌더링하는 경우가 많음
     todos = Todo.objects.all()
     todos_list.append(todos) # 그 프로젝트의 등록된 투두를 불러와서 그걸 넣은거임 
         # 보내고 싶은거 리스트로 보내서 장고나 뭐든 저런식으로 할 일이 많음
         # 알아두기
-    return render(request, 'mateapp/calendar.html', {'todos_list':todos_list, 'projects':projects, 'calendar':calendar})
+    return render(request, 'mateapp/calendar.html', {'todos_list':todos_list, 'projects':projects, 'calendar':calendar, 'calendars_list':calendars_list, 'calendars':calendars})
     # 리스트 자체를 렌더링함
 
 def timetable(request):

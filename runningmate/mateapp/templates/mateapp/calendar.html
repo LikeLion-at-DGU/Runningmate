@@ -58,11 +58,7 @@
     <div class="item2" id="gantt">
       <div class="chart-axis">
         <ul class="chart-subject">
-            <li style="color: #50cfbc;"><img src="{% static 'images/Oval_mint.png' %}" class="Oval"/> {{calendar.title}}</li>
-            <li style="color: #fe7782;"><img src="{% static 'images/Oval_red.png' %}" class="Oval"/> 마케팅 원론 04</li>
-            <li style="color: #45bfff;"><img src="{% static 'images/Oval_blue.png' %}" class="Oval"/> 조직행위 03</li>
-            <li style="color: #ffbc54;"><img src="{% static 'images/Oval_yel.png' %}" class="Oval"/> 파이썬과 경영 01</li>
-            <li style="color: #735bf2;"><img src="{% static 'images/Oval_pur.png' %}" class="Oval"/> 사물인터넷 기초</li>
+            <li style="color: {{calendar.0.color}};"><img src="{% static 'images/Oval_mint.png' %}" class="Oval"/> {{calendar.0.title}}</li>
         </ul>
       </div>
       <div class="chart-wrapper">
@@ -77,7 +73,7 @@
         </ul>
 
         <ul class="chart-bars">
-          <li data-duration="tue½-thu" data-color="#50cfbc">주제선정</li>
+          <li data-duration="wed-wed" data-color="{{calendar.0.color}}">{{calendar.0.body}}</li>
           <li data-duration="mon-wed" data-color="#fe7782">팀 빌딩</li>
           <!-- <li data-duration="thu½-fri" data-color="#fe7782">가입 선정</li> -->
           <li data-duration="thu-sun" data-color="#45bfff">기업의 커뮤니케이션 우수 사례 조사</li>
@@ -141,16 +137,26 @@
     </div>
     <div class="item2" id="today">
       투데이
-      <a
-        id="plus"
-        href="#"
-        onclick="window.open('create_schedule','create_schedule','resizable=no, width=600, height=500');return false"
-        style="text-decoration-line: none"
-        >+</a
-      >
+      <section id = "plus" ><a href="{% url 'mateapp:create_schedule' %}">+</a></section>
     </div>
 
-    <div class="item2" id="today_date"></div>
+    <div class="item2" id="today_date">
+      <button class="nav-btn go-prev" onclick="preDay()">&lt;</button>
+      <div class="today-day">
+        <script>
+          const todayTime = () => {
+            let now = new Date();
+            const week = ['SUN', 'MON', 'TUE', 'WED', 'TUH', 'FRI', 'SAT'];
+            let dayOfWeek = week[now.getDay()];
+
+            return dayOfWeek
+          }
+
+          document.getElementById("today-day").innerHTML = dayOfWeek;
+        </script>
+      </div>
+      <button class="nav-btn go-next" onclick="nextDay()">&gt;</button>
+    </div>
 
     <!-- 디데이 -->
     <div class="item2" id="dday1" style="background-color: {{calendar.0.color}}">
