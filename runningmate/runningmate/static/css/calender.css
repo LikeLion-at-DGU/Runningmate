@@ -139,16 +139,32 @@
     accent-color: #50CFBC;
 }
 
+/* marg_bottom  --------------------------------*/
+.calendar_wrap {
+    display: flex;
+    flex-direction: row;
+    padding: 5% 0% 5% 5%;
+}
+
+.calendar_content {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10%;
+}
+
+.calendar_cb {
+    margin-right: 7%;
+}
+
+.dec_show {
+    text-decoration: line-through;
+}
 /* .marg_text {
     text-decoration: line-through;
 } */
 
 #cb3, #cb4, #cb5 {
     accent-color: #45BFFF;
-}
-
-.dec_show {
-    text-decoration: line-through;
 }
 
 #cb6 {
@@ -190,8 +206,6 @@ table {
 
 /* 투데이 - 디데이 */
 #dday1{
-
-
     background-color: #50CFBC;
 }
 
@@ -202,7 +216,7 @@ table {
 #dday3{
     background-color:  #FFBC54;
 }
-    
+
 .subject_name{
     font-family: 'AppleSDGothicNeoM';
     font-style: normal;
