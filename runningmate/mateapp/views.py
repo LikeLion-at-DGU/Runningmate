@@ -33,6 +33,7 @@ def showevent(request):
             c0_endtime = calendar[0].endtime
             c0_place = calendar[0].place
             c0_body = calendar[0].body
+            c0_color = calendar[0].color
             c1_title = None
             c1_startday = None
             c1_endday = None
@@ -40,6 +41,7 @@ def showevent(request):
             c1_endtime = None
             c1_place = None
             c1_body = None
+            c1_color = None
             context = {
             "status": "exist1",
             "title1": c0_title,
@@ -49,6 +51,7 @@ def showevent(request):
             "endtime1": c0_endtime,
             "place1": c0_place,
             "body1" : c0_body,
+            "color1" : c0_color,
             "title2": c1_title,
             "startday2": c1_startday,
             "endday2": c1_endday,
@@ -56,6 +59,7 @@ def showevent(request):
             "endtime2": c1_endtime,
             "place2": c1_place,
             "body2" : c1_body,
+            "color2" : c1_color,
         }
         elif calendar.count() == 2:
             c0_title = calendar[0].title
@@ -65,6 +69,7 @@ def showevent(request):
             c0_endtime = calendar[0].endtime
             c0_place = calendar[0].place
             c0_body = calendar[0].body
+            c0_color = calendar[0].color
             c1_title = calendar[1].title
             c1_startday = calendar[1].startday
             c1_endday = calendar[1].endday
@@ -72,6 +77,7 @@ def showevent(request):
             c1_endtime = calendar[1].endtime
             c1_place = calendar[1].place
             c1_body = calendar[1].body
+            c1_color = calendar[1].color
             context = {
             "status": "exist2",
             "title1": c0_title,
@@ -81,6 +87,7 @@ def showevent(request):
             "endtime1": c0_endtime,
             "place1": c0_place,
             "body1" : c0_body,
+            "color1" : c0_color,
             "title2": c1_title,
             "startday2": c1_startday,
             "endday2": c1_endday,
@@ -88,11 +95,13 @@ def showevent(request):
             "endtime2": c1_endtime,
             "place2": c1_place,
             "body2" : c1_body,
+            "color2" : c1_color,
         }
         
         else:
             context = {"status": "null"}
         return JsonResponse(context)
+
 
 
 
