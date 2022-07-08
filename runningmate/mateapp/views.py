@@ -81,9 +81,10 @@ def login(request):
         return render(request, 'account/login.html')
 
 def create_schedule(request):
-    new_schedule = Calendar.objects.filter(writer=request.user)
+    new_schedule = Calendar()
+    new_schedule.title = request.POST.get('title')
     new_schedule.save()
-    return render(request, 'mateapp/create_schedule.html')
+    return redirect(request, 'mateapp/create_schedule.html')
 
 def calendar(request):
     calendar = Calendar.objects.filter(writer=request.user)  # 글을 작성한 유저의 캘린더 정보만 가져오겠다. 가까운 날짜 순으로 정렬
