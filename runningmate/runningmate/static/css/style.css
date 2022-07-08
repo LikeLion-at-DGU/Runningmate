@@ -522,7 +522,7 @@ span{
 }
 
 .cal_friend1, .cal_friend2{
-    border-radius: 50%; width: 25px;height: 25px; margin-top:50px; display: inline-block; 
+    border-radius: 50%; width: 25px;height: 25px; margin-top:50px; display: inline-block;
 }
 #sch1_team1, #sch2_team1{
     background-image: url(../images/memoji.png);

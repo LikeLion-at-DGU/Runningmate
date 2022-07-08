@@ -151,6 +151,14 @@ document.querySelectorAll(".date").forEach((date) => {
             "<section id = cal_body></section>",
             "<section id = cal_time_place></section>",
             "</div>",
+            "<div id = 'sch1_team'>",
+            "<div class = 'cal_friend1' style=' background-color: {{calendar.0.color}};' id = 'sch1_team1' ></div>",
+            "<div class = 'cal_friend1' style=' background-color: {{calendar.0.color}};' id = 'sch1_team2'></div>",
+            "<div class = 'cal_friend1' style=' background-color: {{calendar.0.color}};' id = 'sch1_team3'></div>",
+            "<div class = 'cal_friend1' style=' background-color: {{calendar.0.color}};' id = 'sch1_team4'></div>",
+            "<div class = 'cal_friend1' style=' background-color: {{calendar.0.color}};' id = 'sch1_team5'></div>",
+            "<div class = 'cal_friend1' style=' background-color: {{calendar.0.color}};' id = 'sch1_team6'></div>",
+            "</div>",
           ].join("")
 
           
@@ -170,6 +178,12 @@ document.querySelectorAll(".date").forEach((date) => {
           sch1_team4.style.backgroundColor=color1;
           sch1_team5.style.backgroundColor=color1;
           sch1_team6.style.backgroundColor=color1;
+          sch1_team1.style.marginRight = '5px';
+          sch1_team2.style.marginRight = '5px';
+          sch1_team3.style.marginRight = '5px';
+          sch1_team4.style.marginRight = '5px';
+          sch1_team5.style.marginRight = '5px';
+          sch1_team6.style.marginRight = '5px';
 
         } 
         else if (status == "exist2") {
@@ -194,15 +208,31 @@ document.querySelectorAll(".date").forEach((date) => {
             "<section id = 'cal_title' ></section>",
             "<section id = cal_body></section>",
             "<section id = cal_time_place></section>",
-            "</div>"
+            "</div>",
+            "<div id = 'sch1_team'>",
+            "<div class = 'cal_friend1' style=' background-color: {{calendar.0.color}};' id = 'sch1_team1' ></div>",
+            "<div class = 'cal_friend1' style=' background-color: {{calendar.0.color}};' id = 'sch1_team2'></div>",
+            "<div class = 'cal_friend1' style=' background-color: {{calendar.0.color}};' id = 'sch1_team3'></div>",
+            "<div class = 'cal_friend1' style=' background-color: {{calendar.0.color}};' id = 'sch1_team4'></div>",
+            "<div class = 'cal_friend1' style=' background-color: {{calendar.0.color}};' id = 'sch1_team5'></div>",
+            "<div class = 'cal_friend1' style=' background-color: {{calendar.0.color}};' id = 'sch1_team6'></div>",
+            "</div>",
           ].join("")
+
 
           schedule_2.innerHTML = [
             "<div id = 'sch2'>",
             "<section id = 'cal_title2' ></section>",
             "<section id = cal_body2></section>",
             "<section id = cal_time_place2></section>",
-            "</div>"
+            "</div>",
+            "<div class = 'cal_friend2' style=' background-color: {{calendar.0.color}};' id = 'sch2_team1' ></div>",
+            "<div class = 'cal_friend2' style=' background-color: {{calendar.0.color}};' id = 'sch2_team2'></div>",
+            "<div class = 'cal_friend2' style=' background-color: {{calendar.0.color}};' id = 'sch2_team3'></div>",
+            "<div class = 'cal_friend2' style=' background-color: {{calendar.0.color}};' id = 'sch2_team4'></div>",
+            "<div class = 'cal_friend2' style=' background-color: {{calendar.0.color}};' id = 'sch2_team5'></div>",
+            "<div class = 'cal_friend2' style=' background-color: {{calendar.0.color}};' id = 'sch2_team6'></div>",
+            "</div>",
           ].join("")
 
           /*html에 내용 추가 (스케줄1) */
@@ -227,6 +257,13 @@ document.querySelectorAll(".date").forEach((date) => {
           sch1_team4.style.backgroundColor=color1;
           sch1_team5.style.backgroundColor=color1;
           sch1_team6.style.backgroundColor=color1;
+          sch1_team1.style.marginRight = '5px';
+          sch1_team2.style.marginRight = '5px';
+          sch1_team3.style.marginRight = '5px';
+          sch1_team4.style.marginRight = '5px';
+          sch1_team5.style.marginRight = '5px';
+          sch1_team6.style.marginRight = '5px';
+
 
           /*일정 2 미모지 css 배경색 변경*/
           sch2_team1.style.backgroundColor=color2;
@@ -235,6 +272,12 @@ document.querySelectorAll(".date").forEach((date) => {
           sch2_team4.style.backgroundColor=color2;
           sch2_team5.style.backgroundColor=color2;
           sch2_team6.style.backgroundColor=color2;
+          sch2_team1.style.marginRight = '5px';
+          sch2_team2.style.marginRight = '5px';
+          sch2_team3.style.marginRight = '5px';
+          sch2_team4.style.marginRight = '5px';
+          sch2_team5.style.marginRight = '5px';
+          sch2_team6.style.marginRight = '5px';
 
         }
         else {
