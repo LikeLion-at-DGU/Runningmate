@@ -41,9 +41,9 @@
     <div id="rec_project">
         <form action="{% url 'addproject:createproject' %}" method="post" enctype="multipart/form-data">
             {%csrf_token%}
-            <h1 style="margin-bottom: 0;">프로젝트 관리</h1>
-            <h2 style="margin-top: 0;">과목별 새로운 프로젝트를 추가해주세요!</h2>
-            <div class="project_content">
+            <h1>프로젝트 관리</h1>
+            <h2>과목별 새로운 프로젝트를 추가해주세요!</h2>
+            <div class="project_content" id="bg">
                 <div class="content_title">
                     <span>프로젝트 기간</span><br><br>
                     <span>과목명</span><br><br>
@@ -67,7 +67,7 @@
                     <input type="text" id="it5" name="teammate4" placeholder=" 팀원의 아이디를 입력해주세요"><br><br>
                     <input type="text" id="it5" name="teammate5" placeholder=" 팀원의 아이디를 입력해주세요"><br><br>
                     <input type="text" id="it5" name="teammate6" placeholder=" 팀원의 아이디를 입력해주세요"><br><br>
-                    <div id = "color_select" style="text-align: center;">
+                    <div id = "color_select">
                         <button id="btn_1" onclick=""><input type="color" id="pj_color1" value="#fe7782" onclick=""></button>
                         <button id="btn_2" onclick=""><input type="color" id="pj_color2" value="#ffbc54" onclick=""></button>
                         <button id="btn_3" onclick=""><input type="color" id="pj_color3" value="#50cfbc" onclick=""></button>
@@ -82,6 +82,5 @@
         </form>
     </div>
 </div>
-
 
 {% endblock %}
