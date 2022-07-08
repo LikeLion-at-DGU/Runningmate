@@ -5,6 +5,7 @@ from .models import *
 admin.site.register(Todo)
 admin.site.register(Post)
 
+
 @admin.register(Calendar)
 class CalendarAdmin(admin.ModelAdmin):
     list_display = (

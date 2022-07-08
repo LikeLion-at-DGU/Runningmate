@@ -12,4 +12,5 @@ urlpatterns = [
     path('timetable',timetable, name='timetable'),
     path('project_name/', project_name, name="project_name"),
     path('create_schedule/',create_schedule,name="create_schedule"),
+    path('create_post', create_post, name='create_post')
 ]
