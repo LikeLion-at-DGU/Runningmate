@@ -132,7 +132,7 @@ def timetable(request):
     if request.method == "POST":
         # Profile에서 요청받은 user의 정보만 불러옴
         profile = Profile.objects.get(user=request.user)
-        profile.timetable = request.FILESini.get('timetable')
+        profile.timetable = request.FILES.get('timetable')
         profile.save(update_fields=['timetable'])
     return redirect('mateapp:showmain')  # render 보단 redirect 가 낫다.
 
