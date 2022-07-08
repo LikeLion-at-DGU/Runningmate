@@ -110,28 +110,31 @@
           <div class="dates"></div>
         </div>
       </div>
-      <script src="{% static 'js/calendar.js'%}"></script>
+      <script src="{% static 'js/calendar2.js'%}"></script>
     </div>
-
-    <div class = "item2" id = "schedule_1">
+    <!-- float:left; width: 55%; -->
+    <div class = "item2" id = "schedule_1" >
       {% if calendar.count == 0 %}
           <div id = 'no_schedule'>아직 등록된 일정이 없어요</div>
       {% else %} 
-          <div id = "sch1" style="float:left; width: 55%;">
-              <section id = "cal_title" style="color: {{calendar.0.color}};">{{calendar.0.title}}</section>
+          <div id = "cal_sch1" style="float:left; width: 55%;">
+              <section id = "cal_title" style="color: {{calendar.0.color}}; ">{{calendar.0.title}}</section>
               <section id = "cal_body">{{calendar.0.body}}</section>
               <section id = "cal_time_place">{{calendar.0.starttime}}~{{calendar.0.endtime}} / {{calendar.0.place}}</section>
           </div>
-          <div id = "sch1_team" style="float:right; width:45%;">
-              <div class = "cal_friend1" style="background-color: {{calendar.0.color}};" id = "sch1_team1" ></div>
-              <div class = "cal_friend1" style="background-color: {{calendar.0.color}};" id = "sch1_team2"></div>
-              <div class = "cal_friend1" style="background-color: {{calendar.0.color}};" id = "sch1_team3"></div>
-              <div class = "cal_friend1" style="background-color: {{calendar.0.color}};" id = "sch1_team4"></div>
-              <div class = "cal_friend1" style="background-color: {{calendar.0.color}};" id = "sch1_team5"></div>
-              <div class = "cal_friend1" style="background-color: {{calendar.0.color}};" id = "sch1_team6"></div>
+          <div id = "sch1_team">
+              <div class = "cal_friend1" style=" background-color: {{calendar.0.color}};" id = "sch1_team1" ></div>
+              <div class = "cal_friend1" style=" background-color: {{calendar.0.color}};" id = "sch1_team2"></div>
+              <div class = "cal_friend1" style=" background-color: {{calendar.0.color}};" id = "sch1_team3"></div>
+              <div class = "cal_friend1" style=" background-color: {{calendar.0.color}};" id = "sch1_team4"></div>
+              <div class = "cal_friend1" style=" background-color: {{calendar.0.color}};" id = "sch1_team5"></div>
+              <div class = "cal_friend1" style=" background-color: {{calendar.0.color}};" id = "sch1_team6"></div>
           </div>
+          
       {% endif %}
-  </div>
+
+  
+    </div>
     <div class="item2" id="today">
       투데이
       <section id = "plus" ><a href="{% url 'mateapp:create_schedule' %}">+</a></section>

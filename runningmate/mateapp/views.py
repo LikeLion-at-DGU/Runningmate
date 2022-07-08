@@ -115,7 +115,12 @@ def login(request):
 def create_schedule(request):
     if request.method == 'POST':
         new_schedule = Calendar()
-        return redirect('new_schedule')
+        new_schedule.title = request.POST['title']
+        new_schedule.writer = request.user
+        new_schedule.body = request.POST['body']
+        # 시간, 날짜,color 저장 추가 예정
+        new_schedule.save()
+        return redirect('mateapp:create_schedule')
     else :
         new_schedule = Calendar.objects.all()
         return render(request, 'mateapp/create_schedule.html',{'new_schedule':new_schedule})
