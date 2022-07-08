@@ -148,7 +148,12 @@ document.querySelectorAll(".date").forEach((date) => {
           cal_body.innerHTML = body1;
           cal_time_place.innerHTML = starttime1 + "~" + endtime1 + "/" + place1;
           schedule_2.innerHTML = "<div id = 'no_schedule'>아직 등록된 일정이 없어요</div>";
-          
+          sch1_team1.style.backgroundColor=color1;
+          sch1_team2.style.backgroundColor=color1;
+          sch1_team3.style.backgroundColor=color1;
+          sch1_team4.style.backgroundColor=color1;
+          sch1_team5.style.backgroundColor=color1;
+          sch1_team6.style.backgroundColor=color1;
         } 
         else if (status == "exist2") {
           let title1 = object.title1;
@@ -162,7 +167,12 @@ document.querySelectorAll(".date").forEach((date) => {
           cal_body.innerHTML = body1;
           cal_time_place.innerHTML = starttime1 + "~" + endtime1 + "/" + place1;
           cal_title.style.color =color1;
-          // document.getElementsByClassName("cal_friend").style.backgroundColor=color1;
+          sch1_team1.style.backgroundColor=color1;
+          sch1_team2.style.backgroundColor=color1;
+          sch1_team3.style.backgroundColor=color1;
+          sch1_team4.style.backgroundColor=color1;
+          sch1_team5.style.backgroundColor=color1;
+          sch1_team6.style.backgroundColor=color1;
           let title2 = object.title2;
           let body2 = object.body2;
           let starttime2 = object.starttime2;
@@ -173,6 +183,12 @@ document.querySelectorAll(".date").forEach((date) => {
           cal_body2.innerHTML = body2;
           cal_time_place2.innerHTML = starttime2 + "~" + endtime2 + "/" + place2;
           ca2_title.style.color =color2;
+          sch2_team1.style.backgroundColor=color1;
+          sch2_team2.style.backgroundColor=color1;
+          sch2_team3.style.backgroundColor=color1;
+          sch2_team4.style.backgroundColor=color1;
+          sch2_team5.style.backgroundColor=color1;
+          sch2_team6.style.backgroundColor=color1;
           // document.getElementsByClassName("cal_friend2").style.backgroundColor=color2;
           // schedule_2.innerHTML = "<p>" + title2 + "<br>" + datetime2 +  "<br>" + place2 + "</p>";
           "cal_title2".innerHTML = title2;
