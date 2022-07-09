@@ -82,7 +82,7 @@
             <script src="{% static 'js/calendar.js'%}"></script>
         </div>
         <div class = "item" id = "schedule_1">
-            {% if calendar.count == 0 %}
+            {% if calendar.0.title == None %}
                 <div id = 'no_schedule'>아직 등록된 일정이 없어요</div>
             {% else %} 
                 <div id = "sch1">
@@ -101,10 +101,8 @@
             {% endif %}
         </div>
         <div class = "item" id = "schedule_2">
-            {% if calendar.count == 0 %}
-                <div id = 'no_schedule'>아직 등록된 일정이 없어요</div>
-            {% elif calendar.count == 1 %}
-                <div id = 'no_schedule'>아직 등록된 일정이 없어요</div>
+            {% if calendar.1.title == None %}
+            <div id = 'no_schedule'>아직 등록된 일정이 없어요</div>
             {% else %} 
                 <div id = "sch2">
                     <section id = "cal_title2" style="color: {{calendar.1.color}}; ">{{calendar.1.title}}</section>
