@@ -130,6 +130,14 @@
 }
 
 /*투데이 - 체크리스트 */
+.calendar_body{
+    font-family: "AppleSDGothicNeoM" ;
+    font-size: 18px;
+}
+
+#checkbox_title{
+    font-size: 20px;
+}
 #marg_bottom {
     padding-left: 23px;
     padding-top: 4px;
@@ -143,17 +151,20 @@
 .calendar_wrap {
     display: flex;
     flex-direction: row;
-    padding: 5% 0% 5% 5%;
+    margin-top:30px;
+    margin-left: 30px;
+
 }
 
 .calendar_content {
     display: flex;
     flex-direction: row;
     margin-left: 10%;
+    align-items: center;
 }
 
 .calendar_cb {
-    margin-right: 7%;
+    margin-right: 10px;
 }
 
 .dec_show {
