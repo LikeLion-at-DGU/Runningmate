@@ -153,19 +153,8 @@
 
     <div class="item2" id="today_date">
       <button class="nav-btn go-prev" onclick="preDay()">&lt;</button>
-      <div class="today_day">
-        <script>
-          function todayTime() {
-
-            var now = new Date();
-            var week = ['SUN', 'MON', 'TUE', 'WED', 'TUH', 'FRI', 'SAT'];
-            for (var i=0 in week){
-              if (i==now.getDay())  toweek = week[i];
-            }
-          }
-          document.write(<p>toweek</p>);
-        </script>
-      </div>
+      <div class="today_day"></div>
+      <script src="{% static 'js/today.js'%}"></script>
       <button class="nav-btn go-next" onclick="nextDay()">&gt;</button>
     </div>
 
@@ -315,22 +304,18 @@
           </div>
           {% for schedules in schedules_list %}
           {% for schedule in schedules %}
-          
+          {% if schedule.title == calendar.title %}
           <div class="calendar_content">
-            {% if schedule.title == calendar.title %}
             <div class="calendar_cb">
               <input type="checkbox" class="cb" id="cb3" style="color: {{calendar.color}};">
             </div>
             <div class="calendar_body">
-              <span id="marg_text">{{calendar.body}}
-              {% endif %}
-              {% endfor %}
-              </span>
+              <span id="marg_text">{{calendar.body}}</span>
             </div>
-            {% endfor %}
-            
           </div>
-          
+          {% endif %}
+          {% endfor %}
+          {% endfor %}
         </section>
 
         {% endfor %}
