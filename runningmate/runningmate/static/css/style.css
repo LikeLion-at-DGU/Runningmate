@@ -191,26 +191,12 @@ span{
     height:100%; 
     border-radius: 20px;
     margin-left:1.5vmin;
+
 }
 
 
-#subject1{
-    background: #50CFBC;
-}
-
-#subject2{
-    background: #FE7782;
-}
-
-#subject3{
-    background: #45BFFF;
-}
-#subject4{
-    background: #FFBC54;
-}
-
-#subject5{
-    background: #735BF2;
+#subject1, #subject2, #subject3, #subject4, #subject5, #subject6{
+    background: white;
 }
 
 
@@ -719,4 +705,23 @@ input{
     font-family: AppleSDGothicNeoM;
     margin-bottom: 10px;
     color: #5D7285;
+}
+
+#no_runningmate, #no_project{
+    display: flex;
+    height: 100%;
+    font-family: AppleSDGothicNeoM;
+    color: #5D7285;
+    justify-content: center;
+    align-items: center;
+}
+
+#no_project_name{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    font-family: AppleSDGothicNeoM;
+    color: #5D7285;
+    justify-content: center;
+    align-items: center;
 }
