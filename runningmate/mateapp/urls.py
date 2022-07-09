@@ -14,4 +14,5 @@ urlpatterns = [
     path('<int:project_id>/<int:post_id>/create_comment', create_comment, name="create_comment"),
     path('create_schedule/',create_schedule,name="create_schedule"),
     path('<int:project_id>/create_post', create_post, name='create_post'),
+    path('<int:project_id>/<int:post_id>', post_detail, name="post_detail"),
 ]

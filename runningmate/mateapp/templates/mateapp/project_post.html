@@ -38,44 +38,34 @@
     padding-right: 10px;
     }
 </style>
+
 <div id = "rec3">
     <div class = "container3">
+        
         <div class = "item3" id = "pro_project_text">프로젝트</div>
         <div class = "item3" id = "pro_project"></div>
         <div class = "item3" id = "pro_runningmate_text">러닝메이트</div>
         <div class = "item3" id = "pro_runningmate"></div>
         <div class = "item3" id = "pro_runningspace_text">
             <span>러닝스페이스</span>
-            <section id = "plus2" >+</section>
+            <section id = "plus2">+</section>
         </div>
-        <div class = "item3" id = "pro_runningspace">
-            <form action="{% url 'mateapp:create_post' project.id %}" method="POST" enctype="multipart/form-data">
-                {%csrf_token%}
-                <div id = "title_input">
-                <input type="text" name="title" id='title' required placeholder="제목을 입력해주세요">
-                </div>
-                <textarea type="body" id="runningspace_text" name="body" id="" placeholder="본문을 입력해주세요"></textarea><br><br>
-                <input type="submit" value="등록" id = "submit_title">
-            </form>
-            <!-- {% for post in posts %}
-            <form action="{% url 'mateapp:create_comment' project.id post.id %}" method="POST" enctype="multipart/form-data">
+        <form action="{% url 'mateapp:create_comment' project.id post.id %}" method="POST" enctype="multipart/form-data">
             {%csrf_token%}
             <label for="content">코멘트</label>
             <input type="text" name="content" id='content' required placeholder="댓글 입력">
             <input type="submit" value="등록">
         </form>
-        {% endfor %} -->
-        </div>
-        {% for post in boards %}
         <div class = "item3" id = "{{post.id}}">
             {{post.day}}
-            <br>
-            <a href = "{% url 'mateapp:post_detail' project.id post.id %}">
             {{post.title}}
-            </a>
         </div>
-        {% empty %}
-        <div class = "item3" id = "empty">empty</div>
+        {% for comment in boards %}
+        <div class = "item3" id = "{{comment.id}}">
+            {{comment.day}}
+            <br>
+            {{comment.content}}
+        </div>
         {% endfor %}
         <!--밑에 버튼-->
         <div class = "row mt-2" style="text-align: center;">
@@ -108,6 +98,14 @@
                     </ul>
                 </nav>
             </div>
+        </div>
+        <!-- <form action="{% url 'mateapp:create_post' project.id %}" method="POST" enctype="multipart/form-data">
+            {%csrf_token%}
+            <label for="title">주제</label>
+            <input type="text" name="title" id='title' required placeholder="할 일을 입력해주세요">
+            <input type="submit" value="등록">
+        </form> -->
+    </div>
 
-</div> 
+</div>
 {% endblock %}

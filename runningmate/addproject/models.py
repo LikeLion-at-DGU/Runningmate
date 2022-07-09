@@ -9,11 +9,11 @@ from django.utils.text import slugify
 
 class Project(models.Model): #프로젝트 추가
     # id = models.AutoField(help_text="Comment ID", primary_key=True) 
-    startday = models.DateField(default='1000-01-01')
-    endday = models.DateField(default='1000-01-01')
+    startday = models.DateField()
+    endday = models.DateField()
     title = models.CharField(max_length=200)
     body = models.TextField(null=True)
-    writer = models.ForeignKey(User,on_delete=models.CASCADE)
+    writer = models.ForeignKey(User,on_delete=models.CASCADE, null=True)
     followers = models.ManyToManyField(User, related_name='following')
 
     def __str__(self):
@@ -22,10 +22,10 @@ class Project(models.Model): #프로젝트 추가
     def summary(self):
         return self.body[:30]
     
-    COLOR_CHOICES = [
+    COLOR_PALETTE = [
         ("#50cfbc","1",),("#fe7782","2",),("#45bfff","3",),("#ffbc54","4",),("#735bf2","5",),
         ]
-    color = ColorField(choices=COLOR_CHOICES)
+    color = ColorField(samples=COLOR_PALETTE, default="#50cfbc")
 
 
 class User(models.Model):
