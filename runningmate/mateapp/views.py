@@ -15,8 +15,8 @@ from addproject import models
 def showmain(request):
     calendar = Calendar.objects.filter(writer=request.user, endday__contains=datetime.date.today(
     )).order_by('endday')  # 글을 작성한 유저의 캘린더 정보만 가져오겠다. 가까운 날짜 순으로 정렬
-    # project = Project.objects.all()
-    return render(request, 'mateapp/mainpage.html', {'calendar': calendar })
+    projects = Project.objects.all()
+    return render(request, 'mateapp/mainpage.html', {'calendar': calendar },{'projects':projects})
 
 def showevent(request):
     if request.method == 'POST':
@@ -191,3 +191,6 @@ def create_comment(request, project_id, post_id):
     # id는 식별값이기 때문에 무조건 존재하는 필드임 
 
 
+def project(request):
+    projects = Project.objects.all()
+    return render(request, 'mateapp/mainpage.html', {'projects': projects})
