@@ -123,11 +123,11 @@ def create_schedule(request):
         new_schedule.title = request.POST['title']
         new_schedule.writer = request.user
         new_schedule.body = request.POST['body']
+        new_schedule.startday = request.POST.get('startday')        
         new_schedule.endday = request.POST.get('endday')
         new_schedule.starttime = request.POST.get('starttime')
         new_schedule.endtime = request.POST.get('endtime')
         new_schedule.place = request.POST['place']
-        
         new_schedule.save()
         return redirect('mateapp:calendar')
     else :
@@ -136,7 +136,6 @@ def create_schedule(request):
 
 def calendar(request):
     calendar = Calendar.objects.filter(writer=request.user)  # 글을 작성한 유저의 캘린더 정보만 가져오겠다. 가까운 날짜 순으로 정렬
-    
     calendars = Calendar.objects.filter(writer=request.user)
     schedules_list = []
     schedules = Calendar.objects.filter(writer=request.user)
