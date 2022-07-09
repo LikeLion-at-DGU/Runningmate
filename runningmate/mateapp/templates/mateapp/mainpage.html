@@ -127,19 +127,25 @@
 
         <div class = "item" id = "runningmate_text">러닝메이트</div>
         <div class = "item" id = "runningmate">
-            <div id = "f1" style="margin-left: 3vmin;"><div class = "friend" id = "friend1"></div><h4>이영서</h4></div>
+            
+            <!-- 등록된 과목 없으면 -->
+            <div id = "no_runningmate">아직 등록된 러닝메이트가 없어요.</div>
+
+             <!-- 있으면 러닝메이트 띄움 -->
+            <!-- <div id = "f1" style="margin-left: 3vmin;"><div class = "friend" id = "friend1"></div><h4>이영서</h4></div>
             <div id = "f2"><div class = "friend" id = "friend2"></div><h4>오준서</h4></div>
             <div id = "f3"><div class = "friend" id = "friend3"></div><h4>윤영서</h4></div>
             <div id = "f4"><div class = "friend" id = "friend4"></div><h4>김성준</h4></div>
             <div id = "f5"><div class = "friend" id = "friend5"></div><h4>류슬기</h4></div>
-            <div id = "f6"><div class = "friend" id = "friend6"></div><h4>이예나</h4></div>
+            <div id = "f6"><div class = "friend" id = "friend6"></div><h4>이예나</h4></div> -->
+
         </div>
 
 
 
         <div class = "item" id = "chatting_text">최근 프로젝트</div>
         <div class = "item" id = "chatting_1">
-            
+            <div id = "no_project">아직 등록된 프로젝트가 없어요.</div>
         </div>
         <div class = "item" id = "chatting_2">
 
@@ -151,7 +157,7 @@
 
 <!-- 프로젝트 관리 -->
         <div class = "item" id = "project_text">프로젝트 관리
-            <section id = "plus" ><a href="{% url 'addproject:newproject' %}">+</a></section>
+            <section id = "plus" ><a href="{% url 'addproject:newproject' %}" style="text-decoration: none;">+</a></section>
         </div>
 
        <!-- <div class = "itme" id = "project">
@@ -166,12 +172,53 @@
             {% endif %} -->
                 
         <div class = "item" id = "project">
-            <div class="scroll--element" id = "subject1">
+
+            <!--test용 코드입니다.-->
+<<<<<<< HEAD
+            <!--<div class="scroll--element" id = "subject1">
                 {% for project in projects.all %}
                     <h1>{{project.title}}</h1>
-                {% endfor %}
+                {% endfor %}-->
+=======
+            <!-- 프로젝트 아무것도 없는 경우 -->
+            <div class="scroll--element" id = "subject1" style="background-color: white;">
+                <div id = "no_project_name">
+                    <p style="margin-bottom: 0;">어떤 과목에서 팀 프로젝트가 진행되나요?</p>
+                    <p style="margin-bottom: 0;">+ 버튼을 눌러 </p>
+                    <p style="margin-bottom: 0;">프로젝트를 추가하고 관리하세요!</p>
+                </div>
+     
             </div>
-            <!--<div class="scroll--element" id= "subject2">
+            <div class="scroll--element" id= "subject2" style="background-color: white;">
+                <div id = "no_project_name">
+                    <p style="visibility: hidden;margin-bottom: 0;">이유는 모르겠는데 내용이 안들어가 있으면 정렬이 이상해져서 올립니다. </p>
+                    <p style="visibility: hidden;margin-bottom: 0;">이유는 모르겠는데 내용이 안들어가 있으면 정렬이 이상해져서 올립니다. </p>
+                    <p style="visibility: hidden;margin-bottom: 0;">이유는 모르겠는데 내용이 안들어가 있으면 정렬이 이상해져서 올립니다. </p>
+                </div>
+            </div>
+            <div class="scroll--element" id = "subject3" style="background-color: white">
+                <div id = "no_project_name">
+                    <p style="visibility: hidden;margin-bottom: 0;">이유는 모르겠는데 내용이 안들어가 있으면 정렬이 이상해져서 올립니다. </p>
+                    <p style="visibility: hidden;margin-bottom: 0;">이유는 모르겠는데 내용이 안들어가 있으면 정렬이 이상해져서 올립니다. </p>
+                    <p style="visibility: hidden;margin-bottom: 0;">이유는 모르겠는데 내용이 안들어가 있으면 정렬이 이상해져서 올립니다. </p>
+                </div>
+            </div>
+            <div class="scroll--element" id = "subject4" style="background-color: white">
+                <div id = "no_project_name">
+                    <p style="visibility: hidden;margin-bottom: 0;">이유는 모르겠는데 내용이 안들어가 있으면 정렬이 이상해져서 올립니다. </p>
+                    <p style="visibility: hidden;margin-bottom: 0;">이유는 모르겠는데 내용이 안들어가 있으면 정렬이 이상해져서 올립니다. </p>
+                    <p style="visibility: hidden;margin-bottom: 0;">이유는 모르겠는데 내용이 안들어가 있으면 정렬이 이상해져서 올립니다. </p>
+                </div>
+            </div>
+           
+            <!-- 프로젝트 있는 경우 -->
+            <!-- <div class="scroll--element" id = "subject1">
+                <h6>{{ project.startday }} {{ project.endday }}</h6>
+                <h2>{{ project.title }}</h2>
+                <h3>{{ project.body }}</h3>
+>>>>>>> 8b8371450d56fe6688450ef27ef571fceb27a87d
+            </div>
+            <div class="scroll--element" id= "subject2">
                 <h6>{{project.1.startday}} {{project.1.endday}}</h6>
                 <h2>{{project.1.title }}</h2>
                 <h3>{{project.1.body}}</h3>
@@ -190,9 +237,12 @@
                 <h6>{{ project.4.startday }} {{ project.4.endday }}</h6>
                 <h2>{{ project.4.title }}</h2>
                 <h3>{{ project.4.body }}</h3>
+<<<<<<< HEAD
             </div>-->
         </div>
 
+        
+        <!--test용 코드입니다-->
         <!--<div class = "item" id = "project"> 
 
             {% for project in project_object %}

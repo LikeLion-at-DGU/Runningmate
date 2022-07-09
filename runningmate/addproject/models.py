@@ -5,15 +5,23 @@ from secrets import choice
 from django.db import models
 from django.contrib.auth.models import User
 from colorfield.fields import ColorField
+from django.utils.text import slugify
 
 class Project(models.Model): #프로젝트 추가
-    id = models.AutoField(help_text="Comment ID", primary_key=True) 
+    # id = models.AutoField(help_text="Comment ID", primary_key=True) 
     startday = models.DateField(default='1000-01-01')
     endday = models.DateField(default='1000-01-01')
     title = models.CharField(max_length=200)
     body = models.TextField(null=True)
     writer = models.ForeignKey(User,on_delete=models.CASCADE)
+<<<<<<< HEAD
+    
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title, allow_unicode=True)
+        super().save(*args, **kwargs)
+=======
     followers = models.ManyToManyField(User, related_name='following')
+>>>>>>> 9868a11e6434ac99f025ab3753db843b14193cd3
 
     def __str__(self):
         return self.startday
