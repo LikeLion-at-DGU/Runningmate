@@ -1,9 +1,8 @@
 # Runningmate 🏃🏻
 🏃🏻 심바톤 러닝메이트조 repo.
 
-# Readme.md
 
-##실행방법
+## 실행방법
 1. 가상환경 
     
     ```
@@ -29,20 +28,20 @@
     ```
     
 
-1. runningmate 디렉토리로 이동
+5. runningmate 디렉토리로 이동
     
     ```
     cd runningmate
     ```
     
-2. migrate
+6. migrate
     
     ```
     python manage.py makemigrations
     python manage.py migrate
     ```
     
-3. 실행
+7. 실행
     
     ```
     python manage.py runserver
