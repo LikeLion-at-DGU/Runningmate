@@ -310,12 +310,12 @@
         {% for calendar in calendars %}
         <section class="calendar_wrap">
           
-          <div class="calendar_title">
+          <div class="calendar_title" style="color: {{calendar.color}};">
             {{calendar.title}}
           </div>
           <div class="calendar_content">
             <div class="calendar_cb">
-              <input type="checkbox" class="cb" id="cb3">
+              <input type="checkbox" class="cb" id="cb3" style="color: {{calendar.color}};">
             </div>
             <div class="calendar_body">
               {% for schedules in schedules_list %}

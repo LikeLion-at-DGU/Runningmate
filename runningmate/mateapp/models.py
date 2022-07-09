@@ -1,4 +1,5 @@
 from email.policy import default
+from itertools import product
 from django.db import models
 from django.contrib.auth.models import User
 from colorfield.fields import ColorField
@@ -8,7 +9,8 @@ from addproject.models import *
 
 class Calendar(models.Model): # 대시보드 캘린더 모델
     id = models.AutoField(primary_key=True)
-    title = models.CharField(max_length=200)
+    # title = models.ForeignKey(Project, on_delete=models.PROTECT) # project에서 제목 불러오기 연결된 요소들이 같이 삭제되지 않도록 
+    title = models.CharField(max_length=20 ,null=True)
     writer = models.ForeignKey(User,on_delete=models.CASCADE)
     endday = models.DateField(null=True)
     starttime = models.TimeField(null=True)
@@ -21,6 +23,7 @@ class Calendar(models.Model): # 대시보드 캘린더 모델
         ]
     color = ColorField(samples=COLOR_PALETTE, default="#50cfbc")
 
+    # project랑 연결하면 없어질 color들..~
 
     def __str__(self):
         return self.title
