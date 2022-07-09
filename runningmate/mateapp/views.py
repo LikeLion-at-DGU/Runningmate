@@ -202,9 +202,6 @@ def create_comment(request, project_id, post_id):
     return redirect('mateapp:post_detail', project_id, post_id)
     # id는 식별값이기 때문에 무조건 존재하는 필드임 
 
-<<<<<<< HEAD
-# def comment_detail(request, post_id):
-=======
 def post_detail(request, project_id, post_id):
     project = Project.objects.get(pk = project_id)
     post = Post.objects.get(pk = post_id)
@@ -213,4 +210,3 @@ def post_detail(request, project_id, post_id):
     paginator = Paginator(comments,4)
     boards = paginator.get_page(page)
     return render(request, 'mateapp/project_post.html', {'boards':boards,'project':project, 'post':post, 'comments':comments})    
->>>>>>> ee3364b74d071713bdbf527909454d7af50cf00f

@@ -53,9 +53,9 @@ class CustomSignupForm(accountform):
         ),
     )
 
-<<<<<<< HEAD
+
     emoji = forms.ImageField(label="이모지", required = True)
-=======
+
     major = forms.CharField(
         max_length=20,
         label = "학과",
@@ -67,7 +67,6 @@ class CustomSignupForm(accountform):
         ),
     )
 
->>>>>>> ee3364b74d071713bdbf527909454d7af50cf00f
 
     def save(self, request):
         user = super(CustomSignupForm, self).save(request)

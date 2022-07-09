@@ -48,10 +48,6 @@
             <span>러닝스페이스</span>
             <section id = "plus2" >+</section>
         </div>
-<<<<<<< HEAD
-        {% if post in posts %}
-        <form action="{% url 'mateapp:create_comment' project.id post.id %}" method="POST" enctype="multipart/form-data">
-=======
         <div class = "item3" id = "pro_runningspace">
             <form action="{% url 'mateapp:create_post' project.id %}" method="POST" enctype="multipart/form-data">
                 {%csrf_token%}
@@ -63,21 +59,14 @@
             </form>
             <!-- {% for post in posts %}
             <form action="{% url 'mateapp:create_comment' project.id post.id %}" method="POST" enctype="multipart/form-data">
->>>>>>> ee3364b74d071713bdbf527909454d7af50cf00f
             {%csrf_token%}
             <label for="content">코멘트</label>
             <input type="text" name="content" id='content' required placeholder="댓글 입력">
             <input type="submit" value="등록">
         </form>
-<<<<<<< HEAD
-        {% endfor %}
-        
-        {% for post in posts %}
-=======
         {% endfor %} -->
         </div>
         {% for post in boards %}
->>>>>>> ee3364b74d071713bdbf527909454d7af50cf00f
         <div class = "item3" id = "{{post.id}}">
             {{post.day}}
             <br>
