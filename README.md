@@ -3,13 +3,12 @@
 
 ## 팀원
 
-🥰  [이영서](https://github.com/youngseo28) : 기획 및 디자인
-😋  [이예나](https://github.com/yaena1223) : 프론트엔드
-🤩  [오준서](https://github.com/AsherOh) : 프론트엔드
-😜  [김성준](https://github.com/SeongJoon-K) : 백엔드
-😝  [류슬기](https://github.com/Seulgigi) : 백엔드
-😊  [윤영서](https://github.com/0seoYun) : 백엔드 
-
+🥰  [이영서](https://github.com/youngseo28) : 기획 및 디자인  
+😋  [이예나](https://github.com/yaena1223) : 프론트엔드  
+🤩  [오준서](https://github.com/AsherOh) : 프론트엔드  
+😜  [김성준](https://github.com/SeongJoon-K) : 백엔드  
+😝  [류슬기](https://github.com/Seulgigi) : 백엔드  
+😊  [윤영서](https://github.com/0seoYun) : 백엔드   
 
 ## 실행방법
 1. 가상환경 접속
