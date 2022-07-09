@@ -8,15 +8,18 @@ class ProfileAdmin(admin.ModelAdmin): # 장고 기본 모델이름과 충돌 될
         "user",
         "phone",
         "timetable",
+        "profile",
         
     )
     list_display_links = (
         "user",
         "phone",
-         "timetable",
+        "timetable",
+        "profile",
     )
     search_fields = (
         "user",
         "phone",
         "timetable",
+        "profile",
     )

@@ -14,7 +14,7 @@
       <h4 style="margin-top: 5px; font-weight: 100;">러닝메이트를 찾기 위해 회원가입을 진행해주세요!</h4>
     </div>
     <div class = "signup_form">
-      <form id="signup_form" method="post" action="{% url 'account_signup' %}">
+      <form id="signup_form" method="post" action="{% url 'account_signup' %}" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
 

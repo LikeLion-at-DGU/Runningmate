@@ -168,6 +168,7 @@ def create_post(request, project_id):
     projects = Project.objects.all()
     project = Project.objects.get(pk=project_id)
     posts = Post.objects.all()
+    day = datetime.date.today()
     # post = Post.objects.get(project=project)
     if request.method == "POST":
         # project = Project.objects.get(title=project_title)
@@ -190,4 +191,4 @@ def create_comment(request, project_id, post_id):
     return redirect('mateapp:project_detail', project_id)
     # id는 식별값이기 때문에 무조건 존재하는 필드임 
 
-
+# def comment_detail(request, post_id):

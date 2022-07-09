@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from operator import mod
 from textwrap import indent
 from django.db import models
@@ -10,7 +11,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE) # 유저 삭제시 프로필도 같이 삭제됨
     phone = models.CharField(max_length=13) # 폰 번호
     timetable = models.ImageField(upload_to = "calendar/", blank=True, null=True) # 사용자들이 시간표를 올릴 때마다 media/calendar에 저장됨
-    mimoticon = models.ImageField(blank=True, null=True)
+    profile = models.ImageField(upload_to ="profile/", blank=True, null=True)
 
     class Meta:
         verbose_name = "프로필"

@@ -1,4 +1,4 @@
-from ast import MatchSequence
+# from ast import MatchSequence
 from csv import writer
 from operator import mod
 from django.db import models
@@ -13,14 +13,7 @@ class Project(models.Model): #프로젝트 추가
     title = models.CharField(max_length=200)
     body = models.TextField(null=True)
     writer = models.ForeignKey(User,on_delete=models.CASCADE)
-<<<<<<< HEAD
-    
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.title, allow_unicode=True)
-        super().save(*args, **kwargs)
-=======
     followers = models.ManyToManyField(User, related_name='following')
->>>>>>> 9868a11e6434ac99f025ab3753db843b14193cd3
 
     def __str__(self):
         return self.startday

@@ -50,7 +50,7 @@
             <span>러닝스페이스</span>
             <section id = "plus2">+</section>
         </div>
-        {% for post in posts %}
+        {% if post in posts %}
         <form action="{% url 'mateapp:create_comment' project.id post.id %}" method="POST" enctype="multipart/form-data">
             {%csrf_token%}
             <label for="content">코멘트</label>
@@ -58,6 +58,7 @@
             <input type="submit" value="등록">
         </form>
         {% endfor %}
+        
         {% for post in posts %}
         <div class = "item3" id = "{{post.id}}">
             {{post.day}}
