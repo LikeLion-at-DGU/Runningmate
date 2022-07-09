@@ -504,7 +504,8 @@ span{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #8F9BB3;s
+    color: #8F9BB3;
+    font-size: 15px;
 }
 
 .cal_friend1, .cal_friend2 {

@@ -172,7 +172,12 @@
 
     <!-- 디데이 -->
     <div class="item2" id="dday1" style="background-color: {{calendar.0.color}}">
-        {% if calendar.0.title %}
+        {% if calendar.count == 0 %}
+        <div id = "no_dday">
+          <p>급한 일정이 있나요? </p>
+          <p>할 일은 등록하시면 알려드릴게요!</p>
+        </div>
+        {% elif calendar.0.title %}
         <section class="subject_name" id="dday1_subject" >{{calendar.0.title}}</section>
         <section class="meeting_subject" id="dday1_meeting">{{calendar.0.body}}</section>
         <section class="count_dday" id="dday1_dday"></section>
@@ -334,8 +339,9 @@
       투두모델에서 외래  -->
       </div>
     </div>
+    
   </div>
-
+  <a href="{% url 'account_logout' %}"><img id = "logout_button" src =  "{% static 'images/logout.png' %}"/></a>
 <script>
   document.querySelector(".calendar_cb").addEventListener("click", function () {
     document.getElementById("marg_text").classList.toggle("dec_show");
