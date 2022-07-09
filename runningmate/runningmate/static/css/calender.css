@@ -130,6 +130,14 @@
 }
 
 /*투데이 - 체크리스트 */
+.calendar_body{
+    font-family: "AppleSDGothicNeoM" ;
+    font-size: 18px;
+}
+
+#checkbox_title{
+    font-size: 20px;
+}
 #marg_bottom {
     padding-left: 23px;
     padding-top: 4px;
@@ -139,16 +147,35 @@
     accent-color: #50CFBC;
 }
 
+/* marg_bottom  --------------------------------*/
+.calendar_wrap {
+    display: flex;
+    flex-direction: row;
+    margin-top:30px;
+    margin-left: 30px;
+
+}
+
+.calendar_content {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10%;
+    align-items: center;
+}
+
+.calendar_cb {
+    margin-right: 10px;
+}
+
+.dec_show {
+    text-decoration: line-through;
+}
 /* .marg_text {
     text-decoration: line-through;
 } */
 
 #cb3, #cb4, #cb5 {
     accent-color: #45BFFF;
-}
-
-.dec_show {
-    text-decoration: line-through;
 }
 
 #cb6 {
@@ -189,20 +216,11 @@ table {
 }
 
 /* 투데이 - 디데이 */
-#dday1{
-
-
-    background-color: #50CFBC;
+#dday1, #dday2, #dday3{
+    background-color: white
 }
 
-#dday2{
-    background-color: #45BFFF;
-}
 
-#dday3{
-    background-color:  #FFBC54;
-}
-    
 .subject_name{
     font-family: 'AppleSDGothicNeoM';
     font-style: normal;
@@ -266,4 +284,16 @@ table {
     justify-content:center;
     float: left;
     width: 55%;
+}
+
+
+#no_dday{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    font-family: AppleSDGothicNeoM;
+    color: #5D7285;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
 }
