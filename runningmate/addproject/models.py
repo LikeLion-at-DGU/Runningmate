@@ -1,4 +1,4 @@
-from ast import MatchSequence
+# from ast import MatchSequence
 from csv import writer
 from operator import mod
 from secrets import choice
@@ -16,13 +16,6 @@ class Project(models.Model): #프로젝트 추가
     writer = models.ForeignKey(User,on_delete=models.CASCADE)
     followers = models.ManyToManyField(User, related_name='following')
 
-
-    def __str__(self):
-        return self.startday
-    
-    def __str__(self):
-        return self.endday
-    
     def __str__(self):
         return self.title
     

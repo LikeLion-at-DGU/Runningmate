@@ -11,6 +11,7 @@ class Profile(models.Model):
     phone = models.CharField(max_length=13) # 폰 번호
     timetable = models.ImageField(upload_to = "calendar/", blank=True, null=True) # 사용자들이 시간표를 올릴 때마다 media/calendar에 저장됨
     mimoticon = models.ImageField(blank=True, null=True)
+    major = models.CharField(max_length=20, null=True) # 학과
 
     class Meta:
         verbose_name = "프로필"

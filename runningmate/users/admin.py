@@ -7,16 +7,19 @@ class ProfileAdmin(admin.ModelAdmin): # 장고 기본 모델이름과 충돌 될
     list_display = (
         "user",
         "phone",
+        "major",
         "timetable",
         
     )
     list_display_links = (
         "user",
         "phone",
-         "timetable",
+        "major",
+        "timetable",
     )
     search_fields = (
         "user",
         "phone",
+        "major",
         "timetable",
     )
