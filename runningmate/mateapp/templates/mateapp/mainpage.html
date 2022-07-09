@@ -125,7 +125,11 @@
         <div class = "item" id = "runningmate_text">러닝메이트</div>
         <div class = "item" id = "runningmate">
             
-            <!-- 등록된 과목 없으면 -->
+            {% for project in projects %} 
+
+            {%empty%}
+                <div id = "no_project">아직 등록된 프로젝트가 없어요.</div>
+            {%endfor%}
             <div id = "no_runningmate">아직 등록된 러닝메이트가 없어요.</div>
 
              <!-- 있으면 러닝메이트 띄움 -->
@@ -142,13 +146,19 @@
 
         <div class = "item" id = "chatting_text">최근 프로젝트</div>
         <div class = "item" id = "chatting_1">
-            <div id = "no_project">아직 등록된 프로젝트가 없어요.</div>
+            {% for project in projects %} 
+
+            {%empty%}
+                <div id = "no_project">아직 등록된 프로젝트가 없어요.</div>
+            {%endfor%}
+            <section id = "recentpro_title" style="color:{{projects.0.color}}">{{projects.0.title}}</section>
+            
         </div>
         <div class = "item" id = "chatting_2">
-
+            <section id = "recentpro_title" style="color:{{projects.1.color}}">{{projects.1.title}}</section>
         </div>
         <div class = "item" id = "chatting_3">
-
+            <section id = "recentpro_title" style="color:{{projects.2.color}}">{{projects.2.title}}</section>
         </div>
 
 

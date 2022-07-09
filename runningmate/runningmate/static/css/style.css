@@ -728,3 +728,9 @@ input{
     justify-content: center;
     align-items: center;
 }
+
+#recentpro_title{
+    font-family: AppleSDGothicNeoM;
+    margin-left: 13px;
+    margin-top: 15px;
+}
