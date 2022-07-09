@@ -147,14 +147,13 @@
     line-height: 30px;
 }
 
-#plus2{
+#back{
     font-family:AppleSDGothicNeoM;
     display: inline-block; 
     font-size:larger; 
     vertical-align: middle;
     cursor: pointer;
     background: #FFFFFF;
-    
     border: 1px solid #DDDDDD;
     border-radius: 8px;
     padding: 0;
@@ -177,21 +176,9 @@
     line-height: 50px;
     border:none;
     margin-right: 0;
-    color:#50CFBC;
 
 }
 
-#title_input input::-webkit-input-placeholder{
-    color:#50CFBC;
-}
-input:focus{
-    outline: none;
-    color:#50CFBC;
-}
-
-#title_input input::placeholder{
-    color:#50CFBC;
-}
 #submit_title{
     display: flex;
     flex-direction: row;
@@ -201,8 +188,6 @@ input:focus{
     line-height: 9px;
     width: 97px;
     height: 32px;
-    background: #50CFBC;
-    border: 1px solid #50CFBC;
     border-radius: 8px;
     margin-right: 0;
     color: white;
@@ -232,4 +217,168 @@ input:focus{
 textarea:focus{
     outline: none;
     color: #222B45;
+}
+
+#meeting_date,#name{
+    font-family: 'AppleSDGothicNeoB';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.75px;
+    margin-top:15px;
+    margin-bottom: 0;
+
+}
+
+#meeting_title,#comment_title{
+    font-family: 'AppleSDGothicNeoB';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 19px;
+    letter-spacing: 1px;
+    color: #222B45;
+    margin-top: 10px;
+
+
+}
+
+#mimoji_place{
+    height: 100%;display: flex;align-items:center;float:left;width: 13%;margin-left: 30px;
+}
+
+
+
+
+a{
+    text-decoration: none;
+}
+
+.pagination ul {
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+.pagination li {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    border : 0;
+    float: left;
+    list-style-type: none;
+}
+
+.page-item{
+    font-family: 'AppleSDGothicNeoB';
+}
+
+.pagination{
+    position: fixed;top:90%;left:75%;margin:0
+}
+
+#comment_date{
+    font-family: 'AppleSDGothicNeoM';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.75px;
+    color: #8F9BB3;
+    margin-top: 5px;
+    margin-bottom: 0;
+
+}
+
+#empty{
+    margin-left: 20px;
+    font-family: 'AppleSDGothicNeoM';
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #8F9BB3;
+    font-size: 15px;
+    text-align: center;
+}
+
+#pro_project h6{
+    color: white;
+    margin-left: 2vmin;
+    font-family: AppleSDGothicNeoL;
+    font-weight: 100;
+    line-height: 2.042vmin;
+    margin-bottom: 0;
+    font-size: 2vmin;
+    margin-top: 25px;
+}
+#pro_project h2{
+    color: white;
+    margin: 0;
+    margin-left: 0.5em;
+    font-family: AppleSDGothicNeoB;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 5.7vmin;
+    font-weight: 100;
+    line-height: 2.2vmin;
+    margin-top: 30px;
+    font-size: 4vmin;
+}
+
+#pro_project h3{
+    color: white;
+    margin-left: 1vmin;
+    font-family:AppleSDGothicNeoM;
+    font-weight: 400;
+    line-height: 3vmin;
+    margin-left: 2vmin;
+    font-size: 3vmin;
+}
+
+#post_date{
+    color: #8F9BB3;
+    font-family: 'AppleSDGothicNeoM';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    margin-left: 30px;
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+
+
+#post_title{
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
+    margin-left: 20px;
+    font-family: 'AppleSDGothicNeoB';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 50px;
+    border:none;
+    margin-right: 0;
+
+}
+
+#content{
+    background: #FFFFFF;
+    border: 1px solid #8F9BB3;
+    border-radius: 8px;
+    height: 32px
+}
+
+#submit_title2{
+    padding: 9px;
+    line-height: 9px;
+    width: 58px;
+    height: 32px;
+    border-radius: 8px;
+    margin-right: 0;
+    color: white;
+    font-family: 'AppleSDGothicNeoB';
+
 }
