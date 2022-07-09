@@ -4,7 +4,7 @@ from addproject.models import *
 from .models import *
 
 # Register your models here.
-admin.site.register(Todo)
+# admin.site.register(Todo)
 admin.site.register(Comment)
 
 @admin.register(Post)
@@ -25,16 +25,12 @@ class PostAdmin(admin.ModelAdmin):
         "day",
     )
 
-
-
-
 @admin.register(Calendar)
 class CalendarAdmin(admin.ModelAdmin):
     list_display = (
         "id",
         "title",
         "writer",
-        "startday",
         "endday",
         "starttime",
         "endtime",
@@ -45,7 +41,6 @@ class CalendarAdmin(admin.ModelAdmin):
         "id",
         "title",
         "writer",
-        "startday",
         "endday",
         "starttime",
         "endtime",
@@ -56,7 +51,6 @@ class CalendarAdmin(admin.ModelAdmin):
         "id",
         "title",
         "writer",
-        "startday",
         "endday",
         "starttime",
         "endtime",

@@ -52,6 +52,17 @@ class CustomSignupForm(accountform):
         ),
     )
 
+    major = forms.CharField(
+        max_length=20,
+        label = "학과",
+        widget=forms.TextInput(
+            attrs={
+                "type": "text",
+                "placeholder": "00학과",
+            }
+        ),
+    )
+
 
     def save(self, request):
         user = super(CustomSignupForm, self).save(request)
@@ -103,6 +114,17 @@ class SocialSignupForm(socialaccountform):
             attrs={
                 "type": "tel",
                 "placeholder": "010-0000-0000",
+            }
+        ),
+    )
+
+    major = forms.CharField(
+        max_length=20,
+        label = "학과",
+        widget=forms.TextInput(
+            attrs={
+                "type": "text",
+                "placeholder": "00학과",
             }
         ),
     )

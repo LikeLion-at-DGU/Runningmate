@@ -13,6 +13,7 @@ def signup(request):
         password1 = request.POST['password1']
         password2 = request.POST['password2']
         phone = request.POST['phone']
+        major = request.POST['major']
         timetable = request.POST['timetable']
 
         res_data = {}
