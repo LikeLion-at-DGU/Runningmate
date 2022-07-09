@@ -3,7 +3,10 @@ from itertools import product
 from django.db import models
 from django.contrib.auth.models import User
 from colorfield.fields import ColorField
+<<<<<<< HEAD
+=======
 # from addproject.models import *
+>>>>>>> ee3364b74d071713bdbf527909454d7af50cf00f
 from addproject.models import Project
 
 # Create your models here.

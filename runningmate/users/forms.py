@@ -1,4 +1,5 @@
 from cProfile import label
+from operator import imod
 from allauth.account.forms import SignupForm as accountform
 from allauth.socialaccount.forms import SignupForm as socialaccountform
 
@@ -52,6 +53,9 @@ class CustomSignupForm(accountform):
         ),
     )
 
+<<<<<<< HEAD
+    emoji = forms.ImageField(label="이모지", required = True)
+=======
     major = forms.CharField(
         max_length=20,
         label = "학과",
@@ -63,6 +67,7 @@ class CustomSignupForm(accountform):
         ),
     )
 
+>>>>>>> ee3364b74d071713bdbf527909454d7af50cf00f
 
     def save(self, request):
         user = super(CustomSignupForm, self).save(request)
@@ -70,6 +75,7 @@ class CustomSignupForm(accountform):
         user.save()
         profile = Profile()
         profile.user = user
+        profile.profile = self.cleaned_data.get('emoji')
         profile.save()
         return user
 
