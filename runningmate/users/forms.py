@@ -31,16 +31,28 @@ class CustomSignupForm(accountform):
         ),
     )
 
-    name = forms.CharField(
+    last_name = forms.CharField(
+        max_length=10,
+        label="성",
+        widget=forms.TextInput(
+            attrs={
+                "type": "text",
+                "placeholder": "홍",
+            }
+        ),
+    )
+
+    first_name = forms.CharField(
         max_length=10,
         label="이름",
         widget=forms.TextInput(
             attrs={
                 "type": "text",
-                "placeholder": "홍길동",
+                "placeholder": "길동",
             }
         ),
     )
+
     phone = forms.CharField(
         max_length=13,
         min_length=13,
@@ -70,7 +82,6 @@ class CustomSignupForm(accountform):
 
     def save(self, request):
         user = super(CustomSignupForm, self).save(request)
-        user.name = self.cleaned_data["name"]
         user.save()
         profile = Profile()
         profile.user = user
@@ -101,7 +112,18 @@ class SocialSignupForm(socialaccountform):
         ),
     )
 
-    name = forms.CharField(
+    last_name = forms.CharField(
+        max_length=10,
+        label="성",
+        widget=forms.TextInput(
+            attrs={
+                "type": "text",
+                "placeholder": "홍",
+            }
+        ),
+    )
+
+    first_name = forms.CharField(
         max_length=10,
         label="이름",
         widget=forms.TextInput(
@@ -111,6 +133,7 @@ class SocialSignupForm(socialaccountform):
             }
         ),
     )
+
     phone = forms.CharField(
         max_length=13,
         min_length=0,
@@ -138,7 +161,6 @@ class SocialSignupForm(socialaccountform):
 
     def save(self, request):
         user = super(SocialSignupForm, self).save(request)
-        user.name = self.cleaned_data["first_name"]
         user.save()
         profile = Profile()
         profile.user = user

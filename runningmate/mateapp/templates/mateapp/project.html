@@ -37,16 +37,50 @@
     display: inline-block;
     padding-right: 10px;
     }
+
+
+    /*색 css*/
+    #title{
+    color:{{project.color}};
+
+    }
+
+    #title_input input::-webkit-input-placeholder{
+        color:{{project.color}};
+    }
+    input:focus{
+        outline: none;
+        color:{{project.color}};
+    }
+
+    #title_input input::placeholder{
+        color:{{project.color}};
+    }
+    
+    #submit_title{ 
+        background: {{project.color}};
+        border: 1px solid {{project.color}};
+    }
+
+    #meeting_date{
+        color: {{project.color}};
+    }
 </style>
 <div id = "rec3">
     <div class = "container3">
         <div class = "item3" id = "pro_project_text">프로젝트</div>
-        <div class = "item3" id = "pro_project"></div>
+        <div class = "item3" id = "pro_project" style="background-color: {{project.color}};">
+                <div id = "{{project.id}}">
+                        <h6>{{project.startday}}~{{project.endday}}</h6>
+                        <h2>{{project.title}}</h2>
+                        <h3>{{project.summary}}</h3>
+                </div>
+        </div>
         <div class = "item3" id = "pro_runningmate_text">러닝메이트</div>
         <div class = "item3" id = "pro_runningmate"></div>
         <div class = "item3" id = "pro_runningspace_text">
             <span>러닝스페이스</span>
-            <section id = "plus2" >+</section>
+
         </div>
         <div class = "item3" id = "pro_runningspace">
             <form action="{% url 'mateapp:create_post' project.id %}" method="POST" enctype="multipart/form-data">
@@ -67,15 +101,24 @@
         {% endfor %} -->
         </div>
         {% for post in boards %}
+        
         <div class = "item3" id = "{{post.id}}">
-            {{post.day}}
-            <br>
-            <a href = "{% url 'mateapp:post_detail' project.id post.id %}">
-            {{post.title}}
+            <a href = "{% url 'mateapp:post_detail' project.id post.id %}" style="display: inline-block;width: 100%; height: 100%;text-decoration: none;" >
+            <div id = "mimoji_place" >
+            <section id = "mimoji" style="width: 70px; height:70px; border-radius: 50%; background-color: {{project.color}};; ;margin:10px;">
+                
+            </section>
+            </div>
+            <section id = "meeting_date">{{post.day}}</section>
+            <section id = "meeting_title">{{post.title}}</section>
             </a>
         </div>
+
         {% empty %}
-        <div class = "item3" id = "empty">empty</div>
+        <div class = "item3" id = "empty">오늘의 회의 주제는 무엇인가요?<br>
+            왼쪽에서 입력한 후 등록을 눌러<br>
+            글을 추가해주세요! 
+        </div>
         {% endfor %}
         <!--밑에 버튼-->
         <div class = "row mt-2" style="text-align: center;">
@@ -84,25 +127,25 @@
                     <ul class = "pagination justify-content-center">
                         {% if boards.has_previous %}
                             <li class = "page-item">
-                                <a class = "page-link" href = "?p={{boards.previous_page_number}}">이전</a>
+                                <a class = "page-link" href = "?p={{boards.previous_page_number}}">&lt;</a>
                             </li>
                         {% else %}
                             <li class = "page-item disabled">
-                                <a class = "page-link disabled" href = "#">이전</a>
+                                <a class = "page-link disabled" href = "#">&lt;</a>
                             </li>
                         {% endif %}
         
                         <li class = "page-item active">
-                            <a class = "page-link" style="background: #e32879; border: none;">{{boards.number}}/{{boards.paginator.num_pages}}</a>
+                            <a class = "page-link"border: none;>{{boards.number}}/{{boards.paginator.num_pages}}</a>
                         </li>
         
                         {% if boards.has_next %}
                             <li class = "page-item">
-                                <a class = "page-link" href = "?p={{boards.next_page_number}}">다음</a>
+                                <a class = "page-link" href = "?p={{boards.next_page_number}}">&gt</a>
                             </li>
                         {% else %}
                             <li class = "page-item disabled">
-                                <a class = "page-link disabled" href = "#">다음</a>
+                                <a class = "page-link disabled" href = "#">&gt</a>
                             </li>
                         {% endif %}
                     </ul>
