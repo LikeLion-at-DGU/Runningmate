@@ -10,6 +10,8 @@ def signup(request):
         return render(request, 'signup.html')
     elif request.method == "POST":
         user = request.POST['user']
+        last_name = request.POST['last_name']
+        first_name = request.POST['first_name']
         password1 = request.POST['password1']
         password2 = request.POST['password2']
         phone = request.POST['phone']
@@ -22,7 +24,7 @@ def signup(request):
             print(res_data)
         else :
             profile = Profile(
-                user = user, password1 = password1, password2 = password2, phone = phone, timetable = timetable,
+                user = user, password1 = password1, password2 = password2, phone = phone, timetable = timetable, major = major, last_name = last_name, first_name = first_name,
             ) # 객체생성
             profile.save()
     return render(request, 'signup.html')

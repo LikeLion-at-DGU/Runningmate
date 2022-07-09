@@ -6,6 +6,8 @@ from .models import *
 class ProfileAdmin(admin.ModelAdmin): # 장고 기본 모델이름과 충돌 될까봐 변경
     list_display = (
         "user",
+        "last_name",
+        "first_name",
         "phone",
         "major",
         "timetable",
@@ -14,6 +16,8 @@ class ProfileAdmin(admin.ModelAdmin): # 장고 기본 모델이름과 충돌 될
     )
     list_display_links = (
         "user",
+        "last_name",
+        "first_name",
         "phone",
         "major",
         "timetable",
@@ -21,6 +25,8 @@ class ProfileAdmin(admin.ModelAdmin): # 장고 기본 모델이름과 충돌 될
     )
     search_fields = (
         "user",
+        "last_name",
+        "first_name",
         "phone",
         "major",
         "timetable",
