@@ -390,7 +390,6 @@ span{
     font-size: 1.6vmin;
     line-height: 2.9vmin;
     background-color: transparent;
-    cursor: pointer;
     font-family: "AppleSDGothicNeoB" ;
     border-radius: 8px;
     margin-left: 2.5vmin;
@@ -618,18 +617,21 @@ span{
     color: #5D7285;
 }
 
-.nav_button:hover {
+
+#btn1:hover{
     background-color: #735BF2;
     color: white;
     border: 0.1px solid #d5ddff;
-}
 
-.nav_button img {
-    width: 30px;
-    height: 30px;
-    padding-right: 20px;
-}
 
+}
+#btn2:hover{
+    background-color: #735BF2;
+    color: white;
+    border: 0.1px solid #d5ddff;
+
+
+}
 /* navbar button ul ------------------------------*/
 .button_wrap ul {
     font-family: 'AppleSDGothicNeoM';
