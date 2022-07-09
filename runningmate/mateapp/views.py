@@ -122,7 +122,7 @@ def create_schedule(request):
         new_schedule.title = request.POST['title']
         new_schedule.writer = request.user
         new_schedule.body = request.POST['body']
-        new_schedule.endday = request.POST.get('endday') # ..저장 X 이유를 모르겠음
+        new_schedule.endday = request.POST.get('endday')
         new_schedule.starttime = request.POST.get('starttime')
         new_schedule.endtime = request.POST.get('endtime')
         new_schedule.place = request.POST['place']
