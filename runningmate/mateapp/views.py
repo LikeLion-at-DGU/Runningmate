@@ -12,12 +12,13 @@ from addproject.models import *
 import sys, os 
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from addproject import models
+from django.core.paginator import Paginator
 
 def showmain(request):
     calendar = Calendar.objects.filter(writer=request.user, endday__contains=datetime.date.today(
     )).order_by('endday')  # 글을 작성한 유저의 캘린더 정보만 가져오겠다. 가까운 날짜 순으로 정렬
-    #projects = Project.objects.all()
-    return render(request, 'mateapp/mainpage.html', {'calendar': calendar })
+    projects = Project.objects.all()
+    return render(request, 'mateapp/mainpage.html', {'calendar': calendar, 'projects':projects })
 
 def showevent(request):
     if request.method == 'POST':
@@ -165,7 +166,10 @@ def project_detail(request, project_id):
     posts = Post.objects.all()
     post = Post.objects.filter(project=project)
     comment = Comment.objects.filter()
-    return render(request, 'mateapp/project.html', {'projects':projects,'project':project,'posts':posts, 'post':post})
+    page = int(request.GET.get('p',1))
+    paginator = Paginator(post,4)
+    boards = paginator.get_page(page)
+    return render(request, 'mateapp/project.html', {'boards':boards, 'projects':projects,'project':project,'posts':posts, 'post':post})
 
 # 포스트가 갖고 있는 숫자가 가장 높은걸 필터로 찾아서 오늘 날짜와 비교해서 출력함
 
@@ -194,7 +198,14 @@ def create_comment(request, project_id, post_id):
         content = request.POST['content']
         file = request.FILES.get('file')
         Comment.objects.create(content=content, post=post, user=request.user) # 모델=뷰
-    return redirect('mateapp:project_detail', project_id)
+    return redirect('mateapp:post_detail', project_id, post_id)
     # id는 식별값이기 때문에 무조건 존재하는 필드임 
 
-
+def post_detail(request, project_id, post_id):
+    project = Project.objects.get(pk = project_id)
+    post = Post.objects.get(pk = post_id)
+    comments = Comment.objects.filter(post = post)
+    page = int(request.GET.get('p',1))
+    paginator = Paginator(comments,4)
+    boards = paginator.get_page(page)
+    return render(request, 'mateapp/project_post.html', {'boards':boards,'project':project, 'post':post, 'comments':comments})    

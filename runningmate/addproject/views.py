@@ -11,6 +11,8 @@ def createproject(request):
     new_project = Project()
     new_project.title = request.POST.get('title')
     new_project.body = request.POST.get('body')
+    new_project.startday = request.POST.get('startday')
+    new_project.endday = request.POST.get('endday')
     new_project.save()
     return redirect('mateapp:showmain')
 

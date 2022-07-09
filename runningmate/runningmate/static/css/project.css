@@ -164,3 +164,72 @@
     line-height: 30px;
     margin-left: 8px;
 }
+
+#title{
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+    margin-left: 20px;
+    font-family: 'AppleSDGothicNeoB';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 50px;
+    border:none;
+    margin-right: 0;
+    color:#50CFBC;
+
+}
+
+#title_input input::-webkit-input-placeholder{
+    color:#50CFBC;
+}
+input:focus{
+    outline: none;
+    color:#50CFBC;
+}
+
+#title_input input::placeholder{
+    color:#50CFBC;
+}
+#submit_title{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9px;
+    line-height: 9px;
+    width: 97px;
+    height: 32px;
+    background: #50CFBC;
+    border: 1px solid #50CFBC;
+    border-radius: 8px;
+    margin-right: 0;
+    color: white;
+    font-family: 'AppleSDGothicNeoB';
+    margin-left: 83%;
+
+}
+
+#runningspace_text{
+    display: flex;
+    width: 90%;
+    height: 300px;
+    margin:5%;
+    margin-top:15px;
+    margin-left: 20px;
+    font-family: 'AppleSDGothicNeoM';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    color: #222B45;
+    border:none;
+    margin-bottom: 0;
+    resize: none;
+}
+
+textarea:focus{
+    outline: none;
+    color: #222B45;
+}
