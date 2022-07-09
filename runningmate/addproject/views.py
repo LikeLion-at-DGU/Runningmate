@@ -14,6 +14,6 @@ def createproject(request):
     new_project.save()
     return redirect('mateapp:showmain')
 
-def project(request):
-    projects = Project.objects.all()
-    return render(request, 'mateapp/mainpage.html', {'projects': projects})
+#def project(request):
+#    projects = Project.objects.all()
+#    return render(request, 'mateapp/mainpage.html', {'projects': projects})
