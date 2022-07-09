@@ -11,11 +11,9 @@
         <a href="{% url 'mateapp:calendar' %}"><div class="nav_button" id="btn2"><div id="calender_logo"></div> <span>캘린더</span></div></a>
         <a href="#"><div class="nav_button" id="btn3"><div id="project_logo"></div> <span>프로젝트</span></div></a>
         <ul class="project_wrap">
-            <a href = "{% url 'mateapp:project_name' %}"><li id = "project">IT 서비스 관리</li></a>
-            <li>마케팅원론 04</li>
-            <li>조직행위 03</li>
-            <li>파이썬과 경영 01</li>
-            <li>사물인터넷 기초</li>
+            {% for project in projects %}
+            <a href = "{% url 'mateapp:project_detail' project.id %}"><li id = "{{project.id}}">{{project.title}}</li></a>
+            {% endfor %}
         </ul>
     </div>
 </div>
