@@ -13,11 +13,7 @@ class Project(models.Model): #프로젝트 추가
     endday = models.DateField()
     title = models.CharField(max_length=200)
     body = models.TextField(null=True)
-<<<<<<< HEAD
-    writer = models.ForeignKey(User,on_delete=models.CASCADE)
-=======
     writer = models.ForeignKey(User,on_delete=models.CASCADE, null=True)
->>>>>>> ee3364b74d071713bdbf527909454d7af50cf00f
     followers = models.ManyToManyField(User, related_name='following')
 
     def __str__(self):

@@ -3,10 +3,9 @@ from itertools import product
 from django.db import models
 from django.contrib.auth.models import User
 from colorfield.fields import ColorField
-<<<<<<< HEAD
-=======
+
+
 # from addproject.models import *
->>>>>>> ee3364b74d071713bdbf527909454d7af50cf00f
 from addproject.models import Project
 
 # Create your models here.
@@ -16,6 +15,7 @@ class Calendar(models.Model): # 대시보드 캘린더 모델
     # title = models.ForeignKey(Project, on_delete=models.PROTECT) # project에서 제목 불러오기 연결된 요소들이 같이 삭제되지 않도록 
     title = models.CharField(max_length=20 ,null=True)
     writer = models.ForeignKey(User,on_delete=models.CASCADE)
+    startday = models.DateField(null=True)
     endday = models.DateField(null=True)
     starttime = models.TimeField(null=True)
     endtime = models.TimeField(null=True)
