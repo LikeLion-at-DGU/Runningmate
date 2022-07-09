@@ -5,7 +5,27 @@ from .models import *
 
 # Register your models here.
 admin.site.register(Todo)
-admin.site.register(Post)
+admin.site.register(Comment)
+
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    list_display = (
+        "title",
+        "user",
+        "day",
+    )
+    list_display_links = (
+        "title",
+        "user",
+        "day",
+    )
+    search_fields = (
+        "title",
+        "user",
+        "day",
+    )
+
+
 
 
 @admin.register(Calendar)

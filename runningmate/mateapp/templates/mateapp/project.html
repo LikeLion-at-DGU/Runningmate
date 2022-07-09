@@ -41,12 +41,7 @@
 
 <div id = "rec3">
     <div class = "container3">
-        <form action="{% url 'mateapp:create_post' %}" method="POST" enctype="multipart/form-data">
-            {%csrf_token%}
-            <label for="title">
-                <input type="text" name="title" id='title' required placeholder="할 일을 입력해주세요">
-            </label>
-        </form>
+        
         <div class = "item3" id = "pro_project_text">프로젝트</div>
         <div class = "item3" id = "pro_project"></div>
         <div class = "item3" id = "pro_runningmate_text">러닝메이트</div>
@@ -56,10 +51,27 @@
             <section id = "plus2">+</section>
         </div>
         {% for post in posts %}
-        <div class = "item3" id = "pro_runningspace">{{post.title}}</div>
-        {% empty %}
-        <div class = "item3" id = "pro_runningspace">qwd</div>
+        <form action="{% url 'mateapp:create_comment' project.id post.id %}" method="POST" enctype="multipart/form-data">
+            {%csrf_token%}
+            <label for="content">코멘트</label>
+            <input type="text" name="content" id='content' required placeholder="댓글 입력">
+            <input type="submit" value="등록">
+        </form>
         {% endfor %}
+        {% for post in posts %}
+        <div class = "item3" id = "{{post.id}}">
+            {{post.day}}
+            {{post.title}}
+        </div>
+        {% empty %}
+        <div class = "item3" id = "empty">empty</div>
+        {% endfor %}
+        <form action="{% url 'mateapp:create_post' project.id %}" method="POST" enctype="multipart/form-data">
+            {%csrf_token%}
+            <label for="title">주제</label>
+            <input type="text" name="title" id='title' required placeholder="할 일을 입력해주세요">
+            <input type="submit" value="등록">
+        </form>
     </div>
 
 </div>

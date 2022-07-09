@@ -10,7 +10,8 @@ urlpatterns = [
     path('showevent',showevent, name = "showevent"),
     path('', login, name="login"),
     path('timetable',timetable, name='timetable'),
-    path('project_name/', project_name, name="project_name"),
+    path('<int:project_id>', project_detail, name="project_detail"),
+    path('<int:project_id>/<int:post_id>/create_comment', create_comment, name="create_comment"),
     path('create_schedule/',create_schedule,name="create_schedule"),
-    path('create_post', create_post, name='create_post')
+    path('<int:project_id>/create_post', create_post, name='create_post'),
 ]
