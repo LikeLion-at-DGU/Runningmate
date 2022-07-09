@@ -7,8 +7,9 @@ function createChart(e) {
     tasks.forEach(el => {
         // 변수 지정
         const duration = el.dataset.duration.split("-");
-        const startDay = duration[0];
-        const endDay = duration[1];
+        // el.setAttribute("data-duration", getDay(duration[0]) + "-" + getDay(duration[1]))
+        const startDay = duration[0]
+        const endDay = duration[1]
         let left = 0,   // 해당 화살표 함수 범위 내에서 변수 지정
             width = 0;
 
@@ -41,6 +42,28 @@ function createChart(e) {
         }
     });
 }
+var day
+tasks.forEach((task) => {
+    var dataDuration = task.getAttribute("data-duration")
+    var duration = dataDuration.split("-")
+    if (duration[0] == "0") {
+        day = "sun"
+    } else if (duration[0] == "1") {
+        day = "mon"
+    } else if (duration[0] == "2") {
+        day = "tue"
+    } else if (duration[0] == "3") {
+        day = "wed"
+    } else if (duration[0] == "4") {
+        day = "thu"
+    } else if (duration[0] == "5") {
+        day = "fri"
+    } else if (duration[0] == "6") {
+        day = "sat"
+    }
+    task.setAttribute("data-duration", day)
+})
+
 
 window.addEventListener("load", createChart);
 window.addEventListener("resize", createChart);

@@ -79,7 +79,8 @@
           {% for schedules in schedules_list %}
           {% for schedule in schedules %}
           {% if schedule.title == calendar.title %}
-          <li data-duration="wed-wed" data-color="{{calendar.color}}">{{calendar.body}}</li>
+
+          <li data-duration= "{{ schedule.startday|date:'w' }}-{{ schedule.endday|date:'w' }}" data-color="{{calendar.color}}">{{schedule.title}}</li>
           {% endif %}
           {% endfor %}
           {% endfor %}
@@ -96,6 +97,7 @@
           <li data-duration="fri-sat" data-color="#색추가">Task</li> -->
         </ul>
       </div>
+      <script src="{% static 'js/getday.js' %}"></script>
       <script src="{% static 'js/gantt.js'%}"></script>
     </div>
     <div class="item2" id="calendar2_text">캘린더</div>
