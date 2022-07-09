@@ -1,16 +1,21 @@
+from email.policy import default
+from itertools import product
 from django.db import models
 from django.contrib.auth.models import User
 from colorfield.fields import ColorField
+<<<<<<< HEAD
+=======
+# from addproject.models import *
+>>>>>>> ee3364b74d071713bdbf527909454d7af50cf00f
 from addproject.models import Project
-
 
 # Create your models here.
 
 class Calendar(models.Model): # 대시보드 캘린더 모델
     id = models.AutoField(primary_key=True)
-    title = models.CharField(max_length=200)
+    # title = models.ForeignKey(Project, on_delete=models.PROTECT) # project에서 제목 불러오기 연결된 요소들이 같이 삭제되지 않도록 
+    title = models.CharField(max_length=20 ,null=True)
     writer = models.ForeignKey(User,on_delete=models.CASCADE)
-    startday = models.DateField(null=True)
     endday = models.DateField(null=True)
     starttime = models.TimeField(null=True)
     endtime = models.TimeField(null=True)
@@ -20,8 +25,9 @@ class Calendar(models.Model): # 대시보드 캘린더 모델
     COLOR_PALETTE = [
         ("#50cfbc","1",),("#fe7782","2",),("#45bfff","3",),("#ffbc54","4",),("#735bf2","5",),
         ]
-    color = ColorField(samples=COLOR_PALETTE)
+    color = ColorField(samples=COLOR_PALETTE, default="#50cfbc")
 
+    # project랑 연결하면 없어질 color들..~
 
     def __str__(self):
         return self.title
@@ -51,11 +57,11 @@ class Calendar(models.Model): # 대시보드 캘린더 모델
     # on_delete 설정을 안하면 그대로 남게된다. 네이버 지식인 같은 것임
     # 만약 온딜리트 설정을 해놨다면 회원탈퇴시 같이 삭제되는 것임 
 
-class Todo(models.Model):
-    content = models.TextField()
-    project = models.ForeignKey(Calendar ,on_delete=models.CASCADE, related_name='todos')
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+# class Todo(models.Model):
+#     content = models.TextField()
+#     project = models.ForeignKey(Calendar ,on_delete=models.CASCADE, related_name='todos')
+#     created_at = models.DateTimeField(auto_now_add=True)
+#     updated_at = models.DateTimeField(auto_now=True)
 
     # def __str__(self):
     #     return self.post

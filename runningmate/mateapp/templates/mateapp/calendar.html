@@ -35,7 +35,7 @@
     width: 30px;
     height: 30px;
     /* background: #735BF2; */
-    background-image: url("{% static 'images/calenderOn.png' %}");
+    background-image: url("{% static 'images/CalenderOn.png' %}");
     background-repeat: no-repeat;
     display: inline-block;
     margin-left: 10px;
@@ -55,7 +55,7 @@
   <div class="container2">
     <div class="item2" id="chart_text">러닝차트</div>
 
-    <div class="item2" id="gantt">
+    <div class="item2" id="gantt" style="margin-left: 20px;">
       <div class="chart-axis">
         <ul class="chart-subject">
             {% for calendar in calendars %}
@@ -153,20 +153,8 @@
 
     <div class="item2" id="today_date">
       <button class="nav-btn go-prev" onclick="preDay()">&lt;</button>
-      <div class="today_day">
-        <script>
-
-          var now = new Date();
-          function todayTime(now) {
-
-            var week = ['SUN', 'MON', 'TUE', 'WED', 'TUH', 'FRI', 'SAT'];
-            var dayOfWeek = week[now.getDay()];
-
-          }
-          document.querySelector('today_day').textContent = {dayOfWeek};
-
-        </script>
-      </div>
+      <div class="today_day"></div>
+      <script src="{% static 'js/today.js'%}"></script>
       <button class="nav-btn go-next" onclick="nextDay()">&gt;</button>
     </div>
 
@@ -313,13 +301,12 @@
         </table>
     </div> -->
       <div class="item2">
-        
         {% for calendar in calendars %}
         <section class="calendar_wrap" style="width:100% ;">
           <div id = "checkbox_title"style="color:{{calendar.color}}; float:left; width:35%">{{calendar.title}}</div>
           <div class="calendar_content" style="float:right; width:65%">
             <div class="calendar_cb">
-              <input type="checkbox" class="cb" id="cb3">
+              <input type="checkbox" class="cb" id="cb3" style="color: {{calendar.color}};">
             </div>
 
             <div class="calendar_body">
@@ -334,7 +321,7 @@
             </div>
           </div>
         </section>
-      {% endfor %}
+        {% endfor %}
       <!-- 리스트에 담긴걸 포문 두개로 나눠서 투두 하나씩 불러와서 if문으로 
       불러온 하나의 투두랑 연결된 하나의 프로젝트가
       투두모델에서 외래  -->
