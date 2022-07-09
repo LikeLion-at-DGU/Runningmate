@@ -5,4 +5,4 @@ from .models import *
 # Register your models here.
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ['id', 'startday', 'endday', 'title', 'body', 'writer']
+    list_display = ['id', 'startday', 'endday', 'title', 'body', 'writer', 'color']
