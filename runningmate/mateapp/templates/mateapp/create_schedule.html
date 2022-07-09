@@ -75,9 +75,11 @@
                 <textarea type="body" id="ipt4" name="body" id="" cols="30" rows="10" placeholder="  일정을 입력해주세요"></textarea><br><br>
                 </div>
             </div>
-            <div id="btn">
+            <a href="{% url 'mateapp:calendar' %}">
+                <div id="btn">
                 <button type="submit">추가하기</button>
-            </div>            
+                </div>   
+            </a>         
         </form>
     </div>    
 </div>
