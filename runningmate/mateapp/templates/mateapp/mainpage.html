@@ -155,33 +155,15 @@
 <!-- 프로젝트 관리 -->
         <div class = "item" id = "project_text">프로젝트 관리
             <section id = "plus" ><a href="{% url 'addproject:newproject' %}" style="text-decoration: none;">+</a></section>
-        </div>
-
-       <!-- <div class = "itme" id = "project">
-            {% if project.count == 0 %}
-                <div id = 'no_project'>아직 등록된 프로젝트가 없어요</div>
-            {% else %} 
-                <div id = "item3">
-                    <section id = "pro_date">{{project.0.startday}}~{{project.0.endday}}</section>
-                    <section id = "pro_title" style="color: {{project.0.color}};">{{project.0.title}}</section>
-                    <section id = "pro_body">{{project.0.body}}</section>                    
-                </div>
-            {% endif %} -->
-                
+        </div>            
         <div class = "item" id = "project">
 
-            <!--test용 코드입니다.-->
-            <!--<div class="scroll--element" id = "subject1">
-                {% for project in projects.all %}
-                    <h1>{{project.title}}</h1>
-                {% endfor %}-->
-            <!-- 프로젝트 아무것도 없는 경우 -->
             {% if projects %}
             {% for project in projects %}
-            <div class="scroll--element" id = "subject1" style="background-color: white;">
+            <div class="scroll--element" id = "subject1" style="background-color: {{project.color}};">
                 <div id = "{{project.id}}">
-                        <h2>{{project.title}}</h2>
                         <h6>{{project.startday}}~{{project.endday}}</h6>
+                        <h2>{{project.title}}</h2>
                         <h3>{{project.summary}}</h3>
                 </div>
             </div>
@@ -218,51 +200,7 @@
             </div>
             {% endif %}
            
-            <!-- 프로젝트 있는 경우 -->
-            <!-- <div class="scroll--element" id = "subject1">
-                <h6>{{ project.startday }} {{ project.endday }}</h6>
-                <h2>{{ project.title }}</h2>
-                <h3>{{ project.body }}</h3>
-            </div>
-            <div class="scroll--element" id= "subject2">
-                <h6>{{project.1.startday}} {{project.1.endday}}</h6>
-                <h2>{{project.1.title }}</h2>
-                <h3>{{project.1.body}}</h3>
-            </div>
-            <div class="scroll--element" id = "subject3">
-                <h6>{{project.2.startday}} {{project.2.endday}}</h6>
-                <h2>{{project.2.title}}</h2>
-                <h3>{{project.2.body}}</h3>
-            </div>
-            <div class="scroll--element" id = "subject4">
-                <h6>{{project.3.startday}} {{project.3.endday}}</h6>
-                <h2>{{project.3.title}}</h2>
-                <h3>{{project.3.body}}</h3>
-            </div>
-            <div class="scroll--element" id = "subject5">
-                <h6>{{ project.4.startday }} {{ project.4.endday }}</h6>
-                <h2>{{ project.4.title }}</h2>
-                <h3>{{ project.4.body }}</h3>
-<<<<<<< HEAD
-            </div>-->
         </div>
-
-        
-        <!--test용 코드입니다-->
-        <!-- <div class = "item" id = "project"> 
-
-            {% for project in projects %}
-            <div class = "item" id = "project">
-                <div class="scroll--element" id = "subject1">
-                        <h2>{{project.title}}</h2>
-                        <h6>{{project.startday}}~{{project.endday}}</h6>
-                        <h3>{{project.summary}}</h3>
-                </div>
-            </div>
-            {% endfor %}
-
-        </div> -->
-
     </div>
 </div>
 <a href="{% url 'account_logout' %}"><img id = "logout_button" src =  "{% static 'images/logout.png' %}"/></a>

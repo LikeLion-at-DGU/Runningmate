@@ -143,7 +143,7 @@ def calendar(request):
     schedules_list.append(schedules)
     # 간트차트
 
-    projects = Calendar.objects.all() # 모델을 전부 불러옴
+    projects = Project.objects.all() # 모델을 전부 불러옴
     todos_list = [] # 빈리스트를 만듬 , 담아서 렌더링하는 경우가 많음
     todos = Calendar.objects.filter(writer=request.user)
     todos_list.append(todos) # 그 프로젝트의 등록된 투두를 불러와서 그걸 넣은거임 

@@ -25,7 +25,7 @@ class Project(models.Model): #프로젝트 추가
     COLOR_PALETTE = [
         ("#50cfbc","1",),("#fe7782","2",),("#45bfff","3",),("#ffbc54","4",),("#735bf2","5",),
         ]
-    color = ColorField(samples=COLOR_PALETTE, default="#50cfbc")
+    color = ColorField(samples=COLOR_PALETTE)
 
 
 class User(models.Model):
