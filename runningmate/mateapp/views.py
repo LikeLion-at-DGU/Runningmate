@@ -4,10 +4,11 @@ from .models import *
 from addproject.models import *
 from datetime import datetime
 from django.shortcuts import render, redirect
-from users.models import Profile
+from addproject.models import *
 import json
 import datetime
 from django.http import JsonResponse
+from addproject.models import *
 import sys, os 
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from addproject import models
@@ -15,7 +16,7 @@ from addproject import models
 def showmain(request):
     calendar = Calendar.objects.filter(writer=request.user, endday__contains=datetime.date.today(
     )).order_by('endday')  # 글을 작성한 유저의 캘린더 정보만 가져오겠다. 가까운 날짜 순으로 정렬
-    # project = Project.objects.all()
+    #projects = Project.objects.all()
     return render(request, 'mateapp/mainpage.html', {'calendar': calendar })
 
 def showevent(request):
@@ -108,7 +109,8 @@ def showevent(request):
 
 def login(request):
     if request.user.is_authenticated:
-        return render(request, 'mateapp/mainpage.html')
+        projects = Project.objects.all()
+        return render(request, 'mateapp/mainpage.html', {'projects':projects})
 
     else:
         return render(request, 'account/login.html')
@@ -157,17 +159,42 @@ def timetable(request):
         profile.save(update_fields=['timetable'])
     return redirect('mateapp:showmain')  # render 보단 redirect 가 낫다.
 
-def project_name(request):
+def project_detail(request, project_id):
+    projects = Project.objects.all()
+    project = Project.objects.get(pk=project_id)
     posts = Post.objects.all()
-    return render(request, 'mateapp/project.html', {'posts':posts})
+    post = Post.objects.filter(project=project)
+    comment = Comment.objects.filter()
+    return render(request, 'mateapp/project.html', {'projects':projects,'project':project,'posts':posts, 'post':post})
 
+# 포스트가 갖고 있는 숫자가 가장 높은걸 필터로 찾아서 오늘 날짜와 비교해서 출력함
 
 # 게시물 CRUD
 
-def create_post(request):
+def create_post(request, project_id):
+    projects = Project.objects.all()
+    project = Project.objects.get(pk=project_id)
+    posts = Post.objects.all()
+    # post = Post.objects.get(project=project)
     if request.method == "POST":
-        title = request.POST['title']
-        created_at = datetime.date.now() # 오늘 일자 출력됨
-        Post.objects.create(title=title, day=created_at) # 모델=뷰
-    return redirect('mateapp:project_name')
+        # project = Project.objects.get(title=project_title)
+        post_title = request.POST['title']
+        Post.objects.create(title=post_title, user=request.user, project=project) # post는 세가지 필드가 있는데, 
+        # 어떤 모델이든간에 pk가 있어야함 Foreign key는 생략이 될 수가 없음, 일대다 관계일때 쓴다는건데
+        # 
+    return redirect('mateapp:project_detail', project_id)
+    # return render(request, 'mateapp/project.html', {'posts':posts,'projects':projects})
         
+
+def create_comment(request, project_id, post_id):
+    project = Project.objects.get(pk=project_id)
+    post = Post.objects.get(pk=post_id)
+    if request.method == "POST":
+        post = get_object_or_404(Post,pk=post_id) #Post로 등록된 값이 잇으면 불러오고 없으면 404 출력시킴
+        content = request.POST['content']
+        file = request.FILES.get('file')
+        Comment.objects.create(content=content, post=post, user=request.user) # 모델=뷰
+    return redirect('mateapp:project_detail', project_id)
+    # id는 식별값이기 때문에 무조건 존재하는 필드임 
+
+

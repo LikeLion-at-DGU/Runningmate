@@ -160,7 +160,12 @@
 
     <!-- 디데이 -->
     <div class="item2" id="dday1" style="background-color: {{calendar.0.color}}">
-        {% if calendar.0.title %}
+        {% if calendar.count == 0 %}
+        <div id = "no_dday">
+          <p>급한 일정이 있나요? </p>
+          <p>할 일은 등록하시면 알려드릴게요!</p>
+        </div>
+        {% elif calendar.0.title %}
         <section class="subject_name" id="dday1_subject" >{{calendar.0.title}}</section>
         <section class="meeting_subject" id="dday1_meeting">{{calendar.0.body}}</section>
         <section class="count_dday" id="dday1_dday"></section>
@@ -297,35 +302,34 @@
     </div> -->
       <div class="item2">
         {% for calendar in calendars %}
-        <section class="calendar_wrap">
-          
-          <div class="calendar_title" style="color: {{calendar.color}};">
-            {{calendar.title}}
-          </div>
-          {% for schedules in schedules_list %}
-          {% for schedule in schedules %}
-          {% if schedule.title == calendar.title %}
-          <div class="calendar_content">
+        <section class="calendar_wrap" style="width:100% ;">
+          <div id = "checkbox_title"style="color:{{calendar.color}}; float:left; width:35%">{{calendar.title}}</div>
+          <div class="calendar_content" style="float:right; width:65%">
             <div class="calendar_cb">
               <input type="checkbox" class="cb" id="cb3" style="color: {{calendar.color}};">
             </div>
+
             <div class="calendar_body">
-              <span id="marg_text">{{schedule.body}}</span>
+              {% for schedules in schedules_list %}
+                {% for schedule in schedules %}
+                  {% if schedule.title == calendar.title %}
+                    <span id="marg_text" style="width:100% ;">{{calendar.body}}</span>
+                  {% endif %}
+                {% endfor %}
+              {% endfor %}
+              
             </div>
           </div>
-          {% endif %}
-          {% endfor %}
-          {% endfor %}
         </section>
-
         {% endfor %}
       <!-- 리스트에 담긴걸 포문 두개로 나눠서 투두 하나씩 불러와서 if문으로 
       불러온 하나의 투두랑 연결된 하나의 프로젝트가
       투두모델에서 외래  -->
       </div>
     </div>
+    
   </div>
-
+  <a href="{% url 'account_logout' %}"><img id = "logout_button" src =  "{% static 'images/logout.png' %}"/></a>
 <script>
   document.querySelector(".calendar_cb").addEventListener("click", function () {
     document.getElementById("marg_text").classList.toggle("dec_show");
