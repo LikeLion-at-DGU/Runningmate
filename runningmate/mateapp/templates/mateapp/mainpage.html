@@ -132,8 +132,8 @@
 
             {% for follower in project.followers.all %}
 
-            <div id = "f1" style = " width:90px; height:90px; margin-top:0;background-color:; border-radius: 50%; background-image: url({{ follower.profile.profile.url }});
-                background-size: contain;     background-repeat: no-repeat;     background-position: center; background-color:{{project.color}};"></div>
+            <div id = "f1" style = " width:85px; height:85px; margin-top:0;background-color:; border-radius: 50%; background-image: url({{ follower.profile.profile.url }});
+                background-size: contain;     background-repeat: no-repeat;     background-position: center; background-color:{{project.color}};"><h4 style="margin-top:90px ;"><section style="margin:0;">{{ follower.last_name }}{{ follower.first_name }}</section></h4></div>
             {% endfor %}
 
             {% endfor %}

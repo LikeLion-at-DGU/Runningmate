@@ -82,8 +82,8 @@
             
             {% for follower in project.followers.all %}
             
-            <div id = "f1"class="scroll--element" style = " width:90px; height:90px; margin-top:0;background-color:; border-radius: 50%; background-image: url({{ follower.profile.profile.url }});
-                background-size: contain; background-repeat: no-repeat;background-position: center; background-color:{{project.color}}; margin-left:15px;"></div>
+            <div id = "f2"class="scroll--element" style = " width:90px; height:90px; margin-top:0;background-color:; border-radius: 50%; background-image: url({{ follower.profile.profile.url }});
+                background-size: contain; background-repeat: no-repeat;background-position: center; background-color:{{project.color}}; margin-left:15px;"><h4 style="margin-top:100px ;"><section style="margin:0; color: {{project.color}}">{{ follower.last_name }}{{ follower.first_name }}</section>{{ follower.profile.major }}</h4></div>
             
             {% endfor %}
         </div>
