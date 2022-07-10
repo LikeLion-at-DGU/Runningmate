@@ -177,7 +177,27 @@
 
 .calendar_cb {
     margin-right: 15px;
+    border: none;
 }
+
+/* input[id="calendar_checkbox"] {
+    display: none;
+}
+
+input[id="calendar_checkbox"] + label {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid #50cfbc;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+input[id="calendar_checkbox"]:checked + label:after {
+    position: relative;
+    content: '\2714';
+    font-size: 14px;
+} */
 
 #marg_text {
     width: 100%;

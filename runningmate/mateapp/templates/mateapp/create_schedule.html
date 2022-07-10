@@ -65,7 +65,8 @@
                     <span>시간</span><br><br>
                     <span>과목명</span><br><br>
                     <span>장소</span><br><br>
-                    <span>일정</span><br><br>
+                    <span>일정</span><br><br><br>
+                    <span style="margin-top: 32px;">과목 컬러</span><br>
                 </div>
 
                 <div class="today_content">
@@ -76,6 +77,13 @@
                 <input type="title" id="ipt3" name="title" placeholder="  과목명을 입력해주세요"><br><br>
                 <input type="place" id="ipt5" name="place" placeholder="  장소를 입력해주세요"><br><br>
                 <textarea type="body" id="ipt4" name="body" id="" cols="30" rows="10" placeholder="  일정을 입력해주세요"></textarea><br><br>
+                <div id = "color_select">
+                    <label for="cl1"><input type="radio" name="color" id="cl1" value="#fe7782" onclick=""></label>
+                    <label for="cl2"><input type="radio" name="color" id="cl2" value="#ffbc54" onclick=""></label>
+                    <label for="cl3"><input type="radio" name="color" id="cl3" value="#50cfbc" onclick=""></label>
+                    <label for="cl4"><input type="radio" name="color" id="cl4" value="#45bfff" onclick=""></label>
+                    <label for="cl5"><input type="radio" name="color" id="cl5" value="#735bf2" onclick=""></label>
+                </div>
                 </div>
             </div>
             <a href="{% url 'mateapp:calendar' %}" style="text-decoration: none;">
