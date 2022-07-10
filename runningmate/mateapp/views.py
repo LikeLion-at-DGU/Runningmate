@@ -9,6 +9,7 @@ import json
 import datetime
 from django.http import JsonResponse
 from addproject.models import *
+from users import *
 import sys, os 
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from addproject import models
@@ -18,6 +19,7 @@ def showmain(request):
     calendar = Calendar.objects.filter(writer=request.user, endday__contains=datetime.date.today(
     )).order_by('endday')  # 글을 작성한 유저의 캘린더 정보만 가져오겠다. 가까운 날짜 순으로 정렬
     projects = Project.objects.all()
+    profile = Profile.objects.all()
     return render(request, 'mateapp/mainpage.html', {'calendar': calendar, 'projects':projects })
 
 def showevent(request):
