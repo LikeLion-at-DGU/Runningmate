@@ -132,6 +132,7 @@ def create_schedule(request):
         new_schedule.starttime = request.POST.get('starttime')
         new_schedule.endtime = request.POST.get('endtime')
         new_schedule.place = request.POST['place']
+        new_schedule.color = request.POST['color']
         new_schedule.save()
         return redirect('mateapp:calendar')
     else :
