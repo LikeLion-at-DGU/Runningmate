@@ -24,19 +24,7 @@
     src: url(../font/Pacifico-Regular.ttf);
 }
 
-#rec3{
-    position: absolute;
-    width: 80%;
-    height: 90%;
-    left: 17%;
-    top: 4%;
-    bottom: 4%;
-    background: #F8F9FF;
-    border-radius: 30px;
-}
-
 #rec_project {
-    border: 1px solid rgb(198, 192, 192);
     position: absolute;
     z-index: 1;
     width: 96%;
@@ -115,32 +103,58 @@ input[type="date"]:valid::before {
     border-radius: 5px;
 }
 
-input[type="color"] {
+/* 컬러 선택 버튼 -------------------------------*/
+#color_select {
+    margin-top: 1%;
+    margin-left: -1%;
+}
+
+input[type="radio"] {
 	-webkit-appearance: none;
 	border: none;
-    background: none;
+    border-radius: 50%;
 	width: 35px;
 	height: 35px;
 }
 
-input[type="color"]::-webkit-color-swatch-wrapper {
-	padding: 0;
+#cl1 {
+    background-color: #fe7782;
 }
 
-input[type="color"]::-webkit-color-swatch {
-	border: none;
-    border-radius: 50%;
+#cl1:checked {
+    border: 1.5px solid black;
 }
 
-#btn_1, #btn_2, #btn_3, #btn_4, #btn_5 {
-    background: none;
-    border: none;
-    cursor: pointer;
+#cl2 {
+    background-color: #ffbc54;
 }
 
-#color_select {
-    margin-top: 1%;
-    margin-left: -2%;
+#cl2:checked {
+    border: 1.5px solid black;
+}
+
+#cl3 {
+    background-color: #50cfbc;
+}
+
+#cl3:checked {
+    border: 1.5px solid black;
+}
+
+#cl4 {
+    background-color: #45bfff;
+}
+
+#cl4:checked {
+    border: 1.5px solid black;
+}
+
+#cl5 {
+    background-color: #735bf2;
+}
+
+#cl5:checked {
+    border: 1.5px solid black;
 }
 
 /* 프로젝트 관리 버튼 -------------------------------*/

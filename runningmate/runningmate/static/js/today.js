@@ -1,4 +1,5 @@
-let date = new Date();
+let today = new Date.now();
+
 var week = [
     "Sun",
     "Mon",
@@ -14,3 +15,4 @@ const renderDay = () => {
 
     document.querySelector(".today_day").textContent = '{weekofday}';
 } // today_day
+
