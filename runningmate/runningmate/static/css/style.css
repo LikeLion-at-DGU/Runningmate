@@ -274,14 +274,18 @@ span{
     margin-top: 0;
     margin-bottom: 0;
 }
-
-#f1, #f2, #f3, #f4, #f5, #f6{
+#f1{
+    transform: translateY(-60%);
+}
+#f2{
+    transform: translateY(-75%);
+}
+#f1, #f2{
     display: inline-block;
     width: 10vmin;
     height: 10vmin;
     position: relative;
     top: 50%;
-    transform: translateY(-50%);
     vertical-align: middle;
     margin-left: 1vmin;
 

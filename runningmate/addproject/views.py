@@ -15,6 +15,7 @@ def createproject(request):
     new_project.endday = request.POST.get('endday') # 프로젝트 마감일을 받음
     new_project.writer = request.user
     new_project.color = request.POST.get('color')
+    
     new_project.save()
     new_project.followers.add(request.user)
     for i in range(1,7):
