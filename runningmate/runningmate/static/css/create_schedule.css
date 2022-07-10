@@ -24,19 +24,7 @@
     src: url(../font/Pacifico-Regular.ttf);
 }
 
-#rec3{
-    position: absolute;
-    width: 80%;
-    height: 90%;
-    left: 17%;
-    top: 4%;
-    bottom: 4%;
-    background: #F8F9FF;
-    border-radius: 30px;
-}
-
 .rec_today {
-    border: 1px solid rgb(198, 192, 192);
     position: absolute;
     z-index: 1;
     width: 96%;
@@ -53,7 +41,7 @@
     text-align: center;
     font-family: "AppleSDGothicNeoB";
     font-weight: 300;
-    margin-top: 3%;
+    margin-top: 1%;
 }
 
 #rec3 h2 {
@@ -129,6 +117,58 @@ input[type="date"]:valid::before {
     display: none;
 }
 
+
+#color_select {
+    margin-left: -1%;
+}
+
+input[type="radio"] {
+	-webkit-appearance: none;
+	border: none;
+    border-radius: 50%;
+	width: 35px;
+	height: 35px;
+}
+
+#cl1 {
+    background-color: #fe7782;
+}
+
+#cl1:checked {
+    border: 1.5px solid black;
+}
+
+#cl2 {
+    background-color: #ffbc54;
+}
+
+#cl2:checked {
+    border: 1.5px solid black;
+}
+
+#cl3 {
+    background-color: #50cfbc;
+}
+
+#cl3:checked {
+    border: 1.5px solid black;
+}
+
+#cl4 {
+    background-color: #45bfff;
+}
+
+#cl4:checked {
+    border: 1.5px solid black;
+}
+
+#cl5 {
+    background-color: #735bf2;
+}
+
+#cl5:checked {
+    border: 1.5px solid black;
+}
 /* 투데이 button -----------------------------------*/
 #btn {
     display: flex;
@@ -136,7 +176,7 @@ input[type="date"]:valid::before {
 }
 
 #btn button{
-    width: 470px;
+    width: 490px;
     font-family: "AppleSDGothicNeoM";
     background-color: #735BF2;
     color: white;

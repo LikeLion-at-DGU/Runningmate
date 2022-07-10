@@ -278,14 +278,15 @@
     <div class="calendar_content">
       <ul>
         <li>
-          <input type="checkbox" class="calendar_cb" style="accent-color: {{calendar.color}};">
+          <input type="checkbox" class="calendar_cb" id="calendar_checkbox" style="accent-color: {{calendar.color}};">
+          <label for="calendar_checkbox"></label>
         </li>
         <li>
           <div class="calendar_body">
             {% for schedules in schedules_list %}
               {% for schedule in schedules %}
                 {% if schedule.title == calendar.title %}
-                  <span id="marg_text">{{calendar.body}}</span>
+                  <span class="marg_text">{{calendar.body}}</span>
                 {% endif %}
               {% endfor %}
             {% endfor %}
@@ -311,7 +312,8 @@
 
 // click 이벤트에서 체크박스의 체크 여부 확인
 const checkClick = document.querySelector(".calendar_cb");
-const cancelationList = document.getElementById("marg_text");
+const cancelationList = document.querySelector(".calendar_body span");
+
 
 checkClick.addEventListener("click", () => {
   if (checkClick.checked === true) {
@@ -321,7 +323,6 @@ checkClick.addEventListener("click", () => {
     cancelationList.style.textDecoration = "";
   }
 });
-
 
 </script>
 {% endblock %}
