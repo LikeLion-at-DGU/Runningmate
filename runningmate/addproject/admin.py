@@ -6,3 +6,5 @@ from .models import *
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ['id', 'startday', 'endday', 'title', 'body', 'writer', 'color']
+
+admin.site.register(Follow)
