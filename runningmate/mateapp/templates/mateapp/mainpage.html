@@ -189,7 +189,7 @@
 
             
             
-            <div class="scroll--element" id = "subject1" style="background-color: {{project.color}};">
+            <div class="scroll--element" style="background-color: {{project.color}};">
                 <div id = "{{project.id}}">
                         <h6>{{project.startday}}~{{project.endday}}</h6>
                         <h2>{{project.title}}</h2>
@@ -200,6 +200,11 @@
                         {% for follower in project.followers.all %}
                         <div id = "f1" style = " width:30px; height:30px; margin-top:20px;text-align:right;background-color:; border-radius: 50%; background-image: url({{ follower.profile.profile.url }});
                         background-size: contain;  background-repeat: no-repeat;  background-position: center; background-color:white;"></div>
+                        {% empty %}
+                        <div id = "f1" style = " width:30px; height:30px; margin-top:20px;text-align:right;background-color:; border-radius: 50%; background-image: url({{ follower.profile.profile.url }});
+                        background-size: contain;  background-repeat: no-repeat;  background-position: center; background-color:white;visibility: hidden "></div>
+
+                           
                         {% endfor %}
 
                         </div>
