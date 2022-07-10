@@ -150,12 +150,14 @@
     </div>
     <div class="item2" id="today">
       투데이
-      <section id = "plus" ><a href="{% url 'mateapp:create_schedule' %}">+</a></section>
+      <section id = "plus" ><a href="{% url 'mateapp:create_schedule' %}" style="text-decoration: none;">+</a></section>
     </div>
 
     <div class="item2" id="today_date">
       <button class="nav-btn go-prev" onclick="preDay()">&lt;</button>
-      <div class="today_day"></div>
+      <div id="today_day">
+        
+      </div>
       <script src="{% static 'js/today.js'%}"></script>
       <button class="nav-btn go-next" onclick="nextDay()">&gt;</button>
     </div>
@@ -302,6 +304,29 @@
             </tr>
         </table>
     </div> -->
+<<<<<<< HEAD
+      <div class="item2">
+        {% for calendar in calendars %}
+        <section class="calendar_wrap">
+          <div id = "checkbox_title"style="color:{{calendar.color}};">{{calendar.title}}</div>
+          <div class="calendar_content">
+            <ul>
+              <li>
+                <input type="checkbox" class="calendar_cb" style="accent-color: {{calendar.color}};">
+              </li>
+              <li>
+                <div class="calendar_body">
+                  {% for schedules in schedules_list %}
+                    {% for schedule in schedules %}
+                      {% if schedule.title == calendar.title %}
+                        <span id="marg_text">{{calendar.body}}</span>
+                      {% endif %}
+                    {% endfor %}
+                  {% endfor %}
+                </div>
+              </li>
+            </ul>
+=======
       
     <div class="item2">
       {% for calendar in calendars %}
@@ -313,6 +338,7 @@
         <div class="calendar_content" style="float:right; width:65%">
           <div class="calendar_cb">
             <input type="checkbox" class="cb" id="cb3" style="color: {{calendar.color}};">
+>>>>>>> dd70fcb2beec5affc12aefe9cbd891b20c0b7bc8
           </div>
           <div class="calendar_body">
             <span id="marg_text" style="width:100% ;">{{calendar.body}}</span>
@@ -331,9 +357,29 @@
     
   </div>
   <a href="{% url 'account_logout' %}"><img id = "logout_button" src =  "{% static 'images/logout.png' %}"/></a>
+
+
 <script>
-  document.querySelector(".calendar_cb").addEventListener("click", function () {
-    document.getElementById("marg_text").classList.toggle("dec_show");
-  });
+  // 첫 번째 시도
+  // document.querySelector(".calendar_cb").addEventListener("click", function cancelationList(){});
+
+  // function cancelationList() {
+  //   document.getElementById("marg_text").classList.toggle("dec_show");
+  // };
+
+// click 이벤트에서 체크박스의 체크 여부 확인
+const checkClick = document.querySelector(".calendar_cb");
+const cancelationList = document.getElementById("marg_text");
+
+checkClick.addEventListener("click", () => {
+  if (checkClick.checked === true) {
+    // textDecoration 의 속성을 line-through로 변경
+    cancelationList.style.textDecoration = "line-through";
+  } else {
+    cancelationList.style.textDecoration = "";
+  }
+});
+
+
 </script>
 {% endblock %}
