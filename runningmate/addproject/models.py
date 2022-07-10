@@ -23,13 +23,10 @@ class Project(models.Model): #프로젝트 추가
         return self.body[:30]
 
     @property
-    def follower_count(self):
+    def followers_count(self):
         return self.followers.count()
     
-    @property 
-    def follower(self):
-        return self.followers
-    
+ 
     COLOR_PALETTE = [
         ("#50cfbc","1",),("#fe7782","2",),("#45bfff","3",),("#ffbc54","4",),("#735bf2","5",),
         ]

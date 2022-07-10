@@ -86,6 +86,10 @@ class CustomSignupForm(accountform):
         profile = Profile()
         profile.user = user
         profile.profile = self.cleaned_data.get('emoji')
+        profile.phone = self.cleaned_data.get('phone')
+        profile.major = self.cleaned_data.get('major')
+        profile.first_name = self.cleaned_data.get('first_name')
+        profile.last_name = self.cleaned_data.get('last_name')
         profile.save()
         return user
 
