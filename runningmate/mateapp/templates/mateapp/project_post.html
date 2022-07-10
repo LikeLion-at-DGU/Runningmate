@@ -95,6 +95,8 @@
         <div class = "item3" id = "pro_runningspace">
                 <section id = "post_date">{{post.day}}</section>
                 <section id = "post_title">{{post.title}}</section>
+                <section id = "post_body">{{post.body}}</section>
+
  
         <form action="{% url 'mateapp:create_comment' project.id post.id %}" method="POST" enctype="multipart/form-data">
             {%csrf_token%}
@@ -110,7 +112,7 @@
         <div class = "item3" id = "{{comment.id}}">
             <div id = "mimoji_place" >
                 <section id = "mimoji" style="width: 70px; height:70px; border-radius: 50%; background:{{project.color}}; ;margin:10px;">
-                    
+                    <img src="{{ comment.user.profile.profile.url }}" width="50px" height="50px">
                 </section>
             </div>
             <section id = "name" style="color:{{project.color}}">{{comment.user}}</section>
