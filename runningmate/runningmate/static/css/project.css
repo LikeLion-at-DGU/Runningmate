@@ -382,3 +382,11 @@ a{
     font-family: 'AppleSDGothicNeoB';
 
 }
+
+h4{
+    text-align:center; 
+    margin: 0;
+    font-family: 'AppleSDGothicNeoM';
+    font-weight: 500;
+    font-size: 1.8vmin;
+}

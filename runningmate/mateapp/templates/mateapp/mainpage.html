@@ -121,21 +121,20 @@
         </div>
 
 
-        <div class = "item" id = "runningmate_text">러닝메이트</div>
-        {% for follower in project.followers.all %}
-            <img src="{{ follower.profile.profile.url }}" width="40px" height="40px">
-        {% endfor %}
+        <div class = "item" id = "runningmate_text">러닝메이트
+
+            
+        </div>
         <!-- <img src="{{ user.profile.profile.url }}" width="50px" height="50px"> -->
         <div class = "item" id = "runningmate">
             
-            {% for project in projects %} 
+            {% for project in projects %}
 
-            {%empty%}
-                <div id = "no_project">아직 등록된 러닝메이트가 없어요.</div>
-            {%endfor%}
             {% for follower in project.followers.all %}
-            
-            <img src="{{ follower.profile.profile.url }}" width="40px" height="40px">
+
+            <div id = "f1" style = " width:90px; height:90px; margin-top:0;background-color:; border-radius: 50%; background-image: url({{ follower.profile.profile.url }});
+                background-size: contain;     background-repeat: no-repeat;     background-position: center; background-color:{{project.color}};"></div>
+            {% endfor %}
 
             {% endfor %}
             <!-- <div id = "f1" style="margin-left: 3vmin;"><div class = "friend" id = "friend1"></div><h4>이영서</h4></div>
@@ -194,14 +193,16 @@
                 <div id = "{{project.id}}">
                         <h6>{{project.startday}}~{{project.endday}}</h6>
                         <h2>{{project.title}}</h2>
-                        <h3>{{project.summary}}</h3>
-                        {% for project in projects %}
+                        <h3 style="margin-bottom: 0;">{{project.summary}}</h3>
+                        <div class = "mimoji" style="width: 95% ;text-align:right; ">
+                        
 
                         {% for follower in project.followers.all %}
-                        <img src="{{ follower.profile.profile.url }}" width="40px" height="40px">
+                        <div id = "f1" style = " width:30px; height:30px; margin-top:20px;text-align:right;background-color:; border-radius: 50%; background-image: url({{ follower.profile.profile.url }});
+                        background-size: contain;  background-repeat: no-repeat;  background-position: center; background-color:white;"></div>
                         {% endfor %}
 
-            {% endfor %}
+                        </div>
                 </div>
             </div>
             {% endfor %}

@@ -728,3 +728,35 @@ input{
     justify-content: center;
     align-items: center;
 }
+
+#recentpro_project{
+    font-family: AppleSDGothicNeoB;
+    margin-left: 13px;
+    margin-top: 10px;
+}
+
+#recentpro_title{
+    font-family: AppleSDGothicNeoB;
+    margin-left: 13px;
+    margin-top: 2px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 19px;
+    letter-spacing: 1px;
+    color: #222B45;
+
+}
+
+#recentpro_date{
+    font-family: AppleSDGothicNeoM;
+    margin-left: 13px;
+    margin-top: 5px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.75px;
+
+    color: #8F9BB3;
+}

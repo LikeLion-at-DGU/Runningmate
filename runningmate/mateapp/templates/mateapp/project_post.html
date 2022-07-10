@@ -20,7 +20,7 @@
     padding-right: 10px;
     }
 
-    #calender_logo {
+    #emer_logo {
     width: 30px;
     height: 30px;
     background-image: url("{% static 'images/calender.png' %}");
@@ -78,7 +78,15 @@
             </div>
         </div>
         <div class = "item3" id = "pro_runningmate_text">러닝메이트</div>
-        <div class = "item3" id = "pro_runningmate"></div>
+        <div class = "item3" id = "pro_runningmate" style="text-align: center;">
+            
+            {% for follower in project.followers.all %}
+            
+            <div id = "f1"class="scroll--element" style = " width:90px; height:90px; margin-top:0;background-color:; border-radius: 50%; background-image: url({{ follower.profile.profile.url }});
+                background-size: contain; background-repeat: no-repeat;background-position: center; background-color:{{project.color}}; margin-left:15px;"></div>
+            
+            {% endfor %}
+        </div>
         <div class = "item3" id = "pro_runningspace_text">
             <span>러닝스페이스</span>
             <a href = "{% url 'mateapp:project_detail' project.id %}"><section id = "back" style="display:inline-block; font-size:15px;color:white;background-color: {{project.color}};width: 81px;
@@ -92,7 +100,7 @@
             {%csrf_token%}
             <div style="width: 100%;text-align:center;margin-top: 35vmin;">
                 
-                <input type="text" name="content" id='content' required placeholder="  내용을 입력해주세요" style="width: 80%;">
+                <input type="text" name="content" id='content' required placeholder="  댓글을 입력해주세요" style="width: 80%;">
                 <input type="submit" value="전송" id = "submit_title2" >
             </div>
         </form>

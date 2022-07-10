@@ -150,12 +150,14 @@
     </div>
     <div class="item2" id="today">
       투데이
-      <section id = "plus" ><a href="{% url 'mateapp:create_schedule' %}">+</a></section>
+      <section id = "plus" ><a href="{% url 'mateapp:create_schedule' %}" style="text-decoration: none;">+</a></section>
     </div>
 
     <div class="item2" id="today_date">
       <button class="nav-btn go-prev" onclick="preDay()">&lt;</button>
-      <div class="today_day"></div>
+      <div id="today_day">
+        
+      </div>
       <script src="{% static 'js/today.js'%}"></script>
       <button class="nav-btn go-next" onclick="nextDay()">&gt;</button>
     </div>
@@ -265,75 +267,58 @@
     </script>
     {% endif %}
     </div>
-    <!-- 체크리스트 -->
-    <!-- <div class="detail_2">
-        <p class="syn_2">조직행위 03</p>
-        <table class="tb2">
-            <tr>
-                <td><input type="checkbox" class="cb" id="cb3"> <span class="marg_text" id="marg_text3" data-id="2">커뮤니케이션 이론 쪽지 시험 준비</span><br></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" class="cb" id="cb4"> <span class="marg_text" id="marg_text4" data-id="3">인터뷰 기업 후보 리스트 작성</span><br></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" class="cb" id="cb5"> <span class="marg_text" id="marg_text5" data-id="4">인터뷰 질문 작성</span><br></td>
-            </tr>
-        </table>
-    </div>
-    <div class="detail_3">
-        <p class="syn_3">파이썬과 경영 01</p>
-        <table class="tb3">
-            <tr>
-                <td><input type="checkbox" class="cb" id="cb6"> <span class="marg_text" id="marg_text6" data-id="5">문자열 메소드 암기</span></td>
-            </tr>
-        </table>
-    </div>
-    <div class="detail_4">
-        <p class="syn_4">개인</p>
-        <table class="tb4">
-            <tr>
-                <td><input type="checkbox" class="cb" id="cb7"> <span class="marg_text" id="marg_text7" data-id="6">계절학기 수강 정정</span><br></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" class="cb" id="cb8"> <span class="marg_text" id="marg_text8" data-id="7">계절학기 수강료 납부</span><br></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" class="cb" id="cb9"> <span class="marg_text" id="marg_text9" data-id="8">공모전 제출</span></td>
-            </tr>
-        </table>
-    </div> -->
-      
-    <div class="item2">
-      {% for calendar in calendars %}
-      <section class="calendar_wrap" style="width:100% ;">
-        <div id = "checkbox_title"style="color:{{calendar.color}}; float:left; width:35%">{{calendar.title}}</div>
-        {% for schedules in schedules_list %}
-        {% for schedule in schedules %}
-        {% if schedule.title == calendar.title %}
-        <div class="calendar_content" style="float:right; width:65%">
-          <div class="calendar_cb">
-            <input type="checkbox" class="cb" id="cb3" style="color: {{calendar.color}};">
-          </div>
+<!-- 체크리스트 -->
+<div class="item2">
+  {% for calendar in calendars %}
+  <section class="calendar_wrap">
+    <div id = "checkbox_title"style="color:{{calendar.color}};">{{calendar.title}}</div>
+    <div class="calendar_content">
+      <ul>
+        <li>
+          <input type="checkbox" class="calendar_cb" style="accent-color: {{calendar.color}};">
+        </li>
+        <li>
           <div class="calendar_body">
-            <span id="marg_text" style="width:100% ;">{{calendar.body}}</span>
+            {% for schedules in schedules_list %}
+              {% for schedule in schedules %}
+                {% if schedule.title == calendar.title %}
+                  <span id="marg_text">{{calendar.body}}</span>
+                {% endif %}
+              {% endfor %}
+            {% endfor %}
           </div>
-        </div>
-        {% endif %}
-        {% endfor %}
-        {% endfor %}
-      </section>
-      {% endfor %}
-    <!-- 리스트에 담긴걸 포문 두개로 나눠서 투두 하나씩 불러와서 if문으로 
-    불러온 하나의 투두랑 연결된 하나의 프로젝트가
-    투두모델에서 외래  -->
+        </li>
+      </ul>
     </div>
-    </div>
-    
-  </div>
-  <a href="{% url 'account_logout' %}"><img id = "logout_button" src =  "{% static 'images/logout.png' %}"/></a>
+  </section>
+  {% endfor %}
+  <!-- 리스트에 담긴 걸 포문 두개로 나눠서 투두 하나씩 불러와서 if문으로
+  불러온 하나의 투두랑 연결된 하나의 프로젝트가 투두 모델에서 외래 -->
+</div>
+<a href="{% url 'account_logout' %}"><img id = "logout_button" src =  "{% static 'images/logout.png' %}"/></a>
+
+
 <script>
-  document.querySelector(".calendar_cb").addEventListener("click", function () {
-    document.getElementById("marg_text").classList.toggle("dec_show");
-  });
+  // 첫 번째 시도
+  // document.querySelector(".calendar_cb").addEventListener("click", function cancelationList(){});
+
+  // function cancelationList() {
+  //   document.getElementById("marg_text").classList.toggle("dec_show");
+  // };
+
+// click 이벤트에서 체크박스의 체크 여부 확인
+const checkClick = document.querySelector(".calendar_cb");
+const cancelationList = document.getElementById("marg_text");
+
+checkClick.addEventListener("click", () => {
+  if (checkClick.checked === true) {
+    // textDecoration 의 속성을 line-through로 변경
+    cancelationList.style.textDecoration = "line-through";
+  } else {
+    cancelationList.style.textDecoration = "";
+  }
+});
+
+
 </script>
 {% endblock %}

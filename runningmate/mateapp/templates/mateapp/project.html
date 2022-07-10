@@ -65,6 +65,10 @@
     #meeting_date{
         color: {{project.color}};
     }
+
+    #friend1, #friend2, #friend3, #friend4,#friend5, #friend6{
+        background-color:  {{project.color}};;
+    }
 </style>
 <div id = "rec3">
     <div class = "container3">
@@ -76,8 +80,23 @@
                         <h3>{{project.summary}}</h3>
                 </div>
         </div>
-        <div class = "item3" id = "pro_runningmate_text">러닝메이트</div>
-        <div class = "item3" id = "pro_runningmate"></div>
+        <div class = "item3" id = "pro_runningmate_text">러닝메이트
+
+        </div>
+        <div class = "item3" id = "pro_runningmate" style="text-align:center">
+           
+            
+
+            {% for follower in project.followers.all %}
+            
+            <div id = "f1"class="scroll--element" style = " width:90px; height:90px; margin-top:0;background-color:; border-radius: 50%; background-image: url({{ follower.profile.profile.url }});
+                background-size: contain; background-repeat: no-repeat;background-position: center; background-color:{{project.color}}; margin-left:15px;"></div>
+            
+            {% endfor %}
+
+
+            
+        </div>
         <div class = "item3" id = "pro_runningspace_text">
             <span>러닝스페이스</span>
 
