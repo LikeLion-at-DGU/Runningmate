@@ -71,7 +71,7 @@
 
 /* 투데이 title ---------------------------------*/
 .today_title {
-    line-height: 28px;
+    line-height: 27px;
 }
 
 .today_title span {
@@ -89,7 +89,7 @@
     font-size: 15px;
 }
 
-#ipt1, #ipt3 {
+#ipt0, #ipt1, #ipt3 {
     width: 360px;
     height: 30px;
     border: 0.5px solid #8f9bb3;
@@ -106,6 +106,13 @@
 #ipt4 {
     width: 360px;
     height: 80px;
+    border: 0.5px solid #8f9bb3;
+    border-radius: 5px;
+}
+
+#ipt5 {
+    width: 360px;
+    height: 30px;
     border: 0.5px solid #8f9bb3;
     border-radius: 5px;
 }
@@ -129,7 +136,7 @@ input[type="date"]:valid::before {
 }
 
 #btn button{
-    width: 510px;
+    width: 470px;
     font-family: "AppleSDGothicNeoM";
     background-color: #735BF2;
     color: white;
@@ -138,5 +145,5 @@ input[type="date"]:valid::before {
     height: 40px;
     cursor: pointer;
     font-size: 18px;
-    margin-top: 2%;
+    margin-top: 1%;
 }
