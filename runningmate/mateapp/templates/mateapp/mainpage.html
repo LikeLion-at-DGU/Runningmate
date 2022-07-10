@@ -143,44 +143,30 @@
 
         <div class = "item" id = "chatting_text">최근 프로젝트</div>
         <div class = "item" id = "chatting_1">
-            {% for project in projects %} 
+            {% for post in posts %} 
              
             {%empty%}
                 <div id = "no_project">아직 등록된 프로젝트가 없어요.</div>
             {%endfor%}
-            <section id = "recentpro_title" style="color:{{projects.0.color}}">{{projects.0.title}}</section>
-            <!-- {% for project in projects %}
-                {% for post in boards %}
-                    {% if project.title == post.project %}
-                        post.comments
-                    {%endif%}
-                 {% endfor%}  
-            {% endfor %} -->
-            <!-- {% for calendar in calendars %}
-            <section class="calendar_wrap" style="width:100% ;">
-                <div id = "checkbox_title"style="color:{{calendar.color}}; float:left; width:35%">{{calendar.title}}</div>
-                {% for schedules in schedules_list %}
-                {% for schedule in schedules %}
-                {% if schedule.title == calendar.title %}
-                <div class="calendar_content" style="float:right; width:65%">
-                <div class="calendar_cb">
-                    <input type="checkbox" class="cb" id="cb3" style="color: {{calendar.color}};">
-                </div>
-                <div class="calendar_body">
-                    <span id="marg_text" style="width:100% ;">{{calendar.body}}</span>
-                </div>
-                </div>
-                {% endif %}
-                {% endfor %}
-                {% endfor %}
-            </section>
-            {% endfor %} -->
+            {% for project in projects %}
+                {% if project.title == posts.0.project %} 
+                <section   section id = "recentpro_title" style="color:{{projects.0.color}}">{{posts.0.project}}</section>
+                <section id = "recentpro_title" style="color:{{projects.0.color}}">{{posts.0.title}}</section>
+
+                {% endif %} 
+            {% endfor %}
+            
+
         </div>
         <div class = "item" id = "chatting_2">
-            <section id = "recentpro_title" style="color:{{projects.1.color}}">{{projects.1.title}}</section>
+            <section id = "recentpro_title" style="color:{{projects.0.color}}">{{posts.1.project}}</section>
+            <section id = "recentpro_title" style="color:{{projects.0.color}}">{{posts.1.title}}</section>
+
         </div>
         <div class = "item" id = "chatting_3">
-            <section id = "recentpro_title" style="color:{{projects.2.color}}">{{projects.2.title}}</section>
+            <section id = "recentpro_title" style="color:{{projects.0.color}}">{{posts.2.project}}</section>
+            <section id = "recentpro_title" style="color:{{projects.0.color}}">{{posts.2.title}}</section>
+
         </div>
 
 

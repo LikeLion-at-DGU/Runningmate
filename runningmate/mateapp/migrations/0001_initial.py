@@ -41,7 +41,7 @@ class Migration(migrations.Migration):
             name='Calendar',
             fields=[
                 ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('title', models.CharField(max_length=20, null=True)),
+                ('title', models.ForeignKey(default='', on_delete=django.db.models.deletion.PROTECT, to='addproject.project')),
                 ('startday', models.DateField(null=True)),
                 ('endday', models.DateField(null=True)),
                 ('starttime', models.TimeField(null=True)),
