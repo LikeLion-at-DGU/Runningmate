@@ -18,7 +18,8 @@ from django.core.paginator import Paginator
 def showmain(request):
     calendar = Calendar.objects.filter(writer=request.user, endday__contains=datetime.date.today(
     )).order_by('endday')  # 글을 작성한 유저의 캘린더 정보만 가져오겠다. 가까운 날짜 순으로 정렬
-    projects = Project.objects.all()
+    projects = Project.objects.filter(followers=request.user)
+    profile = Profile.objects.all()
     posts = Post.objects.all().order_by('-day')
     return render(request, 'mateapp/mainpage.html', {'calendar': calendar, 'projects':projects,'posts':posts, })
 
@@ -163,7 +164,7 @@ def timetable(request):
     return redirect('mateapp:showmain')  # render 보단 redirect 가 낫다.
 
 def project_detail(request, project_id):
-    projects = Project.objects.all()
+    projects = Project.objects.filter(followers=request.user)
     project = Project.objects.get(pk=project_id)
     posts = Post.objects.all()
     post = Post.objects.filter(project=project)
@@ -186,7 +187,8 @@ def create_post(request, project_id):
     if request.method == "POST":
         # project = Project.objects.get(title=project_title)
         post_title = request.POST['title']
-        Post.objects.create(title=post_title, user=request.user, project=project) # post는 세가지 필드가 있는데, 
+        post_body = request.POST['body']
+        Post.objects.create(title=post_title, user=request.user, project=project, body=post_body) # post는 세가지 필드가 있는데, 
         # 어떤 모델이든간에 pk가 있어야함 Foreign key는 생략이 될 수가 없음, 일대다 관계일때 쓴다는건데
         # 
     return redirect('mateapp:project_detail', project_id)

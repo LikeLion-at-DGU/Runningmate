@@ -95,10 +95,12 @@
         <div class = "item3" id = "pro_runningspace">
                 <section id = "post_date">{{post.day}}</section>
                 <section id = "post_title">{{post.title}}</section>
+                <section id = "post_body" >{{post.body}}</section>
+
  
         <form action="{% url 'mateapp:create_comment' project.id post.id %}" method="POST" enctype="multipart/form-data">
             {%csrf_token%}
-            <div style="width: 100%;text-align:center;margin-top: 35vmin;">
+            <div style="width: 100%;text-align:center;margin-top: 33vmin;">
                 
                 <input type="text" name="content" id='content' required placeholder="  댓글을 입력해주세요" style="width: 80%;">
                 <input type="submit" value="전송" id = "submit_title2" >
@@ -109,8 +111,10 @@
         {% for comment in boards %}
         <div class = "item3" id = "{{comment.id}}">
             <div id = "mimoji_place" >
-                <section id = "mimoji" style="width: 70px; height:70px; border-radius: 50%; background:{{project.color}}; ;margin:10px;background-image: url({{ user.profile.profile.url }})">
-                    
+
+                <section id = "mimoji" style="width: 70px; height:70px; border-radius: 50%; background-color: {{project.color}};; ;margin:10px; background-image: url({{ comment.user.profile.profile.url }});
+                background-size: contain; background-repeat: no-repeat; background-position: center;" >
+    
                 </section>
             </div>
             <section id = "name" style="color:{{project.color}}">{{comment.user}}</section>
