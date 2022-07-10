@@ -25,9 +25,7 @@ class Calendar(models.Model): # 대시보드 캘린더 모델
     COLOR_PALETTE = [
         ("#50cfbc","1",),("#fe7782","2",),("#45bfff","3",),("#ffbc54","4",),("#735bf2","5",),
         ]
-    color = ColorField(samples=COLOR_PALETTE, default="#50cfbc")
-
-    # project랑 연결하면 없어질 color들..~
+    color = ColorField(samples=COLOR_PALETTE)
 
     def __str__(self):
         return self.title
