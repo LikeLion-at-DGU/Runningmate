@@ -32,6 +32,8 @@
     display: inline-block;
     padding-right: 10px;
     }
+
+
 </style>
 
 <div id = "rec3">
@@ -80,7 +82,7 @@
             <script src="{% static 'js/calendar.js'%}"></script>
         </div>
         <div class = "item" id = "schedule_1">
-            {% if calendar.count == 0 %}
+            {% if calendar.0.title == None %}
                 <div id = 'no_schedule'>아직 등록된 일정이 없어요</div>
             {% else %} 
                 <div id = "sch1">
@@ -99,10 +101,8 @@
             {% endif %}
         </div>
         <div class = "item" id = "schedule_2">
-            {% if calendar.count == 0 %}
-                <div id = 'no_schedule'>아직 등록된 일정이 없어요</div>
-            {% elif calendar.count == 1 %}
-                <div id = 'no_schedule'>아직 등록된 일정이 없어요</div>
+            {% if calendar.1.title == None %}
+            <div id = 'no_schedule'>아직 등록된 일정이 없어요</div>
             {% else %} 
                 <div id = "sch2">
                     <section id = "cal_title2" style="color: {{calendar.1.color}}; ">{{calendar.1.title}}</section>
@@ -124,31 +124,49 @@
         <div class = "item" id = "runningmate_text">러닝메이트</div>
         <div class = "item" id = "runningmate">
             
-            <!-- 등록된 과목 없으면 -->
-            <div id = "no_runningmate">아직 등록된 러닝메이트가 없어요.</div>
+            {% for project in projects %} 
 
-             <!-- 있으면 러닝메이트 띄움 -->
-            <!-- <div id = "f1" style="margin-left: 3vmin;"><div class = "friend" id = "friend1"></div><h4>이영서</h4></div>
+            {%empty%}
+                <div id = "no_project">아직 등록된 러닝메이트가 없어요.</div>
+            {%endfor%}
+
+            <div id = "f1" style="margin-left: 3vmin;"><div class = "friend" id = "friend1"></div><h4>이영서</h4></div>
             <div id = "f2"><div class = "friend" id = "friend2"></div><h4>오준서</h4></div>
             <div id = "f3"><div class = "friend" id = "friend3"></div><h4>윤영서</h4></div>
             <div id = "f4"><div class = "friend" id = "friend4"></div><h4>김성준</h4></div>
             <div id = "f5"><div class = "friend" id = "friend5"></div><h4>류슬기</h4></div>
-            <div id = "f6"><div class = "friend" id = "friend6"></div><h4>이예나</h4></div> -->
+            <div id = "f6"><div class = "friend" id = "friend6"></div><h4>이예나</h4></div>
 
         </div>
 
 
 
-        <div class = "item" id = "chatting_text">최근 프로젝트
+        <div class = "item" id = "chatting_text">최근 회의
             {{ profile.profile }}
         </div>
         <div class = "item" id = "chatting_1">
-            <div id = "no_project">아직 등록된 프로젝트가 없어요.</div>
+            {% for post in posts %} 
+             
+            {%empty%}
+                <div id = "no_project">아직 등록된 회의가 없어요.</div>
+            {%endfor%}
+           
+            <section id = "recentpro_project" style="color:{{projects.0.color}}">{{posts.0.project}}</section>
+            <section id = "recentpro_title">{{posts.0.title}}</section>
+            <section id = "recentpro_date">{{posts.0.day}}</section>
+
         </div>
         <div class = "item" id = "chatting_2">
+            <section id = "recentpro_project" style="color:{{projects.1.color}}">{{posts.1.project}}</section>
+            <section id = "recentpro_title">{{posts.1.title}}</section>
+            <section id = "recentpro_date">{{posts.1.day}}</section>
+
 
         </div>
         <div class = "item" id = "chatting_3">
+            <section id = "recentpro_project" style="color:{{projects.2.color}}">{{posts.2.project}}</section>
+            <section id = "recentpro_title" >{{posts.2.title}}</section>
+            <section id = "recentpro_date">{{posts.2.day}}</section>
 
         </div>
 
