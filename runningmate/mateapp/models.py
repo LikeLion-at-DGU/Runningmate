@@ -79,6 +79,7 @@ class Calendar(models.Model): # 대시보드 캘린더 모델
 class Post(models.Model):
     day = models.DateField(auto_now_add=True) # 현재 생성일자를 출력
     title = models.CharField(max_length=30) # 할 일 리스트를 게시판 형식 제목으로 받음
+    body = models.TextField()
     user = models.ForeignKey(User,verbose_name="작성자",on_delete=models.CASCADE) # 옆에 작성한 사람 얼굴이 떠야하니까 유저 모델 및 on_delete 적용
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name="posts")
 
