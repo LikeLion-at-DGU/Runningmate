@@ -122,6 +122,7 @@
 
 
         <div class = "item" id = "runningmate_text">러닝메이트</div>
+        <img src="{{ user.profile.profile.url }}" width="50px" height="50px">
         <div class = "item" id = "runningmate">
             
             <!-- 등록된 과목 없으면 -->
@@ -161,6 +162,13 @@
 
             {% if projects %}
             {% for project in projects %}
+
+            {% for follower in project.followers.all %}
+            
+            <img src="{{ follower.profile.profile.url }}" width="40px" height="40px">
+
+            {% endfor %}
+            
             <div class="scroll--element" id = "subject1" style="background-color: {{project.color}};">
                 <div id = "{{project.id}}">
                         <h6>{{project.startday}}~{{project.endday}}</h6>
