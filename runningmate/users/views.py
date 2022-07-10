@@ -17,6 +17,7 @@ def signup(request):
         phone = request.POST['phone']
         major = request.POST['major']
         timetable = request.POST['timetable']
+        emoji = request.FILES.get()
 
         res_data = {}
         if password1 != password2:

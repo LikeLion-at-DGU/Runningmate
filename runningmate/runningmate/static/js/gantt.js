@@ -42,27 +42,6 @@ function createChart(e) {
         }
     });
 }
-var day
-tasks.forEach((task) => {
-    var dataDuration = task.getAttribute("data-duration")
-    var duration = dataDuration.split("-")
-    if (duration[0] == "0") {
-        day = "sun"
-    } else if (duration[0] == "1") {
-        day = "mon"
-    } else if (duration[0] == "2") {
-        day = "tue"
-    } else if (duration[0] == "3") {
-        day = "wed"
-    } else if (duration[0] == "4") {
-        day = "thu"
-    } else if (duration[0] == "5") {
-        day = "fri"
-    } else if (duration[0] == "6") {
-        day = "sat"
-    }
-    task.setAttribute("data-duration", day)
-})
 
 
 window.addEventListener("load", createChart);

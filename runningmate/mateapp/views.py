@@ -9,6 +9,7 @@ import json
 import datetime
 from django.http import JsonResponse
 from addproject.models import *
+from users import *
 import sys, os 
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from addproject import models
@@ -20,6 +21,7 @@ def showmain(request):
     projects = Project.objects.all()
     posts = Post.objects.all().order_by('-day')
     return render(request, 'mateapp/mainpage.html', {'calendar': calendar, 'projects':projects,'posts':posts, })
+
 
 def showevent(request):
     if request.method == 'POST':

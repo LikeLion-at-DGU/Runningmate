@@ -141,31 +141,29 @@
 
 
 
-        <div class = "item" id = "chatting_text">최근 프로젝트</div>
+        <div class = "item" id = "chatting_text">최근 회의
+            {{ profile.profile }}
+        </div>
         <div class = "item" id = "chatting_1">
             {% for post in posts %} 
              
             {%empty%}
-                <div id = "no_project">아직 등록된 프로젝트가 없어요.</div>
+                <div id = "no_project">아직 등록된 회의가 없어요.</div>
             {%endfor%}
-            {% for project in projects %}
-                {% if project.title == posts.0.project %} 
-                <section   section id = "recentpro_title" style="color:{{projects.0.color}}">{{posts.0.project}}</section>
-                <section id = "recentpro_title" style="color:{{projects.0.color}}">{{posts.0.title}}</section>
-
-                {% endif %} 
-            {% endfor %}
-            
+           
+            <section id = "recentpro_project" style="color:{{projects.0.color}}">{{posts.0.project}}</section>
+            <section id = "recentpro_title">{{posts.0.title}}</section>
 
         </div>
         <div class = "item" id = "chatting_2">
-            <section id = "recentpro_title" style="color:{{projects.0.color}}">{{posts.1.project}}</section>
-            <section id = "recentpro_title" style="color:{{projects.0.color}}">{{posts.1.title}}</section>
+            <section id = "recentpro_project" style="color:{{projects.1.color}}">{{posts.1.project}}</section>
+            <section id = "recentpro_title">{{posts.1.title}}</section>
+
 
         </div>
         <div class = "item" id = "chatting_3">
-            <section id = "recentpro_title" style="color:{{projects.0.color}}">{{posts.2.project}}</section>
-            <section id = "recentpro_title" style="color:{{projects.0.color}}">{{posts.2.title}}</section>
+            <section id = "recentpro_project" style="color:{{projects.2.color}}">{{posts.2.project}}</section>
+            <section id = "recentpro_title" >{{posts.2.title}}</section>
 
         </div>
 
