@@ -111,6 +111,7 @@
         {% for comment in boards %}
         <div class = "item3" id = "{{comment.id}}">
             <div id = "mimoji_place" >
+
                 <section id = "mimoji" style="width: 70px; height:70px; border-radius: 50%; background:{{project.color}}; ;margin:10px;">
                     <img src="{{ comment.user.profile.profile.url }}" width="50px" height="50px">
                 </section>
@@ -139,7 +140,8 @@
                         {% endif %}
         
                         <li class = "page-item active">
-                            <a class = "page-link"border: none;>{{boards.number}}/{{boards.paginator.num_pages}}</a>
+                            <a class = "page-link"border: none;>
+                                {{boards.number}}/{{boards.paginator.num_pages}}</a>
                         </li>
         
                         {% if boards.has_next %}
@@ -163,4 +165,5 @@
     </div>
 
 </div>
+<a href="{% url 'account_logout' %}"><img id = "logout_button" src =  "{% static 'images/logout.png' %}" style="position: fixed;"/></a>
 {% endblock %}

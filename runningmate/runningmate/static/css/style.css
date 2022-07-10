@@ -437,10 +437,10 @@ span{
 }
 
 #logout_button{
-    position: absolute;
+    position: fixed;
     width: 3vmin;
     height: 3vmin;
-    left: 15vw;
+    left: 14.5vw;
     top: 90vh;
 }
 
