@@ -124,8 +124,9 @@
         <div class = "item3" id = "{{post.id}}">
             <a href = "{% url 'mateapp:post_detail' project.id post.id %}" style="display: inline-block;width: 100%; height: 100%;text-decoration: none;" >
             <div id = "mimoji_place" >
-            <section id = "mimoji" style="width: 70px; height:70px; border-radius: 50%; background-color: {{project.color}};; ;margin:10px;">
-                
+            <section id = "mimoji" style="width: 70px; height:70px; border-radius: 50%; background-color: {{project.color}};; ;margin:10px; background-image: url({{ post.user.profile.profile.url }});
+            background-size: contain; background-repeat: no-repeat; background-position: center;" >
+
             </section>
             </div>
             <section id = "meeting_date">{{post.day}}</section>
