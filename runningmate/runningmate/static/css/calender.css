@@ -5,7 +5,7 @@
     grid-template-columns: 2fr 1.5fr 2fr;
     grid-template-rows: 1fr 5fr 1fr 2.5fr 1.5fr 1.5fr 1.5fr 15px;
     height: 100%;
-    row-gap: 10px;
+    row-gap: 15px;
     column-gap: 20px;
     font-family: AppleSDGothicNeoB;
     font-weight: 500;
@@ -112,9 +112,12 @@
 
 
 /*캘린더 페이지 캘린더*/
+.calendar {
+    margin-top: 3%;
+}
 
 .cal_main2{/*캘린더 페이지 캘린더*/
-    font-family: AppleSDGothicNeoB;
+    font-family: 'AppleSDGothicNeoB';
     font-size: 1.7vmin;
 }
 
@@ -220,6 +223,23 @@ table {
     margin-top: -11%;
 }
 
+/* 투데이 - 오늘 요일 날짜 표기 ---------*/
+.day_week {
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.date_week {
+    font-family: 'AppleSDGothicNeoB';
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 3%;
+}
+
 /* 투데이 - 디데이 */
 #dday1, #dday2, #dday3{
     background-color: white
@@ -263,7 +283,7 @@ table {
 }
 
 #plus{
-    font-family:AppleSDGothicNeoM;
+    font-family: 'AppleSDGothicNeoM';
     display: inline-block; 
     font-size:larger; 
     vertical-align: middle;
