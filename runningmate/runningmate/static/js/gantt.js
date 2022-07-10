@@ -7,8 +7,9 @@ function createChart(e) {
     tasks.forEach(el => {
         // 변수 지정
         const duration = el.dataset.duration.split("-");
-        const startDay = duration[0];
-        const endDay = duration[1];
+        // el.setAttribute("data-duration", getDay(duration[0]) + "-" + getDay(duration[1]))
+        const startDay = duration[0]
+        const endDay = duration[1]
         let left = 0,   // 해당 화살표 함수 범위 내에서 변수 지정
             width = 0;
 
@@ -41,6 +42,7 @@ function createChart(e) {
         }
     });
 }
+
 
 window.addEventListener("load", createChart);
 window.addEventListener("resize", createChart);

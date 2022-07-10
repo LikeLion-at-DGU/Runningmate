@@ -79,7 +79,8 @@
           {% for schedules in schedules_list %}
           {% for schedule in schedules %}
           {% if schedule.title == calendar.title %}
-          <li data-duration="wed-wed" data-color="{{calendar.color}}">{{calendar.body}}</li>
+
+          <li data-duration= "{{ schedule.startday|date:'w' }}-{{ schedule.endday|date:'w' }}" data-color="{{calendar.color}}">{{ schedule.title }}</li>
           {% endif %}
           {% endfor %}
           {% endfor %}
@@ -96,6 +97,7 @@
           <li data-duration="fri-sat" data-color="#색추가">Task</li> -->
         </ul>
       </div>
+      <script src="{% static 'js/getday.js' %}"></script>
       <script src="{% static 'js/gantt.js'%}"></script>
     </div>
     <div class="item2" id="calendar2_text">캘린더</div>
@@ -302,6 +304,7 @@
             </tr>
         </table>
     </div> -->
+<<<<<<< HEAD
       <div class="item2">
         {% for calendar in calendars %}
         <section class="calendar_wrap">
@@ -323,13 +326,33 @@
                 </div>
               </li>
             </ul>
+=======
+      
+    <div class="item2">
+      {% for calendar in calendars %}
+      <section class="calendar_wrap" style="width:100% ;">
+        <div id = "checkbox_title"style="color:{{calendar.color}}; float:left; width:35%">{{calendar.title}}</div>
+        {% for schedules in schedules_list %}
+        {% for schedule in schedules %}
+        {% if schedule.title == calendar.title %}
+        <div class="calendar_content" style="float:right; width:65%">
+          <div class="calendar_cb">
+            <input type="checkbox" class="cb" id="cb3" style="color: {{calendar.color}};">
+>>>>>>> dd70fcb2beec5affc12aefe9cbd891b20c0b7bc8
           </div>
-        </section>
+          <div class="calendar_body">
+            <span id="marg_text" style="width:100% ;">{{calendar.body}}</span>
+          </div>
+        </div>
+        {% endif %}
         {% endfor %}
-      <!-- 리스트에 담긴걸 포문 두개로 나눠서 투두 하나씩 불러와서 if문으로 
-      불러온 하나의 투두랑 연결된 하나의 프로젝트가
-      투두모델에서 외래  -->
-      </div>
+        {% endfor %}
+      </section>
+      {% endfor %}
+    <!-- 리스트에 담긴걸 포문 두개로 나눠서 투두 하나씩 불러와서 if문으로 
+    불러온 하나의 투두랑 연결된 하나의 프로젝트가
+    투두모델에서 외래  -->
+    </div>
     </div>
     
   </div>
