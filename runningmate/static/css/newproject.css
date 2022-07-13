@@ -1,0 +1,176 @@
+@charset "UTF-8";
+@font-face {
+    font-family: "AppleSDGothicNeoB";
+    src: url(../font/AppleSDGothicNeoB.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoLB";
+    src: url(../font/AppleSDGothicNeoL.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoM";
+    src: url(../font/AppleSDGothicNeoM.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoEB";
+    src: url(../font/AppleSDGothicNeoEB.ttf);
+}
+
+@font-face {
+    font-family: "Pacifico";
+    src: url(../font/Pacifico-Regular.ttf);
+}
+
+#rec_project {
+    position: absolute;
+    z-index: 1;
+    width: 96%;
+    height: 85%;
+    left: 2%;
+    top: 10%;
+    bottom: 2%;
+    right: 2%;
+    background-color: #fff;
+    border-radius: 30px;
+}
+
+#rec3 h1 {
+    text-align: center;
+    font-family: "AppleSDGothicNeoB";
+    font-weight: 300;
+    margin-top: 2%;
+}
+
+#rec3 h2 {
+    text-align: center;
+    font-family: "AppleSDGothicNeoM";
+    font-weight: 200;
+}
+
+/* 프로젝트 입력란 ---------------------------------*/
+.content_title {
+    line-height: 27.5px;
+}
+
+.project_content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 45vh;
+    overflow-y: scroll;
+}
+
+.content_input {
+    margin-left: 35px;
+}
+
+.project_content span {
+    font-family: "AppleSDGothicNeoB";
+    font-size: 20px;
+}
+
+.project_content input {
+    font-family: "AppleSDGothicNeoM";
+}
+
+#it1 {
+    width: 174px;
+    height: 30px;
+    border: 0.5px solid #8f9bb3;
+    border-radius: 5px;
+}
+
+input[type="date"]::before {
+    content: attr(data-placeholer);
+    width: 100%;
+    opacity: 70%;
+    margin-left: 3%;
+}
+
+input[type="date"]:focus::before,
+input[type="date"]:valid::before {
+    display: none;
+}
+
+#it2, #it3, #it4, #it5 {
+    width: 360px;
+    height: 30px;
+    border: 0.5px solid #8f9bb3;
+    border-radius: 5px;
+}
+
+/* 컬러 선택 버튼 -------------------------------*/
+#color_select {
+    margin-top: 1%;
+    margin-left: -1%;
+}
+
+input[type="radio"] {
+	-webkit-appearance: none;
+	border: none;
+    border-radius: 50%;
+	width: 35px;
+	height: 35px;
+}
+
+#cl1 {
+    background-color: #fe7782;
+}
+
+#cl1:checked {
+    border: 1.5px solid black;
+}
+
+#cl2 {
+    background-color: #ffbc54;
+}
+
+#cl2:checked {
+    border: 1.5px solid black;
+}
+
+#cl3 {
+    background-color: #50cfbc;
+}
+
+#cl3:checked {
+    border: 1.5px solid black;
+}
+
+#cl4 {
+    background-color: #45bfff;
+}
+
+#cl4:checked {
+    border: 1.5px solid black;
+}
+
+#cl5 {
+    background-color: #735bf2;
+}
+
+#cl5:checked {
+    border: 1.5px solid black;
+}
+
+/* 프로젝트 관리 버튼 -------------------------------*/
+#btn {
+    display: flex;
+    justify-content: center;
+}
+
+#btn button{
+    width: 510px;
+    font-family: "AppleSDGothicNeoM";
+    background-color: #735BF2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 3%;
+}
