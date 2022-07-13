@@ -117,7 +117,7 @@
     
                 </section>
             </div>
-            <section id = "name" style="color:{{project.color}}">{{comment.user}}</section>
+            <section id = "name" style="color:{{project.color}}">{{ comment.user.profile.last_name }}{{ comment.user.profile.first_name }}</section>
             <section id = "comment_title">{{comment.content}}</section>
             <section id = "comment_date">{{comment.day}}</section>
             
